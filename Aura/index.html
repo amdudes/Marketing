@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AURA — Luxury Social Media Agency</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh; position: relative;
+      display: flex; align-items: center; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1800&q=80') center/cover;
+      filter: brightness(0.2) saturate(1.5);
+      animation: slowZoom 20s ease-in-out infinite alternate;
+    }
+    .hero-content { position: relative; z-index: 2; padding-top: 100px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(201,168,76,0.25);
+      padding: 0.5rem 1.25rem;
+      font-family: 'Syne', sans-serif; font-size: 0.65rem;
+      letter-spacing: 4px; text-transform: uppercase; color: var(--gold);
+      margin-bottom: 2rem;
+      opacity: 0; animation: slideUp 0.8s ease 0.2s forwards;
+    }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: glowPulse 2s infinite; }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+      font-size: clamp(5rem, 5vw, 13rem); line-height: 0.85;
+      letter-spacing: -2px;
+      opacity: 0; animation: slideUp 0.9s ease 0.4s forwards;
+    }
+    .hero-title em { font-style: italic; color: var(--gold); display: block; }
+    .hero-title .outline { -webkit-text-stroke: 1px rgba(248,244,239,0.4); color: transparent; }
+    .hero-sub {
+      font-size: 1rem; color: var(--muted); max-width: 460px;
+      line-height: 1.8; margin: 2rem 0 3rem;
+      opacity: 0; animation: slideUp 0.9s ease 0.6s forwards;
+    }
+    .hero-cta {
+      display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 50px;
+      opacity: 0; animation: slideUp 0.9s ease 0.8s forwards;
+    }
+    .hero-scroll {
+      position: absolute; bottom: -2rem; left: 50%;
+      transform: translateX(-50%); z-index: 2;
+      display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+      opacity: 0; animation: fadeIn 1s ease 1.5s forwards;
+    }
+    .hero-scroll-text { font-family: 'Syne', sans-serif; font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; color: var(--muted); }
+    .scroll-bar { width: 1px; height: 60px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollPulse 2s ease-in-out infinite; }
+
+    /* Floating glass stat cards */
+    .hero-stats {
+      position: absolute; right: 5%; top: 50%;
+      transform: translateY(-50%); z-index: 2;
+      display: flex; flex-direction: column; gap: 1rem;
+      opacity: 0; animation: slideUp 1s ease 1s forwards;
+    }
+    .stat-glass {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(30px) saturate(200%);
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 1.25rem 1.75rem; min-width: 160px;
+      animation: glowPulse 4s ease-in-out infinite;
+    }
+    .stat-glass-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem; font-weight: 300; color: var(--gold); line-height: 1;
+    }
+    .stat-glass-label { font-family: 'Syne', sans-serif; font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-top: 0.25rem; }
+
+    /* ── ABOUT STRIP ── */
+    #about-strip { padding: 8rem 0; position: relative; z-index: 2; }
+    .about-glass {
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(30px) saturate(150%);
+      border: 1px solid rgba(201,168,76,0.12);
+      padding: 4rem;
+      animation: borderGlow 6s ease-in-out infinite;
+    }
+    .about-img-frame { position: relative; }
+    .about-img-frame img { width: 100%; height: 500px; object-fit: cover; display: block; }
+    .about-img-frame::before { content: ''; position: absolute; inset: -12px; border: 1px solid rgba(201,168,76,0.2); pointer-events: none; }
+    .about-img-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(to top, rgba(5,5,10,0.9), transparent); }
+    .about-tag { background: var(--gold); color: var(--black); font-family: 'Syne', sans-serif; font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; padding: 0.5rem 1rem; display: inline-block; }
+
+    /* ── SERVICES ── */
+    #services { padding: 8rem 0; position: relative; z-index: 2; }
+    .glass-card {
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(25px) saturate(180%);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 2.5rem;
+      transition: all 0.5s cubic-bezier(0.16,1,0.3,1);
+      height: 100%; position: relative; overflow: hidden;
+    }
+    .glass-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(201,168,76,0.05) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.5s;
+    }
+    .glass-card:hover { border-color: rgba(201,168,76,0.25); transform: translateY(-8px); }
+    .glass-card:hover::before { opacity: 1; }
+    .card-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 5rem;
+      font-weight: 300; color: rgba(201,168,76,0.08);
+      position: absolute; top: 1rem; right: 1.5rem; line-height: 1;
+    }
+    .card-icon { font-size: 2rem; color: var(--gold); margin-bottom: 1.5rem; display: block; }
+    .card-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; }
+    .card-text { font-size: 0.88rem; color: var(--muted); line-height: 1.8; }
+
+    /* Gradient border on featured card */
+    .glass-card.featured {
+      background: linear-gradient(135deg, rgba(155,93,229,0.08) 0%, rgba(201,168,76,0.05) 100%);
+      border-color: rgba(155,93,229,0.3);
+    }
+    .glass-card.featured .card-icon { color: var(--violet-soft); }
+    .glass-card.featured .card-num { color: rgba(155,93,229,0.08); }
+
+    /* ── STATS ROW ── */
+    #stats { padding: 6rem 0; position: relative; z-index: 2; }
+    .stats-glass {
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(30px);
+      border: 1px solid rgba(201,168,76,0.12);
+      padding: 4rem;
+    }
+    .big-num {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(3.5rem,6vw,6rem);
+      font-weight: 300; color: var(--gold); line-height: 1;
+    }
+    .big-label { font-family: 'Syne', sans-serif; font-size: 0.65rem; letter-spacing: 4px; text-transform: uppercase; color: var(--muted); margin-top: 0.5rem; }
+    .stat-divider { width: 1px; height: 80px; background: rgba(201,168,76,0.15); margin: auto; }
+
+    /* ── PROCESS ── */
+    #process { padding: 8rem 0; position: relative; z-index: 2; }
+    .process-item {
+      display: flex; gap: 2.5rem; padding: 2.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: all 0.4s ease;
+    }
+    .process-item:hover { padding-left: 1rem; border-color: rgba(201,168,76,0.2); }
+    .process-num {
+      font-family: 'Cormorant Garamond', serif; font-size: 4rem;
+      font-weight: 300; color: rgba(201,168,76,0.15); line-height: 1;
+      min-width: 70px; transition: color 0.4s;
+    }
+    .process-item:hover .process-num { color: var(--gold); }
+    .process-body h4 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .process-body p { font-size: 0.88rem; color: var(--muted); line-height: 1.8; max-width: 500px; }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { padding: 8rem 0; position: relative; z-index: 2; }
+    .testi-glass {
+      background: rgba(255,255,255,0.03);
+      backdrop-filter: blur(25px);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 2.5rem; height: 100%;
+      transition: border-color 0.4s;
+    }
+    .testi-glass:hover { border-color: rgba(201,168,76,0.25); }
+    .testi-quote { font-family: 'Cormorant Garamond', serif; font-size: 4rem; color: rgba(201,168,76,0.2); line-height: 0.8; margin-bottom: 1rem; }
+    .testi-text { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 300; color: rgba(248,244,239,0.8); line-height: 1.8; font-style: italic; margin-bottom: 2rem; }
+    .testi-author { font-family: 'Syne', sans-serif; font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; }
+    .testi-role { font-size: 0.78rem; color: var(--gold); margin-top: 0.25rem; letter-spacing: 1px; }
+    .testi-stars { color: var(--gold); font-size: 0.75rem; margin-bottom: 1.25rem; letter-spacing: 3px; }
+
+    /* ── CTA BAND ── */
+    #cta { padding: 8rem 0; position: relative; z-index: 2; }
+    .cta-glass {
+      background: linear-gradient(135deg, rgba(155,93,229,0.08) 0%, rgba(201,168,76,0.06) 100%);
+      backdrop-filter: blur(40px);
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 5rem;
+      text-align: center;
+      animation: borderGlow 6s ease-in-out infinite;
+    }
+    .cta-glass .display-title { font-size: clamp(2.5rem,6vw,6rem); }
+
+    @media(max-width:992px) {
+      .hero-stats { display: none; }
+      .about-glass { padding: 2rem; }
+      .cta-glass { padding: 3rem 2rem; }
+      .stats-glass { padding: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Aurora BG -->
+  <div class="aurora-bg">
+    <div class="aurora-orb orb-v"></div>
+    <div class="aurora-orb orb-g"></div>
+    <div class="aurora-orb orb-p"></div>
+    <div class="aurora-orb orb-c"></div>
+  </div>
+  <canvas id="particles" style="position:fixed;inset:0;z-index:1;pointer-events:none;"></canvas>
+
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- NAVBAR -->
+  <nav id="mainNav" class="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-brand">AU<em>RA</em></a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="results.html">Results</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html" class="nav-cta">Get Started</a></li>
+        </ul>
+        <div class="nav-toggle" id="navToggle">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="container position-relative" style="z-index:2;">
+      <div class="row">
+        <div class="col-lg-8 hero-content">
+          <div class="hero-badge">✦ Luxury Social Media Agency</div>
+          <h1 class="hero-title">
+            Your Brand,<br>
+            <em>Elevated.</em>
+            <span class="outline">Amplified.</span>
+          </h1>
+          <p class="hero-sub">Where luxury aesthetics meet Gen Z culture. We don't just manage social media — we craft digital legacies for brands that refuse to be ordinary.</p>
+          <div class="hero-cta">
+            <a href="services.html" class="btn-gold">Explore Services</a>
+            <a href="results.html" class="btn-ghost">View Our Work</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-glass">
+        <div class="stat-glass-num">250<span style="font-size:1.5rem;color:var(--gold-light);">+</span></div>
+        <div class="stat-glass-label">Brands Elevated</div>
+      </div>
+      <div class="stat-glass" style="animation-delay:1s;">
+        <div class="stat-glass-num">18M<span style="font-size:1.5rem;color:var(--gold-light);">+</span></div>
+        <div class="stat-glass-label">Followers Created</div>
+      </div>
+      <div class="stat-glass" style="animation-delay:2s;">
+        <div class="stat-glass-num">4.8<span style="font-size:1.5rem;color:var(--gold-light);">×</span></div>
+        <div class="stat-glass-label">Avg. ROAS</div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="hero-scroll-text">Scroll</div>
+      <div class="scroll-bar"></div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span>Luxury Branding <i>✦</i></span>
+      <span>Social Strategy <i>✦</i></span>
+      <span>Viral Content <i>✦</i></span>
+      <span>Influencer Relations <i>✦</i></span>
+      <span>Paid Media <i>✦</i></span>
+      <span>Brand Identity <i>✦</i></span>
+      <span>Gen Z Marketing <i>✦</i></span>
+      <span>Luxury Branding <i>✦</i></span>
+      <span>Social Strategy <i>✦</i></span>
+      <span>Viral Content <i>✦</i></span>
+      <span>Influencer Relations <i>✦</i></span>
+      <span>Paid Media <i>✦</i></span>
+      <span>Brand Identity <i>✦</i></span>
+      <span>Gen Z Marketing <i>✦</i></span>
+    </div>
+  </div>
+
+  <!-- ABOUT STRIP -->
+  <section id="about-strip">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-5 reveal-left">
+          <div class="about-img-frame">
+            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=700&q=80" alt="Team"/>
+            <div class="about-img-overlay">
+              <div class="about-tag">Est. 2019 — Mumbai</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7 reveal-right">
+          <div class="about-glass">
+            <span class="eyebrow">Our Philosophy</span>
+            <h2 class="display-title">We Don't Do<br><em>Average.</em></h2>
+            <div class="gold-rule"></div>
+            <p style="color:var(--muted);line-height:1.9;font-size:0.95rem;margin-bottom:1.5rem;">AURA was built for brands that understand the difference between presence and impact. We operate at the intersection of luxury aesthetics, data intelligence, and Gen Z culture — creating social media strategies that feel inevitable.</p>
+            <p style="color:var(--muted);line-height:1.9;font-size:0.95rem;margin-bottom:2.5rem;">Every campaign we craft is obsessively tailored. Every visual is art-directed. Every strategy is built to compound. No templates. No shortcuts. Only <span style="color:var(--white);">unforgettable</span>.</p>
+            <a href="about.html" class="btn-ghost">Our Story</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section id="stats">
+    <div class="container">
+      <div class="stats-glass stat-group">
+        <div class="row g-4 align-items-center text-center">
+          <div class="col-6 col-lg-3 reveal" style="transition-delay:.1s">
+            <div class="big-num" data-count="250" data-suffix="+">250+</div>
+            <div class="big-label">Brands Elevated</div>
+          </div>
+          <div class="col-lg-auto d-none d-lg-block"><div class="stat-divider"></div></div>
+          <div class="col-6 col-lg-3 reveal" style="transition-delay:.2s">
+            <div class="big-num" data-count="18" data-suffix="M+">18M+</div>
+            <div class="big-label">Followers Generated</div>
+          </div>
+          <div class="col-lg-auto d-none d-lg-block"><div class="stat-divider"></div></div>
+          <div class="col-6 col-lg-3 reveal" style="transition-delay:.3s">
+            <div class="big-num" data-count="4.8" data-suffix="×">4.8×</div>
+            <div class="big-label">Average ROAS</div>
+          </div>
+          <div class="col-lg-auto d-none d-lg-block"><div class="stat-divider"></div></div>
+          <div class="col-6 col-lg-2 reveal" style="transition-delay:.4s">
+            <div class="big-num" data-count="97" data-suffix="%">97%</div>
+            <div class="big-label">Client Retention</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="row mb-5 reveal">
+        <div class="col-lg-5">
+          <span class="eyebrow">What We Offer</span>
+          <h2 class="display-title">Services Built<br>for <em>Impact.</em></h2>
+          <div class="gold-rule"></div>
+        </div>
+        <div class="col-lg-6 d-flex align-items-end">
+          <p style="color:var(--muted);font-size:0.95rem;line-height:1.8;">Six precision-crafted services. One unified obsession: making your brand the most talked-about name in your space.</p>
+        </div>
+      </div>
+      <div class="row g-3">
+        <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.1s">
+          <div class="glass-card">
+            <span class="card-num">01</span>
+            <i class="bi bi-instagram card-icon"></i>
+            <div class="card-title">Social Media Management</div>
+            <p class="card-text">Full-service content creation, editorial calendars, and community orchestration. We run your channels like a luxury brand publisher.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.2s">
+          <div class="glass-card featured">
+            <span class="card-num">02</span>
+            <i class="bi bi-play-circle card-icon"></i>
+            <div class="card-title">Reels & Short-Form Video</div>
+            <p class="card-text">Cinematic short-form content that blends luxury aesthetics with Gen Z cultural fluency. We make Reels that people save, share, and talk about.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.3s">
+          <div class="glass-card">
+            <span class="card-num">03</span>
+            <i class="bi bi-graph-up-arrow card-icon"></i>
+            <div class="card-title">Paid Social & Performance</div>
+            <p class="card-text">Meta, Google, and LinkedIn campaigns architected around your revenue goals. Every rupee is accountable. Every creative is tested.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.4s">
+          <div class="glass-card">
+            <span class="card-num">04</span>
+            <i class="bi bi-stars card-icon"></i>
+            <div class="card-title">Influencer & Creator Relations</div>
+            <p class="card-text">Access to 500+ curated creators from nano to mega. We match your brand to voices that resonate — authentically, not transactionally.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.5s">
+          <div class="glass-card">
+            <span class="card-num">05</span>
+            <i class="bi bi-palette2 card-icon"></i>
+            <div class="card-title">Brand Identity & Visual Design</div>
+            <p class="card-text">Logos, color systems, typography, content templates — everything your brand needs to look unmistakably premium across every touchpoint.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.6s">
+          <div class="glass-card">
+            <span class="card-num">06</span>
+            <i class="bi bi-bar-chart-line card-icon"></i>
+            <div class="card-title">Analytics & Growth Strategy</div>
+            <p class="card-text">Monthly deep-dives, competitor intelligence, and forward-looking strategy sessions. We see what's working, what's not, and exactly what to do next.</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-5 reveal">
+        <a href="services.html" class="btn-ghost">View All Services & Pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECOND MARQUEE reversed -->
+  <div class="marquee-wrap">
+    <div class="marquee-track reverse">
+      <span>Instagram <i>✦</i></span>
+      <span>TikTok <i>✦</i></span>
+      <span>YouTube <i>✦</i></span>
+      <span>LinkedIn <i>✦</i></span>
+      <span>X / Twitter <i>✦</i></span>
+      <span>WhatsApp <i>✦</i></span>
+      <span>Pinterest <i>✦</i></span>
+      <span>Instagram <i>✦</i></span>
+      <span>TikTok <i>✦</i></span>
+      <span>YouTube <i>✦</i></span>
+      <span>LinkedIn <i>✦</i></span>
+      <span>X / Twitter <i>✦</i></span>
+      <span>WhatsApp <i>✦</i></span>
+      <span>Pinterest <i>✦</i></span>
+    </div>
+  </div>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="container">
+      <div class="row mb-5 reveal">
+        <div class="col-lg-5">
+          <span class="eyebrow">How We Work</span>
+          <h2 class="display-title">The AURA<br><em>Method.</em></h2>
+          <div class="gold-rule"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 reveal">
+          <div class="process-item"><div class="process-num">01</div><div class="process-body"><h4>Discovery & Brand Audit</h4><p>A forensic analysis of your current presence, competitors, audience psychographics, and market positioning. You receive a bespoke 20-page audit — our gift to you, free of charge.</p></div></div>
+          <div class="process-item"><div class="process-num">02</div><div class="process-body"><h4>Strategy Architecture</h4><p>Platform roadmap, content pillars, brand voice guidelines, and a 90-day campaign blueprint. Tailored to your ambitions. Built around your audience. Designed to compound.</p></div></div>
+          <div class="process-item"><div class="process-num">03</div><div class="process-body"><h4>Content Creation & Launch</h4><p>Our in-house creative studio scripts, designs, shoots, and publishes. Every asset is art-directed. Every caption is crafted. We go live in 7 days.</p></div></div>
+          <div class="process-item"><div class="process-num">04</div><div class="process-body"><h4>Optimise & Scale</h4><p>Weekly performance analysis, relentless A/B testing, and monthly strategy evolution sessions. We never coast. We always compound.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="row mb-5 reveal">
+        <div class="col-lg-5">
+          <span class="eyebrow">Client Voices</span>
+          <h2 class="display-title">Heard From<br><em>Them.</em></h2>
+          <div class="gold-rule"></div>
+        </div>
+      </div>
+      <div class="row g-3">
+        <div class="col-md-4 reveal" style="transition-delay:.1s">
+          <div class="testi-glass">
+            <div class="testi-stars">✦ ✦ ✦ ✦ ✦</div>
+            <div class="testi-quote">"</div>
+            <p class="testi-text">AURA didn't just grow our Instagram — they transformed how our brand is perceived. 2K to 85K in 4 months. Sales doubled. They are exceptional.</p>
+            <div class="testi-author">Priya Mehta</div>
+            <div class="testi-role">Founder, Bloom Skincare</div>
+          </div>
+        </div>
+        <div class="col-md-4 reveal" style="transition-delay:.2s">
+          <div class="testi-glass">
+            <div class="testi-stars">✦ ✦ ✦ ✦ ✦</div>
+            <div class="testi-quote">"</div>
+            <p class="testi-text">ROAS from 1.2× to 5.6× in 60 days. The team is obsessive about data and never stops testing. The single best investment we've made in three years of running ads.</p>
+            <div class="testi-author">Rohit Sharma</div>
+            <div class="testi-role">CEO, GadgetZone</div>
+          </div>
+        </div>
+        <div class="col-md-4 reveal" style="transition-delay:.3s">
+          <div class="testi-glass">
+            <div class="testi-stars">✦ ✦ ✦ ✦ ✦</div>
+            <div class="testi-quote">"</div>
+            <p class="testi-text">AURA built our LinkedIn presence from scratch and generated 3 enterprise clients in Q1. The ROI on their retainer is genuinely extraordinary. I recommend them to every founder I meet.</p>
+            <div class="testi-author">Anjali Kapoor</div>
+            <div class="testi-role">Director, Kapoor & Associates</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta">
+    <div class="container">
+      <div class="cta-glass reveal">
+        <span class="eyebrow" style="display:block;text-align:center;margin-bottom:1.5rem;">Ready to Begin?</span>
+        <h2 class="display-title" style="text-align:center;">Your Brand's Best<br>Era Starts <em>Now.</em></h2>
+        <p style="color:var(--muted);font-size:1rem;line-height:1.8;max-width:480px;margin:2rem auto;text-align:center;">Get your complimentary brand audit — a bespoke 20-page analysis of your social media presence, delivered within 48 hours. No obligation.</p>
+        <div style="text-align:center;margin-top:2.5rem;">
+          <a href="contact.html" class="btn-gold">Claim Your Free Audit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="row g-5 mb-4">
+        <div class="col-lg-4">
+          <div class="footer-brand">AU<em>RA</em></div>
+          <p class="footer-tagline mt-2">Luxury Social Media. Engineered for Growth.</p>
+          <div class="footer-social">
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <p class="footer-heading">Navigate</p>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="results.html">Results</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <p class="footer-heading">Services</p>
+          <div class="footer-links">
+            <a href="services.html">Social Management</a>
+            <a href="services.html">Reels & Video</a>
+            <a href="services.html">Paid Media</a>
+            <a href="services.html">Influencer Relations</a>
+            <a href="services.html">Brand Identity</a>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <p class="footer-heading">Get in Touch</p>
+          <p style="font-size:0.85rem;color:var(--muted);line-height:1.8;">hello@auraagency.in<br>+91 98765 43210<br><br>Mumbai · Delhi · Bangalore</p>
+        </div>
+      </div>
+      <div class="footer-bottom d-flex justify-content-between flex-wrap gap-2">
+        <span>© 2025 AURA Agency. All rights reserved.</span>
+        <span style="color:var(--gold);font-family:'Cormorant Garamond',serif;font-style:italic;letter-spacing:2px;">Crafted with intention.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="shared.js"></script>
+</body>
+</html>

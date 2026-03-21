@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services — SIGNAL Marketing</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ── SERVICE DEEP CARDS ── */
+    .services-main { padding: 7rem 0; background: var(--dark2); }
+    .svc-block {
+      padding: 5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .svc-block:last-child { border-bottom: none; }
+    .svc-icon-big { font-size: 4rem; color: var(--neon); margin-bottom: 1.5rem; display: block; }
+    .svc-num-bg {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 12rem; line-height: 1; color: rgba(0,245,200,0.04);
+      position: absolute; right: 0; top: 0; pointer-events: none; user-select: none;
+    }
+    .svc-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4.5rem); letter-spacing: 2px; line-height: 1; margin-bottom: 1.5rem; }
+    .svc-desc { font-size: 1rem; color: rgba(240,240,255,0.7); line-height: 1.9; margin-bottom: 2rem; max-width: 520px; }
+    .svc-list { list-style: none; padding: 0; margin: 0 0 2.5rem; }
+    .svc-list li { font-family: 'Barlow Condensed', sans-serif; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 0.75rem; }
+    .svc-list li i { color: var(--neon); font-size: 0.7rem; }
+    .svc-img { width: 100%; height: 420px; object-fit: cover; display: block; }
+    .svc-img-wrap { position: relative; }
+    .svc-img-border { position: absolute; top: -15px; left: -15px; right: 15px; bottom: 15px; border: 1px solid rgba(0,245,200,0.15); pointer-events: none; z-index: -1; }
+
+    /* ── PROCESS ── */
+    .process-section { background: var(--dark3); padding: 7rem 0; }
+    .process-step { display: flex; gap: 2rem; align-items: flex-start; padding: 2.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: all 0.3s; }
+    .process-step:hover { padding-left: 1rem; }
+    .step-num { font-family: 'Bebas Neue', sans-serif; font-size: 5rem; color: rgba(0,245,200,0.12); line-height: 1; min-width: 80px; transition: color 0.3s; }
+    .process-step:hover .step-num { color: rgba(0,245,200,0.35); }
+    .step-content h4 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.4rem; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .step-content p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; max-width: 480px; }
+
+    /* ── PRICING ── */
+    .pricing-section { background: var(--dark); padding: 7rem 0; }
+    .pkg-card {
+      background: var(--dark3);
+      border: 1px solid rgba(255,255,255,0.07);
+      padding: 3rem 2.5rem;
+      height: 100%; position: relative;
+      transition: all 0.4s ease;
+    }
+    .pkg-card:hover { border-color: rgba(0,245,200,0.3); transform: translateY(-8px); }
+    .pkg-card.featured {
+      border-color: var(--neon);
+      background: linear-gradient(135deg, rgba(0,245,200,0.05) 0%, var(--dark3) 60%);
+    }
+    .pkg-tag { position: absolute; top: -1px; right: 2rem; background: var(--neon); color: var(--dark); font-family: 'Barlow Condensed', sans-serif; font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; padding: 0.35rem 1rem; }
+    .pkg-name { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; letter-spacing: 3px; margin-bottom: 0.5rem; }
+    .pkg-price { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: var(--neon); line-height: 1; }
+    .pkg-price span { font-family: 'Barlow', sans-serif; font-size: 1rem; color: var(--muted); font-weight: 300; }
+    .pkg-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin: 1.5rem 0; }
+    .pkg-features { list-style: none; padding: 0; margin: 0 0 2rem; }
+    .pkg-features li { font-size: 0.85rem; color: rgba(240,240,255,0.7); padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 0.75rem; }
+    .pkg-features li i { color: var(--neon); }
+    .pkg-features li.off { color: var(--muted); }
+    .pkg-features li.off i { color: rgba(255,255,255,0.15); }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg" id="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">SIG<span>NAL</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav align-items-center gap-1">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link active-page" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="results.html">Results</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item ms-2"><a class="btn-book" href="contact.html">Free Audit</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE BANNER -->
+  <div class="page-banner">
+    <div class="page-banner-bg" style="background-image:url('https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=1600&q=80');"></div>
+    <div class="page-banner-overlay"></div>
+    <div class="page-banner-grid"></div>
+    <div class="container">
+      <div class="page-banner-content">
+        <p class="page-banner-label">What We Offer · How We Deliver · Pricing</p>
+        <h1 class="page-banner-title">OUR<br><span class="accent">SERVICES.</span></h1>
+        <p class="page-banner-sub">Six core services. One unified mission. Every offering is built to drive measurable growth for your brand across every platform that matters.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span>SOCIAL MEDIA MANAGEMENT <i class="bi bi-lightning-fill"></i></span>
+      <span>REELS & VIDEO <i class="bi bi-lightning-fill"></i></span>
+      <span>PAID ADS <i class="bi bi-lightning-fill"></i></span>
+      <span>INFLUENCER MARKETING <i class="bi bi-lightning-fill"></i></span>
+      <span>BRAND DESIGN <i class="bi bi-lightning-fill"></i></span>
+      <span>ANALYTICS <i class="bi bi-lightning-fill"></i></span>
+      <span>SOCIAL MEDIA MANAGEMENT <i class="bi bi-lightning-fill"></i></span>
+      <span>REELS & VIDEO <i class="bi bi-lightning-fill"></i></span>
+      <span>PAID ADS <i class="bi bi-lightning-fill"></i></span>
+      <span>INFLUENCER MARKETING <i class="bi bi-lightning-fill"></i></span>
+      <span>BRAND DESIGN <i class="bi bi-lightning-fill"></i></span>
+      <span>ANALYTICS <i class="bi bi-lightning-fill"></i></span>
+    </div>
+  </div>
+
+  <!-- SERVICES DEEP DIVE -->
+  <section class="services-main">
+    <div class="container">
+
+      <!-- 01 SMM -->
+      <div class="svc-block">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-6 reveal-left" style="position:relative;">
+            <span class="svc-num-bg">01</span>
+            <i class="bi bi-instagram svc-icon-big"></i>
+            <p class="section-label">Service 01</p>
+            <h3 class="svc-title">SOCIAL MEDIA<br>MANAGEMENT</h3>
+            <p class="svc-desc">We run your social media accounts like a full-time media operation — strategy, content calendar, design, captions, posting, community management, and monthly reporting. All done in-house. All done right.</p>
+            <ul class="svc-list">
+              <li><i class="bi bi-check2"></i>30-day content calendars planned in advance</li>
+              <li><i class="bi bi-check2"></i>Custom-designed posts, stories, carousels & Reels</li>
+              <li><i class="bi bi-check2"></i>Daily community management & DM handling</li>
+              <li><i class="bi bi-check2"></i>Hashtag strategy & SEO optimization</li>
+              <li><i class="bi bi-check2"></i>Monthly analytics reports with insights</li>
+            </ul>
+            <a href="contact.html" class="btn-primary-custom">Get Started</a>
+          </div>
+          <div class="col-lg-6 reveal-right">
+            <div class="svc-img-wrap">
+              <img src="https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=800&q=80" class="svc-img" alt="Social Media Management"/>
+              <div class="svc-img-border"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 REELS -->
+      <div class="svc-block">
+        <div class="row g-5 align-items-center flex-row-reverse">
+          <div class="col-lg-6 reveal-right" style="position:relative;">
+            <span class="svc-num-bg" style="left:0;right:auto;">02</span>
+            <i class="bi bi-play-circle svc-icon-big"></i>
+            <p class="section-label">Service 02</p>
+            <h3 class="svc-title">REELS & VIDEO<br>PRODUCTION</h3>
+            <p class="svc-desc">Short-form video is the currency of attention. Our in-house studio team scripts, shoots, edits, and publishes platform-native content engineered to stop the scroll and go viral.</p>
+            <ul class="svc-list">
+              <li><i class="bi bi-check2"></i>Concept, scripting & storyboarding</li>
+              <li><i class="bi bi-check2"></i>Professional shoot or UGC-style production</li>
+              <li><i class="bi bi-check2"></i>Hook-first editing with trending audio</li>
+              <li><i class="bi bi-check2"></i>Subtitles, text overlays & motion graphics</li>
+              <li><i class="bi bi-check2"></i>Optimized for Instagram, YouTube & TikTok</li>
+            </ul>
+            <a href="contact.html" class="btn-primary-custom">Get Started</a>
+          </div>
+          <div class="col-lg-6 reveal-left">
+            <div class="svc-img-wrap">
+              <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&q=80" class="svc-img" alt="Video Production"/>
+              <div class="svc-img-border" style="top:auto;bottom:-15px;right:-15px;left:15px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 PAID ADS -->
+      <div class="svc-block">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-6 reveal-left" style="position:relative;">
+            <span class="svc-num-bg">03</span>
+            <i class="bi bi-graph-up-arrow svc-icon-big"></i>
+            <p class="section-label">Service 03</p>
+            <h3 class="svc-title">PAID SOCIAL<br>ADVERTISING</h3>
+            <p class="svc-desc">We manage Meta Ads, Google Ads, and LinkedIn campaigns with military precision. Every rupee tracked, every creative A/B tested, every audience refined. We scale what works and kill what doesn't — fast.</p>
+            <ul class="svc-list">
+              <li><i class="bi bi-check2"></i>Meta (Facebook & Instagram) Ads</li>
+              <li><i class="bi bi-check2"></i>Google Search, Display & YouTube Ads</li>
+              <li><i class="bi bi-check2"></i>LinkedIn Lead Generation Campaigns</li>
+              <li><i class="bi bi-check2"></i>Creative testing & audience segmentation</li>
+              <li><i class="bi bi-check2"></i>Weekly performance reporting & ROAS tracking</li>
+            </ul>
+            <a href="contact.html" class="btn-primary-custom">Get Started</a>
+          </div>
+          <div class="col-lg-6 reveal-right">
+            <div class="svc-img-wrap">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" class="svc-img" alt="Paid Ads"/>
+              <div class="svc-img-border"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-section">
+    <div class="container">
+      <div class="row mb-5 reveal">
+        <div class="col-md-6">
+          <p class="section-label">How We Work</p>
+          <h2 class="section-title">THE SIGNAL<br>PROCESS</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="col-md-6 d-flex align-items-end">
+          <p style="color:var(--muted);font-size:0.95rem;line-height:1.8;">A proven system that gets you from onboarding to results in record time. No guesswork. No fluff. Just execution.</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="process-step"><div class="step-num">01</div><div class="step-content"><h4>Free Brand Audit</h4><p>We analyze your current social presence, competitors, and market — and hand you a detailed 20-page report. Completely free. Zero obligation.</p></div></div>
+        <div class="process-step"><div class="step-num">02</div><div class="step-content"><h4>Strategy Blueprint</h4><p>Content pillars, platform roadmap, posting frequency, tone of voice, and a 90-day campaign plan. Tailored to your goals and budget. Nothing cookie-cutter.</p></div></div>
+        <div class="process-step"><div class="step-num">03</div><div class="step-content"><h4>Content Creation & Launch</h4><p>Our in-house design, video, and copy teams build a 30-day content calendar and execute it across every channel. Launch in as little as 7 days.</p></div></div>
+        <div class="process-step"><div class="step-num">04</div><div class="step-content"><h4>Optimize & Scale</h4><p>Weekly reviews, A/B testing, and monthly strategy calls. We double down on what works and kill what doesn't — fast. Growth compounds.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing-section">
+    <div class="container">
+      <div class="row mb-5 reveal">
+        <div class="col-md-6">
+          <p class="section-label">Investment</p>
+          <h2 class="section-title">PRICING<br>PACKAGES</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="col-md-6 d-flex align-items-end">
+          <p style="color:var(--muted);font-size:0.95rem;line-height:1.8;">Transparent pricing. No hidden fees. Every package includes onboarding, strategy, execution, and monthly reporting. Custom packages available on request.</p>
+        </div>
+      </div>
+      <div class="row g-3">
+        <div class="col-md-4 reveal" style="transition-delay:.1s">
+          <div class="pkg-card">
+            <div class="pkg-name">Starter</div>
+            <div class="pkg-price">₹25,000 <span>/ month</span></div>
+            <p class="pkg-desc">Perfect for small businesses and startups establishing their social presence on 1-2 platforms.</p>
+            <ul class="pkg-features">
+              <li><i class="bi bi-check2"></i>2 Social Media Platforms</li>
+              <li><i class="bi bi-check2"></i>16 Posts / Month</li>
+              <li><i class="bi bi-check2"></i>4 Reels / Month</li>
+              <li><i class="bi bi-check2"></i>Community Management</li>
+              <li><i class="bi bi-check2"></i>Monthly Analytics Report</li>
+              <li class="off"><i class="bi bi-x"></i>Paid Ads Management</li>
+              <li class="off"><i class="bi bi-x"></i>Influencer Tie-ups</li>
+            </ul>
+            <a href="contact.html" class="btn-outline-custom d-block text-center">Get Started</a>
+          </div>
+        </div>
+        <div class="col-md-4 reveal" style="transition-delay:.2s">
+          <div class="pkg-card featured">
+            <div class="pkg-tag">Most Popular</div>
+            <div class="pkg-name">Growth</div>
+            <div class="pkg-price">₹55,000 <span>/ month</span></div>
+            <p class="pkg-desc">For growing brands ready to scale fast across all major platforms with full creative support.</p>
+            <ul class="pkg-features">
+              <li><i class="bi bi-check2"></i>4 Social Media Platforms</li>
+              <li><i class="bi bi-check2"></i>30 Posts / Month</li>
+              <li><i class="bi bi-check2"></i>8 Reels / Month</li>
+              <li><i class="bi bi-check2"></i>Community Management</li>
+              <li><i class="bi bi-check2"></i>Weekly Analytics Report</li>
+              <li><i class="bi bi-check2"></i>₹30K Paid Ads Management</li>
+              <li class="off"><i class="bi bi-x"></i>Influencer Tie-ups</li>
+            </ul>
+            <a href="contact.html" class="btn-primary-custom d-block text-center">Get Started</a>
+          </div>
+        </div>
+        <div class="col-md-4 reveal" style="transition-delay:.3s">
+          <div class="pkg-card">
+            <div class="pkg-name">Dominate</div>
+            <div class="pkg-price">₹1.2L+ <span>/ month</span></div>
+            <p class="pkg-desc">The full arsenal. For brands that want to own their category and dominate every channel they're on.</p>
+            <ul class="pkg-features">
+              <li><i class="bi bi-check2"></i>All Platforms</li>
+              <li><i class="bi bi-check2"></i>Unlimited Posts</li>
+              <li><i class="bi bi-check2"></i>16+ Reels / Month</li>
+              <li><i class="bi bi-check2"></i>24/7 Community Management</li>
+              <li><i class="bi bi-check2"></i>Daily Reporting Dashboard</li>
+              <li><i class="bi bi-check2"></i>Full Paid Ads Management</li>
+              <li><i class="bi bi-check2"></i>2 Influencer Campaigns / Month</li>
+            </ul>
+            <a href="contact.html" class="btn-outline-custom d-block text-center">Let's Talk</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="row g-5 mb-4">
+        <div class="col-lg-4">
+          <div class="footer-brand">SIG<span>NAL</span></div>
+          <p class="footer-copy mt-2" style="max-width:280px;">Where brands go to grow. Social media marketing that delivers real, measurable results.</p>
+          <div class="footer-social mt-3">
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <p class="footer-heading">Pages</p>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="results.html">Results</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <p class="footer-heading">Services</p>
+          <div class="footer-links">
+            <a href="services.html">Social Media Mgmt</a>
+            <a href="services.html">Reels & Video</a>
+            <a href="services.html">Paid Advertising</a>
+            <a href="services.html">Influencer Marketing</a>
+            <a href="services.html">Brand Design</a>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <p class="footer-heading">Contact</p>
+          <p class="footer-copy">hello@signalmarketing.in</p>
+          <p class="footer-copy">+91 98765 43210</p>
+          <p class="footer-copy mt-2">Mumbai · Delhi · Bangalore</p>
+        </div>
+      </div>
+      <div class="footer-bottom d-flex justify-content-between flex-wrap gap-2">
+        <span>© 2025 Signal Marketing Agency. All rights reserved.</span>
+        <span>Privacy Policy · Terms of Service</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="shared.js"></script>
+</body>
+</html>

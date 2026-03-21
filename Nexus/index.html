@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexus Social — Premium Social Media Marketing Agency</title>
+  <meta name="description" content="Nexus Social is a results-driven social media marketing agency that turns brands into movements. Premium SMM services, paid ads, branding, and growth strategies." />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <!-- Custom -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page-transition">
+
+  <!-- BG Orbs -->
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- Particles -->
+  <canvas id="particles-canvas" style="position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0.6;"></canvas>
+
+  <!-- ═══════════════════════ NAVBAR ═══════════════════════ -->
+  <nav class="navbar-custom">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between w-100">
+
+        <!-- Brand -->
+        <a href="index.html" class="navbar-brand-logo">
+          <div class="logo-icon">⚡</div>
+          <span>Nexus<span class="gradient-text">Social</span></span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="d-none d-lg-flex align-items-center gap-1">
+          <ul class="navbar-nav flex-row gap-1 mb-0">
+            <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="#work">Work</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="d-flex align-items-center gap-3">
+          <a href="contact.html" class="btn-primary-custom d-none d-md-inline-flex">
+            <span>Start Growing →</span>
+          </a>
+          <!-- Mobile toggle -->
+          <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Mobile Menu -->
+      <div class="collapse w-100 mt-3" id="mobileNav">
+        <div class="glass-card p-3">
+          <ul class="navbar-nav gap-1 mb-3">
+            <li><a class="nav-link" href="index.html">Home</a></li>
+            <li><a class="nav-link" href="#services">Services</a></li>
+            <li><a class="nav-link" href="#work">Work</a></li>
+            <li><a class="nav-link" href="about.html">About</a></li>
+            <li><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+          <a href="contact.html" class="btn-primary-custom w-100 justify-content-center"><span>Start Growing →</span></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════ HERO ═══════════════════════ -->
+  <section class="hero-section">
+    <div class="hero-grid-bg"></div>
+    <div class="container position-relative" style="z-index:1;">
+      <div class="row align-items-center">
+
+        <!-- Left -->
+        <div class="col-lg-6">
+          <div class="hero-eyebrow" data-aos="fade-down">
+            <span class="hero-badge-dot"></span>
+            Award-Winning SMM Agency — Est. 2019
+          </div>
+
+          <h1 class="hero-headline" data-aos="fade-up" data-aos-delay="100">
+            We Don't Just<br />
+            Manage Social —<br />
+            <span class="gradient-text line-accent">We Build Empires.</span>
+          </h1>
+
+          <p class="hero-sub" data-aos="fade-up" data-aos-delay="200">
+            Nexus Social transforms brands into category leaders through precision-engineered social media strategies, viral content, and data-driven growth campaigns that deliver measurable ROI.
+          </p>
+
+          <div class="hero-cta-group" data-aos="fade-up" data-aos-delay="300">
+            <a href="contact.html" class="btn-primary-custom">
+              <span>🚀 Get Free Strategy Call</span>
+            </a>
+            <a href="#work" class="btn-outline-custom">
+              <span>See Our Work</span>
+            </a>
+          </div>
+
+          <div class="hero-social-proof" data-aos="fade-up" data-aos-delay="400">
+            <div class="hero-avatars">
+              <div class="avatar">RK</div>
+              <div class="avatar">AM</div>
+              <div class="avatar">JS</div>
+              <div class="avatar">PT</div>
+            </div>
+            <div class="hero-proof-text">
+              <strong>220+ Brands Scaled</strong>
+              Trusted by companies in 18+ countries
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Dashboard -->
+        <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+          <div class="hero-visual">
+
+            <!-- Floating Card A -->
+            <div class="hero-floating-card card-a">
+              <div class="float-card-icon">📈</div>
+              <div class="float-card-label">Instagram Reach</div>
+              <div class="float-card-value gradient-text">+347%</div>
+            </div>
+
+            <div class="hero-dashboard">
+              <div class="dashboard-header">
+                <div class="dash-dots">
+                  <div class="dash-dot"></div>
+                  <div class="dash-dot"></div>
+                  <div class="dash-dot"></div>
+                </div>
+                <div class="dash-title">Campaign Overview — Q4 2024</div>
+              </div>
+
+              <div class="dash-metric-grid">
+                <div class="dash-metric">
+                  <div class="dash-metric-label">Total Reach</div>
+                  <div class="dash-metric-value gradient-text">4.2M</div>
+                  <div class="dash-metric-change">↑ 124% vs prev</div>
+                </div>
+                <div class="dash-metric">
+                  <div class="dash-metric-label">Conversions</div>
+                  <div class="dash-metric-value" style="color:var(--cyan);">8,940</div>
+                  <div class="dash-metric-change">↑ 89% vs prev</div>
+                </div>
+                <div class="dash-metric">
+                  <div class="dash-metric-label">Engagement</div>
+                  <div class="dash-metric-value" style="color:var(--pink);">12.4%</div>
+                  <div class="dash-metric-change">↑ 3.2x average</div>
+                </div>
+                <div class="dash-metric">
+                  <div class="dash-metric-label">ROAS</div>
+                  <div class="dash-metric-value" style="color:var(--gold);">6.8x</div>
+                  <div class="dash-metric-change">↑ Top 2% globally</div>
+                </div>
+              </div>
+
+              <div class="dash-chart">
+                <div class="chart-bar"></div>
+                <div class="chart-bar"></div>
+                <div class="chart-bar"></div>
+                <div class="chart-bar"></div>
+                <div class="chart-bar"></div>
+                <div class="chart-bar"></div>
+                <div class="chart-bar"></div>
+                <div class="chart-bar"></div>
+                <div class="chart-bar"></div>
+                <div class="chart-bar"></div>
+                <div class="chart-bar"></div>
+                <div class="chart-bar"></div>
+              </div>
+              <div style="font-size:0.7rem;color:var(--text-dim);margin-top:8px;text-align:center;">Monthly Performance — Jan → Dec 2024</div>
+            </div>
+
+            <!-- Floating Card B -->
+            <div class="hero-floating-card card-b">
+              <div class="float-card-icon">🏆</div>
+              <div class="float-card-label">Client Revenue</div>
+              <div class="float-card-value gradient-text">$2.4M Generated</div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ TRUSTED BY ═══════════════════════ -->
+  <section class="trusted-section">
+    <div class="container">
+      <p class="trusted-label">Trusted by ambitious brands worldwide</p>
+    </div>
+    <div class="marquee-wrapper">
+      <div class="marquee-track">
+        <!-- Set 1 -->
+        <div class="brand-logo-item"><span class="brand-icon">🔷</span> ArcLight</div>
+        <div class="brand-logo-item"><span class="brand-icon">⚙️</span> Forge Studio</div>
+        <div class="brand-logo-item"><span class="brand-icon">🌿</span> Verdant Co.</div>
+        <div class="brand-logo-item"><span class="brand-icon">💎</span> Luminary</div>
+        <div class="brand-logo-item"><span class="brand-icon">🚀</span> Orbit Labs</div>
+        <div class="brand-logo-item"><span class="brand-icon">🎯</span> PrecisionX</div>
+        <div class="brand-logo-item"><span class="brand-icon">🌊</span> Wavefront</div>
+        <div class="brand-logo-item"><span class="brand-icon">⚡</span> Voltage Media</div>
+        <div class="brand-logo-item"><span class="brand-icon">🏔️</span> Summit Brand</div>
+        <div class="brand-logo-item"><span class="brand-icon">🎨</span> ChromaLabs</div>
+        <!-- Set 2 (clone for seamless loop) -->
+        <div class="brand-logo-item"><span class="brand-icon">🔷</span> ArcLight</div>
+        <div class="brand-logo-item"><span class="brand-icon">⚙️</span> Forge Studio</div>
+        <div class="brand-logo-item"><span class="brand-icon">🌿</span> Verdant Co.</div>
+        <div class="brand-logo-item"><span class="brand-icon">💎</span> Luminary</div>
+        <div class="brand-logo-item"><span class="brand-icon">🚀</span> Orbit Labs</div>
+        <div class="brand-logo-item"><span class="brand-icon">🎯</span> PrecisionX</div>
+        <div class="brand-logo-item"><span class="brand-icon">🌊</span> Wavefront</div>
+        <div class="brand-logo-item"><span class="brand-icon">⚡</span> Voltage Media</div>
+        <div class="brand-logo-item"><span class="brand-icon">🏔️</span> Summit Brand</div>
+        <div class="brand-logo-item"><span class="brand-icon">🎨</span> ChromaLabs</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ SERVICES ═══════════════════════ -->
+  <section class="services-section" id="services">
+    <div class="container">
+
+      <div class="section-header" data-aos="fade-up">
+        <div class="section-label">Our Services</div>
+        <h2 class="section-title">
+          Everything Your Brand<br />
+          Needs to <span class="gradient-text">Dominate.</span>
+        </h2>
+        <p class="section-sub">
+          From content creation to performance campaigns — we are the full-stack social media partner that elite brands trust to build, grow, and monetize their audience.
+        </p>
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="glass-card service-card">
+            <div class="service-number">01</div>
+            <div class="service-icon icon-violet">📱</div>
+            <h3 class="service-title">Social Media Management</h3>
+            <p class="service-desc">Full-scale management of your Instagram, TikTok, LinkedIn, X, and Facebook. We handle strategy, content, community, and reporting — so you can focus on your business.</p>
+            <ul class="service-features">
+              <li>Platform-specific content strategy</li>
+              <li>Daily posting & scheduling</li>
+              <li>Community management & DMs</li>
+              <li>Monthly analytics reports</li>
+              <li>Hashtag & SEO optimization</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="80">
+          <div class="glass-card service-card">
+            <div class="service-number">02</div>
+            <div class="service-icon icon-cyan">🎯</div>
+            <h3 class="service-title">Paid Social Advertising</h3>
+            <p class="service-desc">ROI-obsessed paid media campaigns across Meta, TikTok Ads, YouTube, and LinkedIn. We don't run ads — we engineer revenue machines that scale predictably.</p>
+            <ul class="service-features">
+              <li>Meta & TikTok ad campaigns</li>
+              <li>Conversion rate optimization</li>
+              <li>Retargeting & lookalike audiences</li>
+              <li>A/B creative testing</li>
+              <li>Real-time budget optimization</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="160">
+          <div class="glass-card service-card">
+            <div class="service-number">03</div>
+            <div class="service-icon icon-pink">✨</div>
+            <h3 class="service-title">Brand Identity & Design</h3>
+            <p class="service-desc">We craft visual identities that stop the scroll and command premium positioning. From logo systems to full brand guidelines that make you instantly recognizable.</p>
+            <ul class="service-features">
+              <li>Logo & visual identity systems</li>
+              <li>Brand voice & tone guides</li>
+              <li>Social media templates</li>
+              <li>Story & Reel design</li>
+              <li>Brand audit & repositioning</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="glass-card service-card">
+            <div class="service-number">04</div>
+            <div class="service-icon icon-gold">🎬</div>
+            <h3 class="service-title">Content Production</h3>
+            <p class="service-desc">Short-form video, UGC-style content, and editorial photography. We produce scroll-stopping content natively built for each platform's algorithm and audience behavior.</p>
+            <ul class="service-features">
+              <li>Reels & TikTok production</li>
+              <li>UGC creator campaigns</li>
+              <li>Scripting & storyboarding</li>
+              <li>Post-production & editing</li>
+              <li>Content calendar planning</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="80">
+          <div class="glass-card service-card">
+            <div class="service-number">05</div>
+            <div class="service-icon icon-green">📊</div>
+            <h3 class="service-title">Growth Strategy & Analytics</h3>
+            <p class="service-desc">Deep-dive audits, competitive intelligence, and data-backed growth roadmaps. We identify untapped opportunities and execute with precision to maximize your ROI.</p>
+            <ul class="service-features">
+              <li>Full social media audit</li>
+              <li>Competitor analysis</li>
+              <li>Custom KPI dashboards</li>
+              <li>Audience insights & segmentation</li>
+              <li>Quarterly strategy reviews</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="160">
+          <div class="glass-card service-card">
+            <div class="service-number">06</div>
+            <div class="service-icon icon-blue">🤝</div>
+            <h3 class="service-title">Influencer & Creator Marketing</h3>
+            <p class="service-desc">From nano to mega influencers — we identify, vet, negotiate, and manage creator partnerships that authentically amplify your brand to targeted, high-converting audiences.</p>
+            <ul class="service-features">
+              <li>Influencer discovery & vetting</li>
+              <li>Contract & negotiation management</li>
+              <li>Campaign briefs & creative direction</li>
+              <li>Performance tracking & reporting</li>
+              <li>Long-term creator relationships</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ STATS ═══════════════════════ -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-inner" data-aos="zoom-in">
+        <div class="row g-0">
+          <div class="col-6 col-md-3">
+            <div class="stat-item">
+              <div class="stat-number"><span class="counter" data-target="220" data-suffix="+">0</span></div>
+              <div class="stat-label">Brands Scaled</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat-item">
+              <div class="stat-number">$<span class="counter" data-target="48" data-suffix="M+">0</span></div>
+              <div class="stat-label">Ad Spend Managed</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat-item">
+              <div class="stat-number"><span class="counter" data-target="4.8" data-suffix="x">0</span></div>
+              <div class="stat-label">Average ROAS</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat-item">
+              <div class="stat-number"><span class="counter" data-target="98" data-suffix="%">0</span></div>
+              <div class="stat-label">Client Retention</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ CASE STUDIES ═══════════════════════ -->
+  <section class="portfolio-section" id="work">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <div class="section-label">Case Studies</div>
+        <h2 class="section-title">Real Campaigns.<br /><span class="gradient-text">Real Results.</span></h2>
+        <p class="section-sub">We don't just talk strategy — we execute and deliver transformative growth for brands across industries.</p>
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="case-card">
+            <div class="case-visual" style="background:linear-gradient(135deg,#1a0533,#7c3aed,#06b6d4);">
+              <div class="case-visual-inner">🛍️</div>
+              <div class="case-overlay"></div>
+            </div>
+            <div class="case-body">
+              <div class="case-tag">E-Commerce · Fashion</div>
+              <h3 class="case-title">LuxeThread — From Zero to Market Leader</h3>
+              <p class="case-desc">Scaled a DTC fashion brand from $12K/month to $380K/month in 8 months using TikTok-first organic + Meta retargeting funnels.</p>
+              <div class="case-results">
+                <div class="case-result-item">
+                  <div class="case-result-value">31x</div>
+                  <div class="case-result-label">Revenue Growth</div>
+                </div>
+                <div class="case-result-item">
+                  <div class="case-result-value">2.8M</div>
+                  <div class="case-result-label">Reach/Month</div>
+                </div>
+                <div class="case-result-item">
+                  <div class="case-result-value">7.4x</div>
+                  <div class="case-result-label">ROAS</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="80">
+          <div class="case-card">
+            <div class="case-visual" style="background:linear-gradient(135deg,#052233,#0e7490,#10b981);">
+              <div class="case-visual-inner">🏋️</div>
+              <div class="case-overlay"></div>
+            </div>
+            <div class="case-body">
+              <div class="case-tag">Health & Wellness · B2C</div>
+              <h3 class="case-title">PeakForm — Building a Fitness Community</h3>
+              <p class="case-desc">Grew Instagram from 4K to 290K followers in 6 months with viral Reels strategy, user-generated content, and influencer micro-campaigns.</p>
+              <div class="case-results">
+                <div class="case-result-item">
+                  <div class="case-result-value">72x</div>
+                  <div class="case-result-label">Follower Growth</div>
+                </div>
+                <div class="case-result-item">
+                  <div class="case-result-value">18%</div>
+                  <div class="case-result-label">Engagement Rate</div>
+                </div>
+                <div class="case-result-item">
+                  <div class="case-result-value">$1.2M</div>
+                  <div class="case-result-label">Revenue Gen.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="160">
+          <div class="case-card">
+            <div class="case-visual" style="background:linear-gradient(135deg,#1a0a1e,#ec4899,#f59e0b);">
+              <div class="case-visual-inner">🍕</div>
+              <div class="case-overlay"></div>
+            </div>
+            <div class="case-body">
+              <div class="case-tag">F&B · Local Business</div>
+              <h3 class="case-title">Vivo Kitchen — Viral Food Brand</h3>
+              <p class="case-desc">Transformed a single-location restaurant into a regional brand with 12 locations through TikTok virality and Instagram community building.</p>
+              <div class="case-results">
+                <div class="case-result-item">
+                  <div class="case-result-value">44M</div>
+                  <div class="case-result-label">TikTok Views</div>
+                </div>
+                <div class="case-result-item">
+                  <div class="case-result-value">12</div>
+                  <div class="case-result-label">New Locations</div>
+                </div>
+                <div class="case-result-item">
+                  <div class="case-result-value">410%</div>
+                  <div class="case-result-label">Revenue ↑</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="case-card">
+            <div class="case-visual" style="background:linear-gradient(135deg,#0a1a0a,#16a34a,#06b6d4);">
+              <div class="case-visual-inner">💻</div>
+              <div class="case-overlay"></div>
+            </div>
+            <div class="case-body">
+              <div class="case-tag">SaaS · B2B</div>
+              <h3 class="case-title">Flowmatic — LinkedIn Lead Machine</h3>
+              <p class="case-desc">Positioned a B2B SaaS brand as thought leaders on LinkedIn — generating $840K in pipeline through organic content and LinkedIn Ads.</p>
+              <div class="case-results">
+                <div class="case-result-item">
+                  <div class="case-result-value">$840K</div>
+                  <div class="case-result-label">Pipeline Value</div>
+                </div>
+                <div class="case-result-item">
+                  <div class="case-result-value">52x</div>
+                  <div class="case-result-label">Impression Growth</div>
+                </div>
+                <div class="case-result-item">
+                  <div class="case-result-value">4.1x</div>
+                  <div class="case-result-label">ROAS</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="80">
+          <div class="case-card">
+            <div class="case-visual" style="background:linear-gradient(135deg,#1a0a00,#d97706,#ec4899);">
+              <div class="case-visual-inner">🎓</div>
+              <div class="case-overlay"></div>
+            </div>
+            <div class="case-body">
+              <div class="case-tag">EdTech · D2C</div>
+              <h3 class="case-title">MindVault — Course Launch to $2M</h3>
+              <p class="case-desc">Launched an online education platform from scratch — reaching $2M in course revenue in the first year using YouTube Shorts + Meta funnel strategy.</p>
+              <div class="case-results">
+                <div class="case-result-item">
+                  <div class="case-result-value">$2M</div>
+                  <div class="case-result-label">Year 1 Revenue</div>
+                </div>
+                <div class="case-result-item">
+                  <div class="case-result-value">15K</div>
+                  <div class="case-result-label">Students Enrolled</div>
+                </div>
+                <div class="case-result-item">
+                  <div class="case-result-value">9.2x</div>
+                  <div class="case-result-label">ROAS</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="160">
+          <div class="case-card">
+            <div class="case-visual" style="background:linear-gradient(135deg,#0d0d2e,#3b82f6,#a78bfa);">
+              <div class="case-visual-inner">🏨</div>
+              <div class="case-overlay"></div>
+            </div>
+            <div class="case-body">
+              <div class="case-tag">Hospitality · Luxury</div>
+              <h3 class="case-title">Velara Hotels — Luxury Brand Refresh</h3>
+              <p class="case-desc">Rebranded and repositioned a boutique hotel chain on Instagram and Pinterest — driving a 280% increase in direct bookings within 90 days.</p>
+              <div class="case-results">
+                <div class="case-result-item">
+                  <div class="case-result-value">280%</div>
+                  <div class="case-result-label">Direct Bookings</div>
+                </div>
+                <div class="case-result-item">
+                  <div class="case-result-value">95%</div>
+                  <div class="case-result-label">Occupancy Rate</div>
+                </div>
+                <div class="case-result-item">
+                  <div class="case-result-value">5.6x</div>
+                  <div class="case-result-label">ROAS</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ PROCESS ═══════════════════════ -->
+  <section class="process-section">
+    <div class="container">
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-5" data-aos="fade-right">
+          <div class="section-label">How We Work</div>
+          <h2 class="section-title">Our Proven<br /><span class="gradient-text">Growth Process</span></h2>
+          <p class="section-sub mt-3">We follow a battle-tested 5-phase framework that has delivered consistent results for 220+ brands across 18 countries.</p>
+          <div class="mt-4 pt-2">
+            <a href="contact.html" class="btn-primary-custom"><span>Start Your Journey →</span></a>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="glass-card process-step" data-aos="fade-left" data-aos-delay="0">
+            <div class="step-number">01</div>
+            <div class="step-content">
+              <h4>Discovery & Deep Audit</h4>
+              <p>We start with a comprehensive 360° audit of your brand — existing social presence, competitor landscape, target audience behavior, and market positioning. No guesswork, only data.</p>
+            </div>
+          </div>
+          <div class="glass-card process-step" data-aos="fade-left" data-aos-delay="80">
+            <div class="step-number">02</div>
+            <div class="step-content">
+              <h4>Strategy Architecture</h4>
+              <p>Our strategists build a custom growth blueprint — platform selection, content pillars, paid media structure, KPIs, and a 90-day execution roadmap tailored to your business goals.</p>
+            </div>
+          </div>
+          <div class="glass-card process-step" data-aos="fade-left" data-aos-delay="160">
+            <div class="step-number">03</div>
+            <div class="step-content">
+              <h4>Content Creation & Launch</h4>
+              <p>Our creative team produces high-performance content at scale — Reels, carousels, UGC, and ad creatives — then launches with precision timing and A/B testing from day one.</p>
+            </div>
+          </div>
+          <div class="glass-card process-step" data-aos="fade-left" data-aos-delay="240">
+            <div class="step-number">04</div>
+            <div class="step-content">
+              <h4>Optimize & Scale</h4>
+              <p>Weekly performance reviews, real-time bid optimization, creative refreshes, and audience expansion. We compound your wins and eliminate waste — accelerating growth month over month.</p>
+            </div>
+          </div>
+          <div class="glass-card process-step" data-aos="fade-left" data-aos-delay="320">
+            <div class="step-number">05</div>
+            <div class="step-content">
+              <h4>Reporting & Evolution</h4>
+              <p>Transparent monthly reports with full attribution, ROI breakdowns, and strategic insights. We evolve your strategy continuously as platforms, trends, and algorithms shift.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ TESTIMONIALS ═══════════════════════ -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header text-center" data-aos="fade-up">
+        <div class="section-label mx-auto" style="display:inline-flex;">Testimonials</div>
+        <h2 class="section-title">Clients Who <span class="gradient-text">Love Us</span></h2>
+        <p class="section-sub mx-auto">Don't take our word for it — here's what industry leaders say after working with Nexus Social.</p>
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="glass-card testimonial-card">
+            <div class="stars">★★★★★</div>
+            <div class="quote-mark">"</div>
+            <p class="testimonial-text">Nexus Social didn't just grow our Instagram — they fundamentally transformed our brand. In 6 months, we went from an unknown DTC brand to being featured in Vogue. Unreal results, unreal team.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">SL</div>
+              <div>
+                <div class="author-name">Sofia Lennox</div>
+                <div class="author-title">CEO, LuxeThread Fashion</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="80">
+          <div class="glass-card testimonial-card">
+            <div class="stars">★★★★★</div>
+            <div class="quote-mark">"</div>
+            <p class="testimonial-text">We've worked with 3 agencies before Nexus. None came close. Their ROAS on our Meta campaigns consistently hits 7-9x. They think like investors, not marketers. That's the difference.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">MR</div>
+              <div>
+                <div class="author-name">Marcus Reid</div>
+                <div class="author-title">Founder, PeakForm Fitness</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="160">
+          <div class="glass-card testimonial-card">
+            <div class="stars">★★★★★</div>
+            <div class="quote-mark">"</div>
+            <p class="testimonial-text">The TikTok strategy Nexus built for us was a game-changer. One video hit 8M views, our waitlist exploded overnight, and we had to pause ads because we couldn't keep up with demand. That's a good problem.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">AK</div>
+              <div>
+                <div class="author-name">Arjun Kapoor</div>
+                <div class="author-title">Co-founder, Vivo Kitchen</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="glass-card testimonial-card">
+            <div class="stars">★★★★★</div>
+            <div class="quote-mark">"</div>
+            <p class="testimonial-text">Our LinkedIn went from a ghost town to our #1 lead source in 4 months. The thought leadership content Nexus created positions us as the authority in our niche. Closed $400K from inbound alone.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">TN</div>
+              <div>
+                <div class="author-name">Tara Novak</div>
+                <div class="author-title">CMO, Flowmatic SaaS</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="80">
+          <div class="glass-card testimonial-card">
+            <div class="stars">★★★★★</div>
+            <div class="quote-mark">"</div>
+            <p class="testimonial-text">I was skeptical about social media for a luxury hotel brand. Nexus proved me wrong in 90 days. Our Instagram aesthetic is now what guests cite as the reason they book. Brilliant creative direction.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">JW</div>
+              <div>
+                <div class="author-name">James Worthington</div>
+                <div class="author-title">Director, Velara Hotels</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="160">
+          <div class="glass-card testimonial-card">
+            <div class="stars">★★★★★</div>
+            <div class="quote-mark">"</div>
+            <p class="testimonial-text">Nexus Social is the only agency I've worked with that speaks the language of ROI without losing creative excellence. They delivered $2M in course revenue for us. Worth every penny, 10x over.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">EP</div>
+              <div>
+                <div class="author-name">Elena Petrov</div>
+                <div class="author-title">Founder, MindVault EdTech</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ FAQ ═══════════════════════ -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5" data-aos="fade-right">
+          <div class="section-label">FAQ</div>
+          <h2 class="section-title">Questions?<br /><span class="gradient-text">Answered.</span></h2>
+          <p class="section-sub mt-3">Everything you need to know before partnering with Nexus Social.</p>
+        </div>
+        <div class="col-lg-7" data-aos="fade-left">
+          <details class="faq-item">
+            <summary class="faq-question">What makes Nexus Social different from other agencies?</summary>
+            <div class="faq-answer">We combine deep creative talent with data science. Every decision we make is backed by performance data, not intuition. Our team has managed $48M+ in ad spend and our average client ROAS is 4.8x — well above industry benchmarks.</div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">How long until I see real results?</summary>
+            <div class="faq-answer">Organic growth shows meaningful momentum within 60–90 days. Paid campaigns typically deliver measurable ROI within the first 30 days. We set clear expectations in our strategy call based on your specific goals and starting point.</div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Do you work with small businesses or only large brands?</summary>
+            <div class="faq-answer">We work with ambitious brands at every stage — from funded startups to 8-figure companies. What matters is your growth mindset, not your current size. Our tiered packages accommodate different budgets while maintaining our standard of excellence.</div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Which platforms do you specialize in?</summary>
+            <div class="faq-answer">We specialize across Instagram, TikTok, LinkedIn, YouTube, Facebook, and Pinterest. Our recommendation is always platform-specific and based on where your audience actually lives — not where it's trendy to be.</div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Do you handle creative content or just strategy?</summary>
+            <div class="faq-answer">Both. We have a full in-house creative studio — designers, videographers, copywriters, and motion artists. You can hand us the keys completely, or collaborate as much as you want. We adapt to your workflow.</div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">What does onboarding look like?</summary>
+            <div class="faq-answer">After signing, we kick off with a comprehensive discovery session, brand immersion, and competitor deep-dive. Within 2 weeks, you'll have a full strategy document, content calendar, and campaign blueprints ready for approval.</div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ CTA ═══════════════════════ -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-inner" data-aos="zoom-in">
+        <div class="section-label mx-auto mb-4" style="display:inline-flex;">Limited Spots Available</div>
+        <h2 class="cta-title">
+          Ready to <span class="gradient-text">Dominate</span><br />Your Market?
+        </h2>
+        <p class="cta-sub">We take on a select number of new clients each quarter to ensure every brand gets the attention it deserves. Let's talk about your goals.</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+          <a href="contact.html" class="btn-primary-custom"><span>🚀 Book Free Strategy Call</span></a>
+          <a href="about.html" class="btn-outline-custom"><span>Learn About Us</span></a>
+        </div>
+        <p style="font-size:0.8rem;color:var(--text-dim);margin-top:2rem;">No commitment · Free 45-min strategy session · Response within 24 hours</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="row g-5">
+
+        <div class="col-lg-4">
+          <div class="footer-brand">
+            <a href="index.html" class="navbar-brand-logo mb-3 d-inline-flex">
+              <div class="logo-icon">⚡</div>
+              <span>Nexus<span class="gradient-text">Social</span></span>
+            </a>
+          </div>
+          <p class="footer-desc">We are a results-obsessed social media marketing agency turning ambitious brands into category leaders. Premium strategy. Measurable growth. No fluff.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link" title="Instagram">📸</a>
+            <a href="#" class="social-link" title="TikTok">🎵</a>
+            <a href="#" class="social-link" title="LinkedIn">💼</a>
+            <a href="#" class="social-link" title="X / Twitter">🐦</a>
+            <a href="#" class="social-link" title="YouTube">▶️</a>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-2">
+          <p class="footer-heading">Services</p>
+          <ul class="footer-links">
+            <li><a href="#services">Social Media Mgmt</a></li>
+            <li><a href="#services">Paid Advertising</a></li>
+            <li><a href="#services">Brand Identity</a></li>
+            <li><a href="#services">Content Production</a></li>
+            <li><a href="#services">Growth Strategy</a></li>
+            <li><a href="#services">Influencer Marketing</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6 col-lg-2">
+          <p class="footer-heading">Company</p>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="about.html#team">Our Team</a></li>
+            <li><a href="#work">Case Studies</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6 col-lg-2">
+          <p class="footer-heading">Platforms</p>
+          <ul class="footer-links">
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">TikTok</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">YouTube</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Pinterest</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6 col-lg-2">
+          <p class="footer-heading">Contact</p>
+          <ul class="footer-links">
+            <li><a href="mailto:hello@nexussocial.com">hello@nexussocial.com</a></li>
+            <li><a href="tel:+11234567890">+1 (123) 456-7890</a></li>
+            <li><a href="#">New York, NY</a></li>
+            <li><a href="#">London, UK</a></li>
+            <li><a href="#">Dubai, UAE</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2025 Nexus Social. All rights reserved.</p>
+        <p>Privacy Policy · Terms of Service · Cookie Policy</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <!-- Custom -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Results — AURA Agency</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    section { position:relative; z-index:2; }
+
+    /* Stats banner */
+    .stat-banner { padding: 5rem 0; }
+    .stat-banner-glass { background: rgba(255,255,255,0.02); backdrop-filter: blur(30px); border: 1px solid rgba(201,168,76,0.1); padding: 4rem; animation: borderGlow 8s ease-in-out infinite; }
+    .b-stat-num { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem,6vw,5.5rem); font-weight: 300; color: var(--gold); line-height: 1; }
+    .b-stat-label { font-family: 'Syne', sans-serif; font-size: 0.65rem; letter-spacing: 4px; text-transform: uppercase; color: var(--muted); margin-top: 0.5rem; }
+    .b-sep { width: 1px; height: 80px; background: rgba(201,168,76,0.15); margin: auto; }
+
+    /* Case cards */
+    .cases-section { padding: 8rem 0; }
+    .case-glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(25px); border: 1px solid rgba(255,255,255,0.07); overflow: hidden; height: 100%; transition: all 0.5s; }
+    .case-glass:hover { border-color: rgba(201,168,76,0.25); transform: translateY(-8px); }
+    .case-img { width: 100%; height: 250px; object-fit: cover; display: block; transition: transform 0.6s; filter: saturate(0.7); }
+    .case-glass:hover .case-img { transform: scale(1.06); filter: saturate(1); }
+    .case-img-wrap { overflow: hidden; }
+    .case-body { padding: 2rem; }
+    .case-platform { font-family: 'Syne', sans-serif; font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .case-title { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; margin-bottom: 0.75rem; }
+    .case-title em { font-style: italic; color: var(--gold); }
+    .case-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
+    .case-metrics { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .metric-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; color: var(--gold); line-height: 1; }
+    .metric-label { font-family: 'Syne', sans-serif; font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); }
+
+    /* Win list */
+    .wins-section { padding: 8rem 0; }
+    .win-item { display: flex; align-items: center; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); transition: all 0.4s; }
+    .win-item:hover { padding-left: 1rem; border-color: rgba(201,168,76,0.15); }
+    .win-platform { font-family: 'Syne', sans-serif; font-size: 0.62rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); min-width: 85px; text-align: center; }
+    .win-platform i { display: block; font-size: 1.75rem; color: var(--white-dim); margin-bottom: 4px; }
+    .win-info { flex: 1; }
+    .win-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 300; margin-bottom: 0.25rem; }
+    .win-detail { font-size: 0.82rem; color: var(--muted); }
+    .win-badge { font-family: 'Syne', sans-serif; font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase; padding: 0.3rem 0.8rem; white-space: nowrap; }
+
+    /* Testimonials */
+    .testi-section { padding: 8rem 0; }
+    .testi-glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(25px); border: 1px solid rgba(255,255,255,0.07); padding: 2.5rem; height: 100%; transition: border-color 0.4s; }
+    .testi-glass:hover { border-color: rgba(201,168,76,0.2); }
+    .testi-quote-mark { font-family: 'Cormorant Garamond', serif; font-size: 5rem; color: rgba(201,168,76,0.15); line-height: 0.7; margin-bottom: 1rem; }
+    .testi-stars { color: var(--gold); font-size: 0.7rem; letter-spacing: 4px; margin-bottom: 1.25rem; }
+    .testi-body { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 300; font-style: italic; color: rgba(248,244,239,0.8); line-height: 1.8; margin-bottom: 2rem; }
+    .testi-name { font-family: 'Syne', sans-serif; font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; }
+    .testi-role { font-size: 0.78rem; color: var(--gold); margin-top: 0.25rem; }
+  </style>
+</head>
+<body>
+  <div class="aurora-bg"><div class="aurora-orb orb-v"></div><div class="aurora-orb orb-g"></div><div class="aurora-orb orb-p"></div><div class="aurora-orb orb-c"></div></div>
+  <canvas id="particles" style="position:fixed;inset:0;z-index:1;pointer-events:none;"></canvas>
+  <div class="cursor-dot" id="cursorDot"></div><div class="cursor-ring" id="cursorRing"></div>
+
+  <nav id="mainNav" class="navbar">
+    <div class="container"><div class="nav-inner">
+      <a href="index.html" class="nav-brand">AU<em>RA</em></a>
+      <ul class="nav-links" id="navLinks"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="results.html" class="active">Results</a></li><li><a href="contact.html">Contact</a></li><li><a href="contact.html" class="nav-cta">Get Started</a></li></ul>
+      <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+    </div></div>
+  </nav>
+
+  <div class="page-banner">
+    <div class="page-banner-img" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80');"></div>
+    <div class="page-banner-overlay"></div>
+    <div class="container"><div class="page-banner-content">
+      <p class="page-eyebrow">Case Studies · Results · Testimonials</p>
+      <h1 class="page-title">The Work<br>Speaks for <em>Itself.</em></h1>
+      <p class="page-sub">Real numbers. Real brands. Real results. Everything you see here is documented, verified, and reproducible — for the right brand.</p>
+    </div></div>
+  </div>
+
+  <div class="marquee-wrap"><div class="marquee-track reverse"><span>Proven Results <i>✦</i></span><span>Case Studies <i>✦</i></span><span>Real Numbers <i>✦</i></span><span>Verified Growth <i>✦</i></span><span>Client Success <i>✦</i></span><span>Proven Results <i>✦</i></span><span>Case Studies <i>✦</i></span><span>Real Numbers <i>✦</i></span><span>Verified Growth <i>✦</i></span><span>Client Success <i>✦</i></span></div></div>
+
+  <!-- STAT BANNER -->
+  <section class="stat-banner">
+    <div class="container">
+      <div class="stat-banner-glass stat-group">
+        <div class="row g-4 text-center align-items-center">
+          <div class="col-6 col-lg reveal" style="transition-delay:.1s"><div class="b-stat-num" data-count="250" data-suffix="+">250+</div><div class="b-stat-label">Brands Elevated</div></div>
+          <div class="col-lg-auto d-none d-lg-block"><div class="b-sep"></div></div>
+          <div class="col-6 col-lg reveal" style="transition-delay:.2s"><div class="b-stat-num" data-count="18" data-suffix="M+">18M+</div><div class="b-stat-label">Followers Created</div></div>
+          <div class="col-lg-auto d-none d-lg-block"><div class="b-sep"></div></div>
+          <div class="col-6 col-lg reveal" style="transition-delay:.3s"><div class="b-stat-num" data-count="120" data-suffix="Cr+">₹120Cr+</div><div class="b-stat-label">Ad Spend Managed</div></div>
+          <div class="col-lg-auto d-none d-lg-block"><div class="b-sep"></div></div>
+          <div class="col-6 col-lg reveal" style="transition-delay:.4s"><div class="b-stat-num" data-count="4.8" data-suffix="×">4.8×</div><div class="b-stat-label">Avg ROAS</div></div>
+          <div class="col-lg-auto d-none d-lg-block"><div class="b-sep"></div></div>
+          <div class="col-6 col-lg reveal" style="transition-delay:.5s"><div class="b-stat-num" data-count="97" data-suffix="%">97%</div><div class="b-stat-label">Retention Rate</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section class="cases-section">
+    <div class="container">
+      <div class="row mb-5 reveal"><div class="col-lg-5"><span class="eyebrow">Featured Case Studies</span><h2 class="display-title">In-Depth<br><em>Wins.</em></h2><div class="gold-rule"></div></div></div>
+      <div class="row g-3">
+        <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.1s">
+          <div class="case-glass"><div class="case-img-wrap"><img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&q=80" class="case-img" alt="Fashion"/></div>
+          <div class="case-body"><div class="case-platform">✦ Instagram · Fashion & Beauty</div><h4 class="case-title">Bloom Skincare —<br><em>Organic Elevation</em></h4><p class="case-desc">Repositioned Bloom with a luxury-minimal aesthetic, UGC-led Reels, and daily engagement. Explosive organic growth, zero paid spend.</p><div class="case-metrics"><div><div class="metric-num">85K</div><div class="metric-label">New Followers</div></div><div><div class="metric-num">12%</div><div class="metric-label">Eng. Rate</div></div><div><div class="metric-num">2×</div><div class="metric-label">Sales</div></div></div></div></div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.2s">
+          <div class="case-glass"><div class="case-img-wrap"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80" class="case-img" alt="D2C"/></div>
+          <div class="case-body"><div class="case-platform">✦ Meta Ads · D2C Food</div><h4 class="case-title">FreshBox —<br><em>Paid Scale-Up</em></h4><p class="case-desc">Rebuilt their entire Meta Ads architecture. New creatives, tighter audiences, relentless testing. 1.2× to 4.8× ROAS at scale.</p><div class="case-metrics"><div><div class="metric-num">4.8×</div><div class="metric-label">ROAS</div></div><div><div class="metric-num">₹58L</div><div class="metric-label">Revenue</div></div><div><div class="metric-num">3.2K</div><div class="metric-label">Customers</div></div></div></div></div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.3s">
+          <div class="case-glass"><div class="case-img-wrap"><img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&q=80" class="case-img" alt="EdTech"/></div>
+          <div class="case-body"><div class="case-platform">✦ YouTube · EdTech</div><h4 class="case-title">TechBro Academy —<br><em>Channel Genesis</em></h4><p class="case-desc">Built from zero using data-driven topic research, thumbnail science, and consistent cadence. Revenue positive in 6 months.</p><div class="case-metrics"><div><div class="metric-num">125K</div><div class="metric-label">Subscribers</div></div><div><div class="metric-num">45</div><div class="metric-label">Viral Videos</div></div><div><div class="metric-num">₹8L</div><div class="metric-label">Ad Revenue</div></div></div></div></div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.4s">
+          <div class="case-glass"><div class="case-img-wrap"><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80" class="case-img" alt="B2B"/></div>
+          <div class="case-body"><div class="case-platform">✦ LinkedIn · B2B</div><h4 class="case-title">Nexus Consulting —<br><em>Enterprise Pipeline</em></h4><p class="case-desc">Thought leadership content engine and precision LinkedIn campaigns. Steady enterprise lead flow from day 45.</p><div class="case-metrics"><div><div class="metric-num">18</div><div class="metric-label">Leads/Month</div></div><div><div class="metric-num">₹2.4Cr</div><div class="metric-label">Pipeline</div></div></div></div></div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.5s">
+          <div class="case-glass"><div class="case-img-wrap"><img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=600&q=80" class="case-img" alt="Beer"/></div>
+          <div class="case-body"><div class="case-platform">✦ Reels · F&B</div><h4 class="case-title">Brewnation —<br><em>Zero Budget Viral</em></h4><p class="case-desc">A behind-the-scenes Reels series capturing craft brewing culture. 8.3M reach. ₹0 paid. 400% sales spike in 30 days.</p><div class="case-metrics"><div><div class="metric-num">8.3M</div><div class="metric-label">Reach</div></div><div><div class="metric-num">400%</div><div class="metric-label">Sales Spike</div></div></div></div></div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.6s">
+          <div class="case-glass"><div class="case-img-wrap"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80" class="case-img" alt="Fashion"/></div>
+          <div class="case-body"><div class="case-platform">✦ Influencer · Fashion</div><h4 class="case-title">StyleNova —<br><em>Creator Campaign</em></h4><p class="case-desc">12 curated micro-influencers matched to StyleNova's luxury-casual aesthetic. Authentic content, outsized conversion.</p><div class="case-metrics"><div><div class="metric-num">4.2M</div><div class="metric-label">Reach</div></div><div><div class="metric-num">22%</div><div class="metric-label">Conv. Lift</div></div></div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WIN LIST -->
+  <section class="wins-section">
+    <div class="container">
+      <div class="row mb-5 reveal"><div class="col-lg-5"><span class="eyebrow">Full Scoreboard</span><h2 class="display-title">Every<br><em>Win.</em></h2><div class="gold-rule"></div></div></div>
+      <div class="col-lg-10 reveal">
+        <div class="win-item"><div class="win-platform"><i class="bi bi-instagram"></i>INSTA</div><div class="win-info"><div class="win-title">Zara India — Fashion Relaunch</div><div class="win-detail">+340% Followers · 2.1M Reel Views · 12% Engagement Rate</div></div><span class="win-badge" style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);color:var(--gold);">Trending</span></div>
+        <div class="win-item"><div class="win-platform"><i class="bi bi-facebook"></i>META</div><div class="win-info"><div class="win-title">FreshBox — D2C Food</div><div class="win-detail">₹12L → ₹58L Revenue · 4.8× ROAS · 3,200 New Customers</div></div><span class="win-badge" style="background:rgba(76,201,240,0.08);border:1px solid rgba(76,201,240,0.3);color:var(--cyan);">Top ROAS</span></div>
+        <div class="win-item"><div class="win-platform"><i class="bi bi-youtube"></i>YT</div><div class="win-info"><div class="win-title">TechBro Academy — EdTech</div><div class="win-detail">0 → 125K Subs in 6 Months · 45 Viral Videos · ₹8L Ad Revenue</div></div><span class="win-badge" style="background:rgba(155,93,229,0.08);border:1px solid rgba(155,93,229,0.3);color:var(--violet-soft);">Viral</span></div>
+        <div class="win-item"><div class="win-platform"><i class="bi bi-linkedin"></i>B2B</div><div class="win-info"><div class="win-title">Nexus Consulting — Lead Gen</div><div class="win-detail">18 Leads/Month · ₹2.4Cr Pipeline · 6× Network Growth</div></div><span class="win-badge" style="border:1px solid rgba(255,255,255,0.1);color:var(--muted);">B2B Win</span></div>
+        <div class="win-item"><div class="win-platform"><i class="bi bi-camera-reels"></i>REELS</div><div class="win-info"><div class="win-title">Brewnation — F&B</div><div class="win-detail">8.3M Organic Reach · ₹0 Paid · 400% Sales Spike</div></div><span class="win-badge" style="border:1px solid rgba(255,255,255,0.1);color:var(--muted);">Organic</span></div>
+        <div class="win-item" style="border:none;"><div class="win-platform"><i class="bi bi-people"></i>INFLU</div><div class="win-info"><div class="win-title">StyleNova — Fashion</div><div class="win-detail">12 Creators · 4.2M Reach · 22% Conversion Lift</div></div><span class="win-badge" style="border:1px solid rgba(255,255,255,0.1);color:var(--muted);">Collab</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testi-section">
+    <div class="container">
+      <div class="row mb-5 reveal"><div class="col-lg-5"><span class="eyebrow">Client Voices</span><h2 class="display-title">In Their<br><em>Words.</em></h2><div class="gold-rule"></div></div></div>
+      <div class="row g-3">
+        <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.1s"><div class="testi-glass"><div class="testi-stars">✦ ✦ ✦ ✦ ✦</div><div class="testi-quote-mark">"</div><p class="testi-body">AURA didn't just grow our Instagram — they transformed how our brand is perceived. 2K to 85K in 4 months. Sales doubled. They are exceptional.</p><div class="testi-name">Priya Mehta</div><div class="testi-role">Founder, Bloom Skincare</div></div></div>
+        <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.2s"><div class="testi-glass"><div class="testi-stars">✦ ✦ ✦ ✦ ✦</div><div class="testi-quote-mark">"</div><p class="testi-body">ROAS from 1.2× to 5.6× in 60 days. The team is obsessive about data and never stops testing. The single best investment we've made in three years.</p><div class="testi-name">Rohit Sharma</div><div class="testi-role">CEO, GadgetZone</div></div></div>
+        <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.3s"><div class="testi-glass"><div class="testi-stars">✦ ✦ ✦ ✦ ✦</div><div class="testi-quote-mark">"</div><p class="testi-body">AURA generated 3 enterprise clients for us in Q1 through LinkedIn alone. The ROI on their retainer is genuinely extraordinary.</p><div class="testi-name">Anjali Kapoor</div><div class="testi-role">Director, Kapoor & Associates</div></div></div>
+        <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.4s"><div class="testi-glass"><div class="testi-stars">✦ ✦ ✦ ✦ ✦</div><div class="testi-quote-mark">"</div><p class="testi-body">Our Reels campaign hit 8 million views without spending a rupee on ads. AURA's creative team is world-class. I was genuinely blown away.</p><div class="testi-name">Kabir Malhotra</div><div class="testi-role">Co-Founder, Brewnation</div></div></div>
+        <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.5s"><div class="testi-glass"><div class="testi-stars">✦ ✦ ✦ ✦ ✦</div><div class="testi-quote-mark">"</div><p class="testi-body">Switched from two agencies to AURA. Night and day difference. We finally have a team that understands luxury and actually delivers results.</p><div class="testi-name">Neha Joshi</div><div class="testi-role">CMO, StyleNova</div></div></div>
+        <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.6s"><div class="testi-glass"><div class="testi-stars">✦ ✦ ✦ ✦ ✦</div><div class="testi-quote-mark">"</div><p class="testi-body">Transparent, fast, creative, and ruthlessly focused on results. AURA isn't a vendor — they're a growth partner. Highly recommend to any founder serious about scaling.</p><div class="testi-name">Siddharth Rao</div><div class="testi-role">Founder, FreshBox</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="row g-5 mb-4">
+        <div class="col-lg-4"><div class="footer-brand">AU<em>RA</em></div><p class="footer-tagline mt-2">Luxury Social Media. Engineered for Growth.</p><div class="footer-social"><a href="#"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-linkedin"></i></a><a href="#"><i class="bi bi-youtube"></i></a><a href="#"><i class="bi bi-twitter-x"></i></a></div></div>
+        <div class="col-6 col-lg-2"><p class="footer-heading">Navigate</p><div class="footer-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="results.html">Results</a><a href="contact.html">Contact</a></div></div>
+        <div class="col-6 col-lg-3"><p class="footer-heading">Services</p><div class="footer-links"><a href="services.html">Social Management</a><a href="services.html">Reels & Video</a><a href="services.html">Paid Media</a><a href="services.html">Influencer Relations</a><a href="services.html">Brand Identity</a></div></div>
+        <div class="col-lg-3"><p class="footer-heading">Get in Touch</p><p style="font-size:0.85rem;color:var(--muted);line-height:1.8;">hello@auraagency.in<br>+91 98765 43210<br><br>Mumbai · Delhi · Bangalore</p></div>
+      </div>
+      <div class="footer-bottom d-flex justify-content-between flex-wrap gap-2"><span>© 2025 AURA Agency. All rights reserved.</span><span style="color:var(--gold);font-family:'Cormorant Garamond',serif;font-style:italic;letter-spacing:2px;">Crafted with intention.</span></div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="shared.js"></script>
+</body>
+</html>

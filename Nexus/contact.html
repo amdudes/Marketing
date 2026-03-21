@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us — Nexus Social | Let's Talk Growth</title>
+  <meta name="description" content="Ready to scale your brand? Book a free strategy call with Nexus Social — the premium social media marketing agency trusted by 220+ brands worldwide." />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page-transition">
+
+  <!-- BG Orbs -->
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- Particles -->
+  <canvas id="particles-canvas" style="position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0.4;"></canvas>
+
+  <!-- ═══════════════════════ NAVBAR ═══════════════════════ -->
+  <nav class="navbar-custom">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between w-100">
+        <a href="index.html" class="navbar-brand-logo">
+          <div class="logo-icon">⚡</div>
+          <span>Nexus<span class="gradient-text">Social</span></span>
+        </a>
+        <div class="d-none d-lg-flex align-items-center gap-1">
+          <ul class="navbar-nav flex-row gap-1 mb-0">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#services">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#work">Work</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+          <a href="contact.html" class="btn-primary-custom d-none d-md-inline-flex"><span>Start Growing →</span></a>
+          <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#mobileNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+      <div class="collapse w-100 mt-3" id="mobileNav">
+        <div class="glass-card p-3">
+          <ul class="navbar-nav gap-1 mb-3">
+            <li><a class="nav-link" href="index.html">Home</a></li>
+            <li><a class="nav-link" href="index.html#services">Services</a></li>
+            <li><a class="nav-link" href="index.html#work">Work</a></li>
+            <li><a class="nav-link" href="about.html">About</a></li>
+            <li><a class="nav-link active" href="contact.html">Contact</a></li>
+          </ul>
+          <a href="contact.html" class="btn-primary-custom w-100 justify-content-center"><span>Start Growing →</span></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════ PAGE HERO ═══════════════════════ -->
+  <section class="page-hero" style="padding-bottom:60px;">
+    <div class="page-hero-grid"></div>
+    <div class="container position-relative text-center" style="z-index:1;">
+      <div class="section-label mx-auto mb-4" style="display:inline-flex;" data-aos="fade-down">Let's Connect</div>
+      <h1 class="hero-headline" style="font-size:clamp(2.5rem,6vw,5rem);" data-aos="fade-up">
+        Let's Talk About<br />
+        <span class="gradient-text">Your Growth.</span>
+      </h1>
+      <p class="hero-sub mx-auto" style="text-align:center;" data-aos="fade-up" data-aos-delay="100">
+        Whether you're ready to start immediately or just exploring possibilities — we'd love to have an honest conversation about what's possible for your brand.
+      </p>
+
+      <!-- Trust badges -->
+      <div class="d-flex justify-content-center flex-wrap gap-3 mt-4" data-aos="fade-up" data-aos-delay="200">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.04);border:1px solid var(--border-glass);padding:8px 18px;border-radius:100px;font-size:0.82rem;color:var(--text-muted);">
+          ✅ Free 45-min strategy session
+        </div>
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.04);border:1px solid var(--border-glass);padding:8px 18px;border-radius:100px;font-size:0.82rem;color:var(--text-muted);">
+          ⚡ Response within 24 hours
+        </div>
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.04);border:1px solid var(--border-glass);padding:8px 18px;border-radius:100px;font-size:0.82rem;color:var(--text-muted);">
+          🔒 100% confidential
+        </div>
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.04);border:1px solid var(--border-glass);padding:8px 18px;border-radius:100px;font-size:0.82rem;color:var(--text-muted);">
+          🚫 No hard sell
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ CONTACT MAIN ═══════════════════════ -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+
+        <!-- Left: Info -->
+        <div class="col-lg-5">
+
+          <!-- Contact Info Card -->
+          <div class="glass-card contact-info-card mb-4" data-aos="fade-right">
+            <div class="section-label">Reach Us Directly</div>
+            <h3 style="font-size:1.5rem;margin-bottom:0.5rem;">We're <span class="gradient-text">Real People</span></h3>
+            <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem;">No bots, no automated responses. When you message us, a senior team member reads and responds personally.</p>
+
+            <div class="contact-method">
+              <div class="contact-method-icon">📧</div>
+              <div>
+                <div class="contact-method-label">Email Us</div>
+                <div class="contact-method-value"><a href="mailto:hello@nexussocial.com" style="color:inherit;">hello@nexussocial.com</a></div>
+                <div class="contact-method-sub">Best for detailed project inquiries</div>
+              </div>
+            </div>
+
+            <div class="contact-method">
+              <div class="contact-method-icon" style="background:rgba(6,182,212,0.12);border-color:rgba(6,182,212,0.2);">📞</div>
+              <div>
+                <div class="contact-method-label">Call Us</div>
+                <div class="contact-method-value"><a href="tel:+11234567890" style="color:inherit;">+1 (123) 456-7890</a></div>
+                <div class="contact-method-sub">Mon–Fri, 9am–6pm EST</div>
+              </div>
+            </div>
+
+            <div class="contact-method">
+              <div class="contact-method-icon" style="background:rgba(245,158,11,0.12);border-color:rgba(245,158,11,0.2);">💬</div>
+              <div>
+                <div class="contact-method-label">WhatsApp / Telegram</div>
+                <div class="contact-method-value">@NexusSocial</div>
+                <div class="contact-method-sub">Fastest response — usually under 2 hours</div>
+              </div>
+            </div>
+
+            <div class="contact-method">
+              <div class="contact-method-icon" style="background:rgba(16,185,129,0.12);border-color:rgba(16,185,129,0.2);">📍</div>
+              <div>
+                <div class="contact-method-label">Our Offices</div>
+                <div class="contact-method-value">New York · London · Dubai</div>
+                <div class="contact-method-sub">Visit by appointment only</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Social Links Card -->
+          <div class="glass-card" style="padding:32px;" data-aos="fade-right" data-aos-delay="100">
+            <div class="section-label">Follow Our Work</div>
+            <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:1.5rem;">See our latest campaigns, client wins, and behind-the-scenes content.</p>
+
+            <div style="display:flex;flex-direction:column;gap:12px;">
+
+              <a href="#" style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:rgba(255,255,255,0.03);border:1px solid var(--border-glass);border-radius:14px;transition:var(--transition);text-decoration:none;color:inherit;" onmouseover="this.style.borderColor='rgba(124,58,237,0.3)'" onmouseout="this.style.borderColor='var(--border-glass)'">
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <span style="font-size:1.4rem;">📸</span>
+                  <div>
+                    <div style="font-weight:600;font-size:0.9rem;">Instagram</div>
+                    <div style="font-size:0.78rem;color:var(--text-dim);">@nexussocial • 48K followers</div>
+                  </div>
+                </div>
+                <span style="color:var(--violet-light);font-size:0.8rem;">Follow →</span>
+              </a>
+
+              <a href="#" style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:rgba(255,255,255,0.03);border:1px solid var(--border-glass);border-radius:14px;transition:var(--transition);text-decoration:none;color:inherit;" onmouseover="this.style.borderColor='rgba(124,58,237,0.3)'" onmouseout="this.style.borderColor='var(--border-glass)'">
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <span style="font-size:1.4rem;">🎵</span>
+                  <div>
+                    <div style="font-weight:600;font-size:0.9rem;">TikTok</div>
+                    <div style="font-size:0.78rem;color:var(--text-dim);">@nexussocial • 82K followers</div>
+                  </div>
+                </div>
+                <span style="color:var(--violet-light);font-size:0.8rem;">Follow →</span>
+              </a>
+
+              <a href="#" style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:rgba(255,255,255,0.03);border:1px solid var(--border-glass);border-radius:14px;transition:var(--transition);text-decoration:none;color:inherit;" onmouseover="this.style.borderColor='rgba(124,58,237,0.3)'" onmouseout="this.style.borderColor='var(--border-glass)'">
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <span style="font-size:1.4rem;">💼</span>
+                  <div>
+                    <div style="font-weight:600;font-size:0.9rem;">LinkedIn</div>
+                    <div style="font-size:0.78rem;color:var(--text-dim);">Nexus Social • 22K followers</div>
+                  </div>
+                </div>
+                <span style="color:var(--violet-light);font-size:0.8rem;">Follow →</span>
+              </a>
+
+              <a href="#" style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:rgba(255,255,255,0.03);border:1px solid var(--border-glass);border-radius:14px;transition:var(--transition);text-decoration:none;color:inherit;" onmouseover="this.style.borderColor='rgba(124,58,237,0.3)'" onmouseout="this.style.borderColor='var(--border-glass)'">
+                <div style="display:flex;align-items:center;gap:12px;">
+                  <span style="font-size:1.4rem;">▶️</span>
+                  <div>
+                    <div style="font-weight:600;font-size:0.9rem;">YouTube</div>
+                    <div style="font-size:0.78rem;color:var(--text-dim);">Nexus Social • 14K subscribers</div>
+                  </div>
+                </div>
+                <span style="color:var(--violet-light);font-size:0.8rem;">Subscribe →</span>
+              </a>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Form -->
+        <div class="col-lg-7" data-aos="fade-left">
+          <div class="glass-card contact-form-card">
+
+            <div class="section-label">Start the Conversation</div>
+            <h2 style="font-size:1.8rem;margin-bottom:0.5rem;">Book a Free <span class="gradient-text">Strategy Call</span></h2>
+            <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:2rem;">Fill in the details below and we'll reach out within 24 hours to schedule your complimentary 45-minute growth strategy session.</p>
+
+            <form id="contact-form" novalidate>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label-custom">First Name *</label>
+                  <input type="text" class="form-control-custom" placeholder="John" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label-custom">Last Name *</label>
+                  <input type="text" class="form-control-custom" placeholder="Smith" required />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label-custom">Work Email *</label>
+                  <input type="email" class="form-control-custom" placeholder="john@company.com" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label-custom">Phone Number</label>
+                  <input type="tel" class="form-control-custom" placeholder="+1 (555) 000-0000" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label-custom">Company / Brand Name *</label>
+                <input type="text" class="form-control-custom" placeholder="Your company name" required />
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label-custom">Industry *</label>
+                  <select class="form-control-custom" required>
+                    <option value="" disabled selected>Select your industry</option>
+                    <option>E-Commerce / Retail</option>
+                    <option>Health & Wellness</option>
+                    <option>Food & Beverage</option>
+                    <option>SaaS / Technology</option>
+                    <option>Fashion & Beauty</option>
+                    <option>Real Estate</option>
+                    <option>Education / EdTech</option>
+                    <option>Finance / FinTech</option>
+                    <option>Hospitality & Travel</option>
+                    <option>Professional Services</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label-custom">Monthly Budget (USD) *</label>
+                  <select class="form-control-custom" required>
+                    <option value="" disabled selected>Select budget range</option>
+                    <option>$1,000 – $3,000/month</option>
+                    <option>$3,000 – $7,500/month</option>
+                    <option>$7,500 – $15,000/month</option>
+                    <option>$15,000 – $30,000/month</option>
+                    <option>$30,000+/month</option>
+                    <option>Not sure yet — need guidance</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label-custom">Services You're Interested In</label>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px;">
+                  <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:0.88rem;color:var(--text-muted);">
+                    <input type="checkbox" style="accent-color:var(--violet);width:16px;height:16px;" /> Social Media Management
+                  </label>
+                  <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:0.88rem;color:var(--text-muted);">
+                    <input type="checkbox" style="accent-color:var(--violet);width:16px;height:16px;" /> Paid Social Advertising
+                  </label>
+                  <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:0.88rem;color:var(--text-muted);">
+                    <input type="checkbox" style="accent-color:var(--violet);width:16px;height:16px;" /> Brand Identity & Design
+                  </label>
+                  <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:0.88rem;color:var(--text-muted);">
+                    <input type="checkbox" style="accent-color:var(--violet);width:16px;height:16px;" /> Content Production
+                  </label>
+                  <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:0.88rem;color:var(--text-muted);">
+                    <input type="checkbox" style="accent-color:var(--violet);width:16px;height:16px;" /> Growth Strategy
+                  </label>
+                  <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:0.88rem;color:var(--text-muted);">
+                    <input type="checkbox" style="accent-color:var(--violet);width:16px;height:16px;" /> Influencer Marketing
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label-custom">Current Biggest Challenge *</label>
+                <select class="form-control-custom" required>
+                  <option value="" disabled selected>What's your primary growth challenge?</option>
+                  <option>Low engagement / dead social media</option>
+                  <option>Poor ROAS on paid ads</option>
+                  <option>Inconsistent content & brand presence</option>
+                  <option>No clear social media strategy</option>
+                  <option>Need to launch a new brand from scratch</option>
+                  <option>Scaling from local to national/global</option>
+                  <option>Competitor outperforming us on social</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label-custom">Tell Us More About Your Goals *</label>
+                <textarea class="form-control-custom" rows="5" placeholder="Share your current situation, what you've tried before, and what success looks like for you in the next 6–12 months. The more specific you are, the more valuable our initial strategy session will be..." required style="resize:vertical;min-height:130px;"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label-custom">How Did You Hear About Us?</label>
+                <select class="form-control-custom">
+                  <option value="" disabled selected>Select an option</option>
+                  <option>Google Search</option>
+                  <option>Instagram</option>
+                  <option>TikTok</option>
+                  <option>LinkedIn</option>
+                  <option>Referral from a friend/client</option>
+                  <option>Podcast or YouTube</option>
+                  <option>Industry event</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn-primary-custom submit-btn">
+                <span>🚀 Book My Free Strategy Call</span>
+              </button>
+
+              <p style="font-size:0.78rem;color:var(--text-dim);margin-top:1rem;text-align:center;">By submitting, you agree to our Privacy Policy. We respect your data — no spam, ever.</p>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ OFFICES ═══════════════════════ -->
+  <section style="padding:60px 0;position:relative;z-index:1;">
+    <div class="container">
+      <div class="section-header text-center" data-aos="fade-up">
+        <div class="section-label mx-auto" style="display:inline-flex;">Our Offices</div>
+        <h2 class="section-title">Where to <span class="gradient-text">Find Us</span></h2>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+          <div class="glass-card" style="padding:36px;text-align:center;">
+            <div style="font-size:3rem;margin-bottom:16px;">🗽</div>
+            <h4 style="font-size:1.2rem;margin-bottom:8px;">New York</h4>
+            <div style="font-size:0.85rem;color:var(--text-muted);line-height:1.8;">
+              <div>350 Fifth Avenue, Suite 5600</div>
+              <div>New York, NY 10118</div>
+              <div style="margin-top:10px;color:var(--cyan);font-weight:600;">HQ Office</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="80">
+          <div class="glass-card" style="padding:36px;text-align:center;">
+            <div style="font-size:3rem;margin-bottom:16px;">🎡</div>
+            <h4 style="font-size:1.2rem;margin-bottom:8px;">London</h4>
+            <div style="font-size:0.85rem;color:var(--text-muted);line-height:1.8;">
+              <div>20 Fenchurch Street, Level 24</div>
+              <div>London, EC3M 3BY, UK</div>
+              <div style="margin-top:10px;color:var(--violet-light);font-weight:600;">EMEA Office</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="160">
+          <div class="glass-card" style="padding:36px;text-align:center;">
+            <div style="font-size:3rem;margin-bottom:16px;">🏙️</div>
+            <h4 style="font-size:1.2rem;margin-bottom:8px;">Dubai</h4>
+            <div style="font-size:0.85rem;color:var(--text-muted);line-height:1.8;">
+              <div>DIFC, Gate Avenue South</div>
+              <div>Dubai, UAE</div>
+              <div style="margin-top:10px;color:var(--gold);font-weight:600;">MENA Office</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ MAP ═══════════════════════ -->
+  <section class="map-section">
+    <div class="container">
+      <div class="map-placeholder" data-aos="zoom-in">
+        <div class="map-pin">📍</div>
+        <div class="map-text">Interactive Map</div>
+        <div class="map-sub">New York · London · Dubai</div>
+        <a href="https://maps.google.com" target="_blank" class="btn-outline-custom" style="margin-top:16px;"><span>Open in Google Maps →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ FAQ ═══════════════════════ -->
+  <section class="faq-section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-header text-center" data-aos="fade-up">
+        <div class="section-label mx-auto" style="display:inline-flex;">Before You Reach Out</div>
+        <h2 class="section-title">Common <span class="gradient-text">Questions</span></h2>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-8" data-aos="fade-up">
+          <details class="faq-item">
+            <summary class="faq-question">What happens after I submit the contact form?</summary>
+            <div class="faq-answer">A senior Nexus Social team member reviews your submission and reaches out within 24 hours (usually much faster). We'll schedule a complimentary 45-minute strategy call where we discuss your brand, goals, and what's realistically achievable. No pitch deck, no hard sell — just an honest conversation.</div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Is the strategy call really free? What's the catch?</summary>
+            <div class="faq-answer">100% free, no catch. We invest in the strategy call because we only partner with brands we're genuinely confident we can help. The session gives us both the information to decide if we're the right fit — and gives you real value regardless of whether we work together.</div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">What's the minimum budget to work with Nexus Social?</summary>
+            <div class="faq-answer">Our retained management packages start at $1,500/month (strategy + management, no ad spend). For paid media management, we recommend a minimum of $3,000/month in ad spend to generate statistically meaningful data. We'll always tell you honestly if your budget is below what's needed to achieve your goals.</div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">Do you work with brands outside the US?</summary>
+            <div class="faq-answer">Absolutely. We have clients in 18+ countries across North America, Europe, the Middle East, and Asia. Our London and Dubai offices give us native market intelligence for international campaigns, and we've built teams fluent in multiple languages and cultures.</div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question">How long are your contracts?</summary>
+            <div class="faq-answer">We offer both 3-month minimum agreements and month-to-month arrangements (at a slight premium). We don't believe in trapping clients — we believe in delivering results that make them want to stay. Our average client tenure is 18+ months.</div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <div class="footer-brand">
+            <a href="index.html" class="navbar-brand-logo mb-3 d-inline-flex">
+              <div class="logo-icon">⚡</div>
+              <span>Nexus<span class="gradient-text">Social</span></span>
+            </a>
+          </div>
+          <p class="footer-desc">We are a results-obsessed social media marketing agency turning ambitious brands into category leaders. Premium strategy. Measurable growth. No fluff.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link">📸</a>
+            <a href="#" class="social-link">🎵</a>
+            <a href="#" class="social-link">💼</a>
+            <a href="#" class="social-link">🐦</a>
+            <a href="#" class="social-link">▶️</a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <p class="footer-heading">Services</p>
+          <ul class="footer-links">
+            <li><a href="index.html#services">Social Media Mgmt</a></li>
+            <li><a href="index.html#services">Paid Advertising</a></li>
+            <li><a href="index.html#services">Brand Identity</a></li>
+            <li><a href="index.html#services">Content Production</a></li>
+            <li><a href="index.html#services">Growth Strategy</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <p class="footer-heading">Company</p>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="about.html#team">Our Team</a></li>
+            <li><a href="index.html#work">Case Studies</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-2">
+          <p class="footer-heading">Contact</p>
+          <ul class="footer-links">
+            <li><a href="mailto:hello@nexussocial.com">hello@nexussocial.com</a></li>
+            <li><a href="tel:+11234567890">+1 (123) 456-7890</a></li>
+            <li><a href="#">New York, NY</a></li>
+            <li><a href="#">London, UK</a></li>
+            <li><a href="#">Dubai, UAE</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2025 Nexus Social. All rights reserved.</p>
+        <p>Privacy Policy · Terms of Service · Cookie Policy</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
