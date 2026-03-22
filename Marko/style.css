@@ -234,6 +234,7 @@ h5,
     justify-content: center;
     transition: all .3s;
     cursor: pointer;
+    display: none;
 }
 
 .theme-btn:hover {
