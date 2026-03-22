@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marko — Digital Marketing Agency</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+  </style>
+
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <div class="logo-icon">M</div>
+        <div class="brand-text">
+          <span class="brand-name">marko</span>
+          <span class="brand-sub">Digital Marketing Agency</span>
+        </div>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <i class="fa fa-bars text-white"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Services</a>
+            <ul class="dropdown-menu" style="background:var(--bg-card2);border:1px solid var(--border);">
+              <li><a class="dropdown-item" style="color:var(--text-muted);font-size:14px;" href="#">SEO & Content</a>
+              </li>
+              <li><a class="dropdown-item" style="color:var(--text-muted);font-size:14px;" href="#">PPC & Paid Ads</a>
+              </li>
+              <li><a class="dropdown-item" style="color:var(--text-muted);font-size:14px;" href="#">Social Media</a>
+              </li>
+              <li><a class="dropdown-item" style="color:var(--text-muted);font-size:14px;" href="#">Brand Strategy</a>
+              </li>
+            </ul>
+          </li> -->
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-3">
+          <div class="theme-btn"><i class="fa fa-moon"></i></div>
+          <a href="contact.html" class="btn-call">
+            <span class="call-icon"><i class="fa fa-phone"></i></span>
+            +1 (62) 987 7543
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-particles" id="particles"></div>
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6 fade-up">
+          <div class="hero-title">
+            <div class="line1">Amplify Your Brand with Cutting–Edge <span class="accent">Digital</span> Marketing</div>
+            <!-- <div class="line1">Brand <span class="dim">with</span></div> -->
+            <!-- <div class="line2">Cutting–Edge</div> -->
+            <!-- <div class="line2"><span class="accent">Digital</span></div> -->
+            <!-- <div class="line2">Marketing</div> -->
+          </div>
+          <p class="hero-desc">Marko empowers businesses to grow online with data-driven digital marketing, innovative
+            branding, and performance-focused strategies trusted by top brands worldwide.</p>
+          <div class="d-flex align-items-center gap-4 mb-5 flex-wrap">
+            <a href="contact.html" class="btn-primary-custom">
+              Get Started
+              <span class="arrow-wrap"><i class="fa fa-arrow-right"></i></span>
+            </a>
+            <button class="btn-video">
+              <span class="play-btn"><i class="fa fa-play"></i></span>
+              <span>Watch our video<br><small style="color:var(--text-muted);">client success stories</small></span>
+            </button>
+          </div>
+          <div class="hero-avatars">
+            <div class="avatar-stack">
+              <div class="avatar-item" style="margin-left:0;">JD</div>
+              <div class="avatar-item" style="background:#7c3aed;">AM</div>
+              <div class="avatar-item" style="background:#d946ef;">SK</div>
+            </div>
+            <div class="hero-stat">
+              <strong>2.7k+</strong>
+              <span>Positive Reviews</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 fade-in">
+          <div style="position:relative;">
+            <div class="hero-card-float"
+              style="background:linear-gradient(135deg,rgba(124,58,237,0.15),rgba(10,10,20,0.8));border:1px solid var(--border);border-radius:24px;padding:30px;height:460px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;">
+              <!-- Animated wave bg -->
+              <div
+                style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 70%,rgba(168,85,247,0.25) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(217,70,239,0.15) 0%,transparent 50%);">
+              </div>
+              <div style="text-align:center;position:relative;z-index:1;">
+                <div
+                  style="font-family:'Syne',sans-serif;font-size:64px;font-weight:800;color:rgba(168,85,247,0.15);position:absolute;top:-40px;left:50%;transform:translateX(-50%);white-space:nowrap;letter-spacing:-3px;">
+                  DIGITAL</div>
+                <div id="heroChart" style="width:100%;"></div>
+                <div style="margin-top:20px;">
+                  <div style="font-family:'Syne',sans-serif;font-size:36px;font-weight:800;color:#fff;">340%</div>
+                  <div style="font-size:13px;color:var(--text-muted);">Average ROI for Clients</div>
+                </div>
+                <div class="d-flex justify-content-center gap-3 mt-3">
+                  <div
+                    style="background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:10px;padding:10px 16px;text-align:center;">
+                    <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;color:#fff;">98%</div>
+                    <div style="font-size:11px;color:var(--text-muted);">Satisfaction</div>
+                  </div>
+                  <div
+                    style="background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:10px;padding:10px 16px;text-align:center;">
+                    <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;color:#fff;">500+</div>
+                    <div style="font-size:11px;color:var(--text-muted);">Projects Done</div>
+                  </div>
+                  <div
+                    style="background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:10px;padding:10px 16px;text-align:center;">
+                    <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;color:#fff;">21+</div>
+                    <div style="font-size:11px;color:var(--text-muted);">Years Exp.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Float Cards -->
+            <div class="metric-card top-right">
+              <div class="metric-val"><span class="pct">+</span>150%</div>
+              <div class="metric-label">Lead Generation</div>
+              <div class="metric-trend"><i class="fa fa-arrow-trend-up"></i> This month</div>
+            </div>
+            <div class="metric-card bottom-left">
+              <div class="metric-val"><span class="pct">70%</span></div>
+              <div class="metric-label">Lower Acq. Cost</div>
+              <div class="metric-trend"><i class="fa fa-arrow-trend-down"></i> Avg. saving</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ═══ MARQUEE ══════════════════════════════════════════ -->
+  <div class="marquee-wrap">
+    <div class="m-track">
+      <div class="m-item"><i class="fa fa-circle"></i>Performance Marketing</div>
+      <div class="m-item"><i class="fa fa-circle"></i>Social Media Growth</div>
+      <div class="m-item"><i class="fa fa-circle"></i>SEO &amp; Content</div>
+      <div class="m-item"><i class="fa fa-circle"></i>PPC &amp; Paid Ads</div>
+      <div class="m-item"><i class="fa fa-circle"></i>Brand Strategy</div>
+      <div class="m-item"><i class="fa fa-circle"></i>Email Automation</div>
+      <div class="m-item"><i class="fa fa-circle"></i>Conversion Optimisation</div>
+      <div class="m-item"><i class="fa fa-circle"></i>Data Analytics</div>
+      <div class="m-item"><i class="fa fa-circle"></i>Influencer Marketing</div>
+      <div class="m-item"><i class="fa fa-circle"></i>Performance Marketing</div>
+      <div class="m-item"><i class="fa fa-circle"></i>Social Media Growth</div>
+      <div class="m-item"><i class="fa fa-circle"></i>SEO &amp; Content</div>
+      <div class="m-item"><i class="fa fa-circle"></i>PPC &amp; Paid Ads</div>
+      <div class="m-item"><i class="fa fa-circle"></i>Brand Strategy</div>
+      <div class="m-item"><i class="fa fa-circle"></i>Email Automation</div>
+      <div class="m-item"><i class="fa fa-circle"></i>Conversion Optimisation</div>
+      <div class="m-item"><i class="fa fa-circle"></i>Data Analytics</div>
+      <div class="m-item"><i class="fa fa-circle"></i>Influencer Marketing</div>
+    </div>
+  </div>
+
+  <!-- ═══ ABOUT / EXPERTISE ══════════════════════════════════ -->
+  <section class="about-sec">
+    <div class="container">
+      <div class="row g-5 align-items-start">
+
+        <!-- LEFT: image mosaic exactly like reference -->
+        <div class="col-lg-5 rv">
+          <div class="img-mosaic">
+            <div class="im-cta"
+              style="grid-column:1;grid-row:1;background:var(--bg3);border:1px solid var(--rim);border-radius:16px;padding:26px;">
+              <div>
+                <h4 style="font-size:18px;font-weight:700;line-height:1.4;margin-bottom:10px;">Ready to Elevate Your
+                  Digital Presence?</h4>
+                <p style="font-size:13px;color:var(--dim);line-height:1.6;margin-bottom:16px;">Let's create a custom
+                  strategy that fits your business goals.</p>
+                <a href="contact.html" class="link-arrow">Get Free Consultation <span class="arr2"><i
+                      class="fa fa-arrow-right fa-xs"></i></span></a>
+              </div>
+            </div>
+            <div style="grid-column:2;grid-row:1;border-radius:16px;overflow:hidden;border:1px solid var(--rimw);">
+              <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?w=400&h=260&fit=crop" alt="Office"
+                style="width:100%;height:100%;object-fit:cover;display:block;">
+            </div>
+            <div
+              style="grid-column:1/3;grid-row:2;border-radius:16px;overflow:hidden;border:1px solid var(--rimw);margin-top:0;">
+              <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=360&fit=crop"
+                alt="Team meeting" style="width:100%;height:300px;object-fit:cover;display:block;">
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: expertise content -->
+        <div class="col-lg-7 rv d1">
+          <div class="tag"><span class="tag-dot"></span>Our Expertise</div>
+          <h2 class="sec-title mb-4">Data Driven Strategies,<br><span class="faint">Measurable Results</span></h2>
+          <p style="font-size:15px;color:var(--dim);line-height:1.8;margin-bottom:10px;">At Marko, we specialize in
+            crafting innovative digital marketing strategies that drive real business growth. Our expertise ensures your
+            brand stays ahead in the competitive digital landscape.</p>
+
+          <p style="font-size:15px;font-weight:700;color:var(--white);margin-bottom:4px;margin-top:24px;">What We Do
+            Best</p>
+
+          <div class="adjust">
+
+            <div class="adjust-card">
+              <ul class="exp-checklist">
+                <li><i class="fa fa-circle-check"></i>Performance Marketing</li>
+                <li><i class="fa fa-circle-check"></i>Social Media Growth</li>
+                <li><i class="fa fa-circle-check"></i>Content Marketing</li>
+                <li><i class="fa fa-circle-check"></i>PPC &amp; Paid Ads</li>
+                <li><i class="fa fa-circle-check"></i>Brand Strategy</li>
+                <li><i class="fa fa-circle-check"></i>Conversion Optimization</li>
+              </ul>
+            </div>
+            <!-- Stat card matching reference "21+" card -->
+            <div class="stat-card">
+              <div class="big">21+</div>
+              <div class="big-label">Years of Experience on Digital Marketing Services</div>
+              <div class="big-desc">Our deep expertise spans two decades of evolving digital trends, proven strategies,
+                and measurable results for 500+ brands globally.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BRANDS ═════════════════════════════════════════════ -->
+  <section class="brands-sec">
+    <div class="container">
+      <div class="brands-top rv">
+        <h2>Powering Success for<br>Top Brands</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ex ligula, varius at rutrum et, finibus sed
+          felis. Quisque eget tincidunt lectus. Sed quis diam sed neque mattis feugiat.</p>
+      </div>
+      <div class="brand-bar rv">
+        <div class="brand-item"><span>⬡ envix</span></div>
+        <div class="brand-item"><span>◎ Markon</span></div>
+        <div class="brand-item"><span>⬢ crevox</span></div>
+        <div class="brand-item"><span>▣ Brandex</span></div>
+        <div class="brand-item"><span>▷ bravix</span></div>
+        <div class="brand-item"><span>△ Nexora</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHY US ══════════════════════════════════════════════ -->
+  <section class="why-sec">
+    <div class="container">
+      <div class="row g-5 align-items-start">
+
+        <!-- Feature cards — left col, exactly like reference -->
+        <div class="col-lg-5 rv">
+          <div class="tag mb-3"><span class="tag-dot"></span>Why Choose Marko</div>
+          <h2 class="sec-title mb-5">Your Success is Our<br><span class="faint">Mission</span></h2>
+          <div class="feat-card">
+            <div class="feat-icon-box"><i class="fa fa-chart-line"></i></div>
+            <div class="feat-body">
+              <h5>Data–Driven Approach</h5>
+              <p>Every decision is backed by real-time analytics for maximum impact lorem ipsum dolor sit consectetur
+                adipiscing elit ut elit tellus luctus nec.</p>
+              <a href="#" class="link-arrow" style="font-size:13px;">Read More <span class="arr2"><i
+                    class="fa fa-arrow-right fa-xs"></i></span></a>
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon-box"><i class="fa fa-lightbulb"></i></div>
+            <div class="feat-body">
+              <h5>Creative &amp; Innovative</h5>
+              <p>Cutting-edge marketing techniques to keep you ahead of the competition lorem ipsum dolor sit awsa
+                consectetur adipiscing elit ut elit.</p>
+              <a href="#" class="link-arrow" style="font-size:13px;">Read More <span class="arr2"><i
+                    class="fa fa-arrow-right fa-xs"></i></span></a>
+            </div>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon-box"><i class="fa fa-file-chart-column"></i></div>
+            <div class="feat-body">
+              <h5>Transparent Reporting</h5>
+              <p>Clear insights and performance tracking, so you always know your ROI lorem ipsum dolor sit consectetur
+                adipiscing elit ut elit tellus luctus.</p>
+              <a href="#" class="link-arrow" style="font-size:13px;">Read More <span class="arr2"><i
+                    class="fa fa-arrow-right fa-xs"></i></span></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: text + image with overlay card, exactly like reference -->
+        <div class="col-lg-7 rv d1 custom-margin-135">
+          <div class="row g-4 align-items-start">
+            <div class="col-12">
+              <p style="font-size:15px;color:var(--dim);line-height:1.8;max-width:480px;">In the fast-paced digital
+                world, choosing the right marketing partner makes all the difference. At Marko, we don't just create
+                campaigns — we craft strategies that deliver measurable success.</p>
+            </div>
+            <div class="col-12">
+              <div class="why-img-wrap">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&h=500&fit=crop"
+                  alt="Team working">
+                <div class="why-img-overlay">
+                  <h5>Partner with Marko &amp; take your brand to the next level.</h5>
+                  <p>Join 500+ businesses that chose us as their trusted growth partner.</p>
+                  <a href="contact.html" class="link-arrow" style="font-size:13px;">Let's Talk Strategy <span
+                      class="arr2"><i class="fa fa-arrow-right fa-xs"></i></span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICES ════════════════════════════════════════════ -->
+  <section class="svc-sec">
+    <div class="container">
+      <div class="row align-items-end mb-5">
+        <div class="col-lg-6 rv">
+          <div class="tag"><span class="tag-dot"></span>What We Offer</div>
+          <h2 class="sec-title">Our Core <span class="faint">Services</span></h2>
+        </div>
+        <div class="col-lg-5 offset-lg-1 rv d1">
+          <p style="font-size:15px;color:var(--dim);line-height:1.8;">Full-spectrum digital marketing engineered to
+            drive growth, increase visibility, and deliver measurable ROI at every touchpoint.</p>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6 rv">
+          <div class="svc-card">
+            <div class="svc-img"><img
+                src="https://images.unsplash.com/photo-1562577309-4932fdd64cd1?w=600&h=280&fit=crop" alt="SEO">
+              <div class="svc-img-shade"></div>
+              <div class="svc-icon-badge"><i class="fa fa-magnifying-glass-chart"></i></div>
+            </div>
+            <div class="svc-body">
+              <h4>SEO Optimisation</h4>
+              <p>Dominate search rankings with data-driven strategies that drive organic traffic and generate qualified
+                leads for long-term growth.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 rv d1">
+          <div class="svc-card">
+            <div class="svc-img"><img
+                src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=280&fit=crop" alt="Social">
+              <div class="svc-img-shade"></div>
+              <div class="svc-icon-badge"><i class="fa fa-share-nodes"></i></div>
+            </div>
+            <div class="svc-body">
+              <h4>Social Media Growth</h4>
+              <p>Build powerful social presence and turn followers into loyal customers with strategic, data-driven
+                campaigns.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 rv d2">
+          <div class="svc-card">
+            <div class="svc-img"><img
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=280&fit=crop" alt="PPC">
+              <div class="svc-img-shade"></div>
+              <div class="svc-icon-badge"><i class="fa fa-bullseye"></i></div>
+            </div>
+            <div class="svc-body">
+              <h4>PPC &amp; Paid Ads</h4>
+              <p>Maximize ROI with precision-targeted campaigns across Google, Meta, and LinkedIn platforms.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 rv">
+          <div class="svc-card">
+            <div class="svc-img"><img
+                src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&h=280&fit=crop" alt="Content">
+              <div class="svc-img-shade"></div>
+              <div class="svc-icon-badge"><i class="fa fa-pen-nib"></i></div>
+            </div>
+            <div class="svc-body">
+              <h4>Content Marketing</h4>
+              <p>Craft compelling narratives that educate, inspire, and convert your audience at every stage of their
+                journey.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 rv d1">
+          <div class="svc-card">
+            <div class="svc-img"><img
+                src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&h=280&fit=crop" alt="Brand">
+              <div class="svc-img-shade"></div>
+              <div class="svc-icon-badge"><i class="fa fa-wand-magic-sparkles"></i></div>
+            </div>
+            <div class="svc-body">
+              <h4>Brand Strategy</h4>
+              <p>Define your brand's positioning and voice to stand out and build authentic connections with ideal
+                customers.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 rv d2">
+          <div class="svc-card">
+            <div class="svc-img"><img
+                src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&h=280&fit=crop" alt="Email">
+              <div class="svc-img-shade"></div>
+              <div class="svc-icon-badge"><i class="fa fa-envelope-open-text"></i></div>
+            </div>
+            <div class="svc-body">
+              <h4>Email Marketing</h4>
+              <p>Nurture leads with personalised sequences and automated workflows that deliver consistent results.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CASE STUDIES ════════════════════════════════════════ -->
+  <section class="cases-sec">
+    <div class="container">
+      <!-- Outer bordered box exactly like ref -->
+      <div class="cases-outer rv">
+        <div class="row justify-content-between align-items-start mb-4">
+          <div class="col-lg-5">
+            <div class="tag mb-2"><span class="tag-dot"></span>Case Studies</div>
+            <h2 class="sec-title">See How We Help<br>Businesses <span class="faint">Thrive</span></h2>
+          </div>
+          <div class="col-lg-5 d-flex flex-column justify-content-end">
+            <p style="font-size:14px;color:var(--dim);line-height:1.7;margin-bottom:14px;">We don't just talk about
+              results—we deliver them. Here are some of our most impactful case studies showcasing how our digital
+              marketing strategies drive success.</p>
+            <a href="#" class="link-arrow" style="font-size:13px;">More Case Studies <span class="arr2"><i
+                  class="fa fa-arrow-right fa-xs"></i></span></a>
+          </div>
+        </div>
+        <div class="row g-3">
+          <div class="col-lg-6 rv">
+            <div class="case-card">
+              <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=500&fit=crop" alt="Local biz">
+              <div class="case-scrim"></div>
+              <div class="case-metric"><strong>5×</strong><span>ROI</span></div>
+              <div class="case-body">
+                <div class="case-tags"><span class="c-tag">Social</span><span class="c-tag">Influencer</span><span
+                    class="c-tag">Retargeting</span><span class="c-tag">Google</span><span
+                    class="c-tag">Video</span><span class="c-tag">Local</span></div>
+                <h4>Local Business Digital Transformation</h4>
+                <p>5x ROI on social media campaigns &amp; 80% increase in engagement lorem ipsum dolor sit amet
+                  consectetur.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 rv d1">
+            <div class="case-card">
+              <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=500&fit=crop" alt="SaaS">
+              <div class="case-scrim"></div>
+              <div class="case-metric"><strong>+150%</strong><span>Leads</span></div>
+              <div class="case-body">
+                <div class="case-tags"><span class="c-tag">Content</span><span class="c-tag">LinkedIn Ads</span><span
+                    class="c-tag">Email</span><span class="c-tag">Webinar</span><span class="c-tag">CRM</span></div>
+                <h4>SaaS Lead Generation Success</h4>
+                <p>150% increase in qualified leads &amp; 70% lower customer acquisition cost.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 rv">
+            <div class="case-card">
+              <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&h=500&fit=crop" alt="ecomm">
+              <div class="case-scrim"></div>
+              <div class="case-metric"><strong>3×</strong><span>Traffic</span></div>
+              <div class="case-body">
+                <div class="case-tags"><span class="c-tag">SEO</span><span class="c-tag">PPC Ads</span><span
+                    class="c-tag">CRO</span><span class="c-tag">Analytics</span><span class="c-tag">A/B Testing</span>
+                </div>
+                <h4>E-Commerce Growth Boost</h4>
+                <p>3x increase in organic traffic &amp; 2x revenue growth in 6 months lorem ipsum dolor.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 rv d1">
+            <div class="case-card">
+              <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=500&fit=crop" alt="Startup">
+              <div class="case-scrim"></div>
+              <div class="case-metric"><strong>+200%</strong><span>Mentions</span></div>
+              <div class="case-body">
+                <div class="case-tags"><span class="c-tag">Viral</span><span class="c-tag">Partnership</span><span
+                    class="c-tag">PR</span><span class="c-tag">Growth</span><span class="c-tag">UGC</span></div>
+                <h4>Startup Brand Awareness Expansion</h4>
+                <p>200% increase in brand mentions &amp; 90% higher engagement rates lorem ipsum dolor sit.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ REVIEWS STAT ROW ════════════════════════════════════ -->
+  <section class="rev-row-sec" style="padding:0 0 0;">
+    <div class="container">
+      <div class="row g-4 align-items-stretch" style="padding:60px 0;">
+        <!-- Left: stat card -->
+        <div class="col-lg-4 rv">
+          <div class="rev-stat-card" style="height:100%;">
+            <div class="rev-avs-row">
+              <div class="r-av"><img
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face"
+                  alt=""></div>
+              <div class="r-av"><img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face"
+                  alt=""></div>
+              <div class="r-av"><img
+                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face"
+                  alt=""></div>
+              <div class="r-av"><img
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face"
+                  alt=""></div>
+            </div>
+            <div style="font-size:15px;font-weight:700;color:var(--white);margin-bottom:20px;">2.7k Positive Reviews
+            </div>
+            <div class="row g-3">
+              <div class="col-6">
+                <div class="r-big">90%</div>
+                <div class="r-sub">Improved Project</div>
+              </div>
+              <div class="col-6">
+                <div class="r-big">49%</div>
+                <div class="r-sub">New Project</div>
+              </div>
+            </div>
+            <div class="r-service-tag mt-3"><i class="fa fa-circle-check"></i>Social Media Growth</div>
+            <div class="r-service-tag"><i class="fa fa-circle-check"></i>Performance Marketing</div>
+          </div>
+        </div>
+        <!-- Right: testimonials intro -->
+        <div class="col-lg-8 rv d1">
+          <div style="border:1px solid var(--rim);border-radius:18px;padding:44px;height:100%;">
+            <div class="tag mb-3"><span class="tag-dot"></span>What Our Client Says</div>
+            <h2 class="sec-title" style="font-size:clamp(30px,4vw,54px);">Hear from Our Satisfied<br>Clients, <span
+                class="faint">Real Success Stories</span></h2>
+            <p style="font-size:15px;color:var(--dim);line-height:1.8;margin-top:20px;max-width:500px;">Discover how
+              businesses like yours achieved outstanding growth with Marko's expert digital marketing solutions and
+              strategic approach.</p>
+            <a href="#" class="link-arrow mt-4 d-inline-flex">Read All Reviews <span class="arr2"><i
+                  class="fa fa-arrow-right fa-xs"></i></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIALS ════════════════════════════════════════ -->
+  <section class="testi-sec">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6 rv">
+          <div class="tcard">
+            <div class="tcard-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                class="fa fa-star"></i><i class="fa fa-star"></i></div>
+            <p class="tcard-text">"Marko completely transformed our online presence. Within 3 months, lead generation
+              doubled and cost per acquisition dropped 45%. Remarkable results."</p>
+            <div class="tcard-author">
+              <div class="t-av"><img
+                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=face"
+                  alt="James"></div>
+              <div>
+                <div class="t-name">James Morrison</div>
+                <div class="t-role">CEO, TechStart Inc.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 rv d1">
+          <div class="tcard">
+            <div class="tcard-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                class="fa fa-star"></i><i class="fa fa-star"></i></div>
+            <p class="tcard-text">"The team at Marko is incredible — data-driven, creative, and incredibly responsive.
+              Our e-commerce revenue grew 3× in just six months. Best investment we've made."</p>
+            <div class="tcard-author">
+              <div class="t-av"><img
+                  src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face"
+                  alt="Sarah"></div>
+              <div>
+                <div class="t-name">Sarah Rodriguez</div>
+                <div class="t-role">Founder, ShopElevate</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 rv d2">
+          <div class="tcard-big">
+            <div>
+              <div class="num">4.9</div>
+              <div class="lbl">Average rating across<br>all review platforms</div>
+            </div>
+            <div class="tbadges"><span class="tbadge">Google ★ 4.9</span><span class="tbadge">Clutch ★ 4.8</span><span
+                class="tbadge">GoodFirms ★ 5.0</span><span class="tbadge">2,700+ Reviews</span></div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 rv">
+          <div class="tcard">
+            <div class="tcard-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                class="fa fa-star"></i><i class="fa fa-star"></i></div>
+            <p class="tcard-text">"Transparent reporting, consistent communication, outstanding results. Marko helped us
+              reach markets we never thought possible. 200% brand awareness growth!"</p>
+            <div class="tcard-author">
+              <div class="t-av"><img
+                  src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&h=100&fit=crop&crop=face"
+                  alt="David"></div>
+              <div>
+                <div class="t-name">David Kim</div>
+                <div class="t-role">CMO, BrandForce</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 rv d1">
+          <div class="tcard">
+            <div class="tcard-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                class="fa fa-star"></i><i class="fa fa-star"></i></div>
+            <p class="tcard-text">"From day one, the Marko team understood our vision. Their content strategy helped us
+              establish thought leadership that no competitor could touch."</p>
+            <div class="tcard-author">
+              <div class="t-av"><img
+                  src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&h=100&fit=crop&crop=face"
+                  alt="Amanda"></div>
+              <div>
+                <div class="t-name">Amanda Chen</div>
+                <div class="t-role">VP Marketing, Nexora</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 rv d2">
+          <div class="tcard">
+            <div class="tcard-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                class="fa fa-star"></i><i class="fa fa-star"></i></div>
+            <p class="tcard-text">"We've worked with 3 agencies before Marko. None came close to delivering this level
+              of results and communication. This is a true long-term partnership."</p>
+            <div class="tcard-author">
+              <div class="t-av"><img
+                  src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=face"
+                  alt="Michael"></div>
+              <div>
+                <div class="t-name">Michael Torres</div>
+                <div class="t-role">CEO, Elevate Studios</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PROCESS ══════════════════════════════════════════════ -->
+  <section class="process-sec">
+    <div class="container">
+      <div class="text-center mb-5 rv">
+        <div class="tag" style="justify-content:center;"><span class="tag-dot"></span>How We Work</div>
+        <h2 class="sec-title mt-2">Our Proven <span class="faint">Process</span></h2>
+        <p style="font-size:15px;color:var(--dim);max-width:460px;margin:14px auto 0;line-height:1.7;">A step-by-step
+          framework designed to take your brand from strategy to measurable success.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6 rv">
+          <div class="proc-card">
+            <div class="proc-icon"><i class="fa fa-magnifying-glass"></i></div>
+            <div class="proc-num">01</div>
+            <h4>Discovery</h4>
+            <p>Deep-diving into your business, industry, and audience to build the strategy foundation.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 rv d1">
+          <div class="proc-card">
+            <div class="proc-icon"><i class="fa fa-map"></i></div>
+            <div class="proc-num">02</div>
+            <h4>Strategy</h4>
+            <p>A custom, data-backed plan tailored to your unique goals, budget, and timeline.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 rv d2">
+          <div class="proc-card">
+            <div class="proc-icon"><i class="fa fa-rocket"></i></div>
+            <div class="proc-num">03</div>
+            <h4>Execution</h4>
+            <p>Launching campaigns, building funnels, and deploying ads with expert craftsmanship.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 rv d3">
+          <div class="proc-card">
+            <div class="proc-icon"><i class="fa fa-chart-bar"></i></div>
+            <div class="proc-num">04</div>
+            <h4>Scale</h4>
+            <p>Continuous optimisation, A/B testing, and performance improvement to grow results.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STATS BAR ════════════════════════════════════════════ -->
+  <div style="background:var(--bg2);border-top:1px solid var(--rimw);border-bottom:1px solid var(--rimw);">
+    <div class="container">
+      <div class="row g-0">
+        <div class="col-6 col-md-3 rv" style="padding:48px 24px;text-align:center;border-right:1px solid var(--rimw);">
+          <div style="font-size:54px;font-weight:700;color:var(--pur2);line-height:1;letter-spacing:-2px;">500+</div>
+          <div style="font-size:14px;color:var(--dim);margin-top:8px;">Happy Clients</div>
+        </div>
+        <div class="col-6 col-md-3 rv d1"
+          style="padding:48px 24px;text-align:center;border-right:1px solid var(--rimw);">
+          <div style="font-size:54px;font-weight:700;color:var(--pur2);line-height:1;letter-spacing:-2px;">21+</div>
+          <div style="font-size:14px;color:var(--dim);margin-top:8px;">Years Experience</div>
+        </div>
+        <div class="col-6 col-md-3 rv d2"
+          style="padding:48px 24px;text-align:center;border-right:1px solid var(--rimw);">
+          <div style="font-size:54px;font-weight:700;color:var(--pur2);line-height:1;letter-spacing:-2px;">340%</div>
+          <div style="font-size:14px;color:var(--dim);margin-top:8px;">Average ROI</div>
+        </div>
+        <div class="col-6 col-md-3 rv d3" style="padding:48px 24px;text-align:center;">
+          <div style="font-size:54px;font-weight:700;color:var(--pur2);line-height:1;letter-spacing:-2px;">98%</div>
+          <div style="font-size:14px;color:var(--dim);margin-top:8px;">Client Retention</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PRICING ══════════════════════════════════════════════ -->
+  <section class="pricing-sec">
+    <div class="container">
+      <div class="text-center mb-5 rv">
+        <div class="tag" style="justify-content:center;"><span class="tag-dot"></span>Pricing Plans</div>
+        <h2 class="sec-title mt-2">Transparent Pricing,<br><span class="faint">No Surprises</span></h2>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-lg-4 col-md-6 rv">
+          <div class="price-card">
+            <div class="p-tier">Starter</div>
+            <div class="p-price"><sup>$</sup>499</div>
+            <div class="p-period">per month</div>
+            <div class="p-hr"></div>
+            <ul class="p-list">
+              <li><i class="fa fa-check-circle"></i>SEO Audit &amp; Optimisation</li>
+              <li><i class="fa fa-check-circle"></i>2 Social Media Channels</li>
+              <li><i class="fa fa-check-circle"></i>8 Posts / Month</li>
+              <li><i class="fa fa-check-circle"></i>Basic PPC Management</li>
+              <li><i class="fa fa-check-circle"></i>Monthly Report</li>
+              <li class="off"><i class="fa fa-check-circle"></i>Email Campaigns</li>
+              <li class="off"><i class="fa fa-check-circle"></i>Brand Strategy</li>
+            </ul><a href="contact.html" class="btn-pline">Get Started</a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 rv d1">
+          <div class="price-card hot">
+            <div class="p-hot-badge">✦ Most Popular</div>
+            <div class="p-tier">Growth</div>
+            <div class="p-price"><sup>$</sup>999</div>
+            <div class="p-period">per month</div>
+            <div class="p-hr"></div>
+            <ul class="p-list">
+              <li><i class="fa fa-check-circle"></i>Advanced SEO Strategy</li>
+              <li><i class="fa fa-check-circle"></i>5 Social Media Channels</li>
+              <li><i class="fa fa-check-circle"></i>20 Posts + Blog Articles</li>
+              <li><i class="fa fa-check-circle"></i>Full PPC Management</li>
+              <li><i class="fa fa-check-circle"></i>Weekly Reports</li>
+              <li><i class="fa fa-check-circle"></i>Email Automation</li>
+              <li class="off"><i class="fa fa-check-circle"></i>Brand Strategy</li>
+            </ul><a href="contact.html" class="btn-pfill">Get Started</a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 rv d2">
+          <div class="price-card">
+            <div class="p-tier">Enterprise</div>
+            <div class="p-price"><sup>$</sup>2499</div>
+            <div class="p-period">per month</div>
+            <div class="p-hr"></div>
+            <ul class="p-list">
+              <li><i class="fa fa-check-circle"></i>Full-Scale SEO</li>
+              <li><i class="fa fa-check-circle"></i>All Social Channels</li>
+              <li><i class="fa fa-check-circle"></i>Unlimited Content</li>
+              <li><i class="fa fa-check-circle"></i>Multi-Platform Ads</li>
+              <li><i class="fa fa-check-circle"></i>Live Analytics</li>
+              <li><i class="fa fa-check-circle"></i>Full Email Suite</li>
+              <li><i class="fa fa-check-circle"></i>Brand Strategy</li>
+            </ul><a href="contact.html" class="btn-pline">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BLOG ══════════════════════════════════════════════════ -->
+  <section class="blog-sec">
+    <div class="container">
+      <div class="row align-items-end mb-5">
+        <div class="col-lg-6 rv">
+          <div class="tag"><span class="tag-dot"></span>Our Blog</div>
+          <h2 class="sec-title">Latest <span class="faint">Insights &amp;<br>Marketing Tips</span></h2>
+        </div>
+        <div class="col-lg-4 offset-lg-2 text-lg-end rv d1"><a href="#" class="btn-main"
+            style="display:inline-flex;"><span>All Articles</span><span class="arr"><i
+                class="fa fa-arrow-right fa-xs"></i></span></a></div>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6 rv">
+          <div class="blog-card">
+            <div class="blog-img"><img
+                src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&h=360&fit=crop" alt="SEO"><span
+                class="blog-cat">SEO</span></div>
+            <div class="blog-body">
+              <div class="blog-meta"><span><i class="fa fa-calendar"></i>Jan 15, 2025</span><span><i
+                    class="fa fa-clock"></i>5 min</span></div>
+              <h4>10 SEO Strategies That Will Dominate Rankings in 2025</h4>
+              <p>Discover the latest techniques backed by data to push your website to the top of Google search results.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 rv d1">
+          <div class="blog-card">
+            <div class="blog-img"><img
+                src="https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=600&h=360&fit=crop" alt="PPC"><span
+                class="blog-cat">PPC</span></div>
+            <div class="blog-body">
+              <div class="blog-meta"><span><i class="fa fa-calendar"></i>Jan 22, 2025</span><span><i
+                    class="fa fa-clock"></i>7 min</span></div>
+              <h4>How to Cut PPC Costs by 40% Without Losing Conversions</h4>
+              <p>Advanced bidding strategies and quality score optimisation to maximise your paid ad budget.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 rv d2">
+          <div class="blog-card">
+            <div class="blog-img"><img
+                src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=600&h=360&fit=crop"
+                alt="Social"><span class="blog-cat">Social Media</span></div>
+            <div class="blog-body">
+              <div class="blog-meta"><span><i class="fa fa-calendar"></i>Feb 3, 2025</span><span><i
+                    class="fa fa-clock"></i>6 min</span></div>
+              <h4>The Ultimate B2B Social Media Content Strategy Guide</h4>
+              <p>Step-by-step framework to build powerful B2B social presence that generates qualified leads.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══════════════════════════════════════════════════ -->
+  <section class="cta-sec">
+    <div class="container">
+      <div class="cta-box rv">
+        <div class="cta-glow"></div>
+        <div class="cta-glow2"></div>
+        <div class="cta-inner">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+              <div class="tag"><span class="tag-dot"></span>Get Started Today</div>
+              <h2 class="sec-title mt-3">Ready to <span style="color:var(--pur2);">Amplify</span><br>Your Brand?</h2>
+              <p style="font-size:15px;color:var(--dim);margin-top:18px;line-height:1.8;max-width:420px;">Let's build a
+                marketing strategy that delivers real, measurable results. Book your free consultation today — no
+                commitment required.</p>
+              <div class="d-flex gap-3 mt-4 flex-wrap">
+                <a href="contact.html" class="btn-main"><span>Book Free Consultation</span><span class="arr"><i
+                      class="fa fa-arrow-right fa-xs"></i></span></a>
+              </div>
+            </div>
+            <div class="col-lg-5 offset-lg-1">
+              <div style="background:var(--bg3);border:1px solid var(--rimw);border-radius:18px;padding:36px;">
+                <h5 style="font-size:20px;font-weight:700;margin-bottom:6px;">Free Strategy Session</h5>
+                <p style="font-size:13px;color:var(--dim);margin-bottom:22px;">No commitment. Just an honest strategic
+                  conversation about your growth potential.</p>
+                <input type="text" placeholder="Your Full Name" class="cta-form-field">
+                <input type="email" placeholder="Your Email Address" class="cta-form-field">
+                <input type="text" placeholder="Website URL" class="cta-form-field" style="margin-bottom:18px;">
+                <button class="btn-pfill"
+                  style="width:100%;border-radius:10px;padding:14px;font-size:15px;font-weight:700;cursor:pointer;border:none;">Send
+                  Free Strategy →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <div class="ft-logo">
+            <div class="ft-logo-ic"></div>
+            <div>
+              <div class="ft-name">marko<span>Digital Marketing Agency</span></div>
+            </div>
+          </div>
+          <p class="ft-desc">We empower businesses to grow online with data-driven digital marketing, innovative
+            branding, and performance-focused strategies.</p>
+          <div class="ft-socs"><a href="#" class="ft-soc"><i class="fab fa-twitter"></i></a><a href="#"
+              class="ft-soc"><i class="fab fa-instagram"></i></a><a href="#" class="ft-soc"><i
+                class="fab fa-linkedin-in"></i></a><a href="#" class="ft-soc"><i class="fab fa-facebook-f"></i></a><a
+              href="#" class="ft-soc"><i class="fab fa-youtube"></i></a></div>
+        </div>
+        <div class="col-lg-2 col-6">
+          <div class="ft-heading">Company</div>
+          <ul class="ft-list">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="#">Our Team</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-6">
+          <div class="ft-heading">Services</div>
+          <ul class="ft-list">
+            <li><a href="#">SEO Optimisation</a></li>
+            <li><a href="#">PPC Advertising</a></li>
+            <li><a href="#">Social Media</a></li>
+            <li><a href="#">Content Marketing</a></li>
+            <li><a href="#">Email Marketing</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4">
+          <div class="ft-heading">Get In Touch</div>
+          <div class="ft-ci">
+            <div class="ft-ci-ic"><i class="fa fa-location-dot"></i></div><span>123 Digital Ave, Suite 400,<br>San
+              Francisco, CA 94105</span>
+          </div>
+          <div class="ft-ci">
+            <div class="ft-ci-ic"><i class="fa fa-phone"></i></div><span>+1 (62) 987 7543</span>
+          </div>
+          <div class="ft-ci">
+            <div class="ft-ci-ic"><i class="fa fa-envelope"></i></div><span>hello@markoagency.com</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="ft-bot">
+        <p>© 2025 Marko Digital Marketing Agency. All rights reserved.</p>
+        <div class="d-flex gap-4 flex-wrap"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a
+            href="#">Cookies</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const io = new IntersectionObserver(entries => { entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('on'), i * 60); io.unobserve(e.target); } }); }, { threshold: .07 });
+    document.querySelectorAll('.rv').forEach(el => io.observe(el));
+    setTimeout(() => document.querySelectorAll('.hero .rv').forEach(el => el.classList.add('on')), 100);
+    window.addEventListener('scroll', () => { document.getElementById('nb').classList.toggle('scrolled', scrollY > 60); });
+  </script>
+</body>
+
+</html>
