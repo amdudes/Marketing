@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRF Media — Admin Dashboard</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --bg:       #0d0d0d;
+      --bg2:      #111111;
+      --bg3:      #161616;
+      --bg4:      #1c1c1c;
+      --red:      #8F0000;
+      --red2:     #b30000;
+      --red3:     #660000;
+      --redglow:  rgba(143,0,0,0.22);
+      --rim:      rgba(143,0,0,0.30);
+      --rimw:     rgba(255,255,255,0.07);
+      --white:    #ffffff;
+      --dim:      #888888;
+      --dim2:     #505050;
+      --green:    #22c55e;
+      --yellow:   #eab308;
+      --blue:     #3b82f6;
+      --sidebar-w: 260px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ═══ SIDEBAR ═══════════════════════════════════ */
+    .sidebar {
+      width: var(--sidebar-w);
+      background: var(--bg2);
+      border-right: 1px solid var(--rimw);
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      z-index: 100;
+      transition: transform 0.3s;
+    }
+
+    .sidebar-brand {
+      padding: 24px 24px 20px;
+      border-bottom: 1px solid var(--rimw);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .sb-logo {
+      width: 40px; height: 40px;
+      background: var(--red);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900; font-size: 16px; color: #fff;
+      box-shadow: 0 0 18px var(--redglow);
+      flex-shrink: 0;
+    }
+    .sb-brand-text .name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800; font-size: 18px;
+      color: var(--white); line-height: 1;
+    }
+    .sb-brand-text .sub {
+      font-size: 10px; color: var(--dim);
+      letter-spacing: 1.5px; text-transform: uppercase;
+    }
+
+    .sidebar-nav {
+      flex: 1;
+      padding: 20px 14px;
+      overflow-y: auto;
+    }
+    .nav-section-label {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--dim2);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 0 10px;
+      margin: 16px 0 8px;
+    }
+
+    .nav-item-custom {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 14px;
+      border-radius: 10px;
+      color: var(--dim);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      margin-bottom: 2px;
+      position: relative;
+    }
+    .nav-item-custom .nav-icon {
+      width: 20px;
+      text-align: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .nav-item-custom .badge-count {
+      margin-left: auto;
+      background: var(--red);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 20px;
+    }
+    .nav-item-custom:hover {
+      background: rgba(143,0,0,0.10);
+      color: var(--white);
+    }
+    .nav-item-custom.active {
+      background: rgba(143,0,0,0.15);
+      color: var(--white);
+      border: 1px solid var(--rim);
+    }
+    .nav-item-custom.active .nav-icon { color: var(--red2); }
+
+    .sidebar-bottom {
+      padding: 16px 14px;
+      border-top: 1px solid var(--rimw);
+    }
+    .admin-profile {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: var(--bg3);
+      border: 1px solid var(--rimw);
+      margin-bottom: 10px;
+    }
+    .admin-av {
+      width: 36px; height: 36px;
+      background: var(--red);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 14px; color: #fff;
+      flex-shrink: 0;
+    }
+    .admin-info .a-name {
+      font-size: 13px; font-weight: 600; color: var(--white); line-height: 1.3;
+    }
+    .admin-info .a-role {
+      font-size: 11px; color: var(--dim);
+    }
+    .logout-btn {
+      display: flex; align-items: center; gap: 10px;
+      width: 100%;
+      padding: 10px 14px;
+      background: rgba(143,0,0,0.08);
+      border: 1px solid var(--rim);
+      border-radius: 10px;
+      color: #ff6b6b;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px; font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .logout-btn:hover {
+      background: rgba(143,0,0,0.20);
+      color: #fff;
+    }
+
+    /* ═══ MAIN CONTENT ══════════════════════════════ */
+    .main-content {
+      margin-left: var(--sidebar-w);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Topbar */
+    .topbar {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--rimw);
+      padding: 0 30px;
+      height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .topbar-left h2 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700; font-size: 20px;
+      letter-spacing: -0.3px;
+    }
+    .topbar-left p { font-size: 12px; color: var(--dim); margin: 0; }
+    .topbar-right { display: flex; align-items: center; gap: 12px; }
+    .top-icon-btn {
+      width: 38px; height: 38px;
+      background: var(--bg3);
+      border: 1px solid var(--rimw);
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--dim); font-size: 14px;
+      cursor: pointer; transition: all 0.2s;
+      position: relative;
+    }
+    .top-icon-btn:hover { border-color: var(--rim); color: var(--white); }
+    .notif-dot {
+      position: absolute; top: 7px; right: 7px;
+      width: 7px; height: 7px;
+      background: var(--red2); border-radius: 50%;
+      border: 1.5px solid var(--bg2);
+    }
+    .hamburger { display: none; }
+
+    /* Page body */
+    .page-body {
+      padding: 28px 30px;
+      flex: 1;
+    }
+
+    /* Page content sections — toggled by JS */
+    .page-section { display: none; }
+    .page-section.active { display: block; }
+
+    /* ═══ STAT CARDS ════════════════════════════════ */
+    .stat-card {
+      background: var(--bg2);
+      border: 1px solid var(--rimw);
+      border-radius: 14px;
+      padding: 22px 24px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .stat-card:hover {
+      border-color: var(--rim);
+      transform: translateY(-2px);
+    }
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--red3), var(--red2));
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .stat-card:hover::before { opacity: 1; }
+    .stat-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+    .stat-num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 32px; font-weight: 800;
+      letter-spacing: -1px; line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-label { font-size: 13px; color: var(--dim); }
+    .stat-trend {
+      position: absolute; top: 22px; right: 22px;
+      font-size: 12px; font-weight: 600;
+      padding: 4px 10px; border-radius: 20px;
+    }
+    .trend-up   { background: rgba(34,197,94,0.12); color: var(--green); }
+    .trend-down { background: rgba(239,68,68,0.12); color: #ef4444; }
+
+    /* ═══ DATA TABLE ════════════════════════════════ */
+    .table-card {
+      background: var(--bg2);
+      border: 1px solid var(--rimw);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .table-card-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--rimw);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .table-card-header h4 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700; font-size: 17px;
+    }
+    .table-card-header p {
+      font-size: 12px; color: var(--dim); margin: 0;
+    }
+
+    .search-box {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--bg3);
+      border: 1px solid var(--rimw);
+      border-radius: 9px;
+      padding: 8px 14px;
+      min-width: 220px;
+    }
+    .search-box i { color: var(--dim2); font-size: 13px; }
+    .search-box input {
+      background: none; border: none; outline: none;
+      color: var(--white); font-family: 'Poppins', sans-serif;
+      font-size: 13px; width: 100%;
+    }
+    .search-box input::placeholder { color: var(--dim2); }
+
+    .btn-export {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 16px;
+      background: rgba(143,0,0,0.10);
+      border: 1px solid var(--rim);
+      border-radius: 9px;
+      color: var(--red2);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600; font-size: 13px;
+      cursor: pointer; transition: all 0.2s; text-decoration: none;
+    }
+    .btn-export:hover { background: var(--red); color: #fff; }
+
+    .data-table { width: 100%; border-collapse: collapse; }
+    .data-table th {
+      padding: 13px 18px;
+      text-align: left;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--dim);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 1px solid var(--rimw);
+      background: var(--bg3);
+    }
+    .data-table td {
+      padding: 14px 18px;
+      font-size: 13px;
+      border-bottom: 1px solid var(--rimw);
+      vertical-align: middle;
+      transition: background 0.15s;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:hover td { background: rgba(143,0,0,0.04); }
+    .data-table .td-name { font-weight: 600; color: var(--white); }
+    .data-table .td-email { color: var(--dim); }
+    .data-table .td-phone { color: var(--dim); font-size: 12px; }
+
+    .badge-status {
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 4px 10px; border-radius: 20px;
+      font-size: 11px; font-weight: 600;
+    }
+    .bs-new     { background: rgba(59,130,246,0.12); color: var(--blue); }
+    .bs-replied { background: rgba(34,197,94,0.12);  color: var(--green); }
+    .bs-pending { background: rgba(234,179,8,0.12);  color: var(--yellow); }
+    .bs-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
+    .action-btn {
+      width: 30px; height: 30px;
+      background: var(--bg4);
+      border: 1px solid var(--rimw);
+      border-radius: 7px;
+      color: var(--dim);
+      font-size: 12px;
+      cursor: pointer; transition: all 0.2s;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .action-btn:hover { border-color: var(--rim); color: var(--red2); }
+
+    /* Pagination */
+    .pagination-wrap {
+      padding: 16px 24px;
+      border-top: 1px solid var(--rimw);
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 13px; color: var(--dim);
+      flex-wrap: wrap; gap: 10px;
+    }
+    .page-btn {
+      padding: 6px 14px;
+      background: var(--bg3);
+      border: 1px solid var(--rimw);
+      border-radius: 7px;
+      color: var(--dim); font-size: 12px;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .page-btn:hover, .page-btn.active {
+      border-color: var(--rim); color: var(--red2); background: rgba(143,0,0,0.08);
+    }
+
+    /* ═══ QUICK STATS ROW ═══════════════════════════ */
+    .mini-stat {
+      background: var(--bg2);
+      border: 1px solid var(--rimw);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .mini-stat-icon {
+      width: 38px; height: 38px;
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
+    }
+    .mini-stat-val {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700; font-size: 20px; line-height: 1;
+    }
+    .mini-stat-lbl { font-size: 11px; color: var(--dim); }
+
+    /* ═══ RECENT ACTIVITY ═══════════════════════════ */
+    .activity-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--rimw);
+    }
+    .activity-item:last-child { border-bottom: none; }
+    .act-icon {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; flex-shrink: 0;
+    }
+    .act-text { font-size: 13px; color: var(--dim); line-height: 1.5; }
+    .act-text strong { color: var(--white); font-weight: 600; }
+    .act-time { font-size: 11px; color: var(--dim2); margin-top: 3px; }
+
+    /* ═══ MODAL ══════════════════════════════════════ */
+    .modal-custom .modal-content {
+      background: var(--bg2);
+      border: 1px solid var(--rim);
+      border-radius: 16px;
+      color: var(--white);
+    }
+    .modal-custom .modal-header {
+      border-bottom: 1px solid var(--rimw);
+      padding: 20px 24px;
+    }
+    .modal-custom .modal-title {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700; font-size: 18px;
+    }
+    .modal-custom .modal-body { padding: 24px; }
+    .modal-custom .modal-footer {
+      border-top: 1px solid var(--rimw);
+      padding: 16px 24px;
+    }
+    .modal-custom .btn-close {
+      filter: invert(1); opacity: 0.5;
+    }
+    .info-row {
+      display: flex; flex-direction: column;
+      margin-bottom: 16px;
+    }
+    .info-row label {
+      font-size: 11px; font-weight: 600;
+      color: var(--dim); text-transform: uppercase; letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+    .info-row span {
+      font-size: 14px; color: var(--white);
+      background: var(--bg3);
+      border: 1px solid var(--rimw);
+      border-radius: 8px;
+      padding: 9px 14px;
+    }
+    .msg-box {
+      background: var(--bg3);
+      border: 1px solid var(--rimw);
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 13px; color: var(--dim);
+      line-height: 1.7;
+    }
+    .btn-reply {
+      background: var(--red);
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 9px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700; font-size: 14px;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .btn-reply:hover { background: var(--red2); }
+    .btn-close-modal {
+      background: var(--bg4);
+      border: 1px solid var(--rimw);
+      color: var(--dim);
+      padding: 10px 20px;
+      border-radius: 9px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 14px; cursor: pointer; transition: all 0.2s;
+    }
+    .btn-close-modal:hover { border-color: var(--rim); color: var(--white); }
+
+    /* ═══ SELECT STATUS ══════════════════════════════ */
+    .status-select {
+      background: var(--bg3); border: 1px solid var(--rimw);
+      border-radius: 7px; color: var(--white);
+      padding: 5px 10px; font-size: 12px;
+      font-family: 'Poppins', sans-serif; cursor: pointer;
+      outline: none;
+    }
+    .status-select:focus { border-color: var(--rim); }
+
+    /* ═══ RESPONSIVE ════════════════════════════════ */
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(-100%);
+      }
+      .sidebar.open {
+        transform: translateX(0);
+      }
+      .main-content { margin-left: 0; }
+      .hamburger { display: flex; }
+      .page-body { padding: 18px 16px; }
+    }
+
+    /* Fade in */
+    .fade-in { animation: fadeIn 0.4s ease both; }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ SIDEBAR ════════════════════════════════════════ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="sb-logo">TRF</div>
+      <div class="sb-brand-text">
+        <div class="name">TRF Media</div>
+        <div class="sub">Admin Panel</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Main</div>
+      <a href="#" class="nav-item-custom active" onclick="navigate('dashboard', this)">
+        <span class="nav-icon"><i class="fa fa-gauge-high"></i></span>
+        Dashboard
+      </a>
+      <a href="#" class="nav-item-custom" onclick="navigate('contacts', this)">
+        <span class="nav-icon"><i class="fa fa-address-book"></i></span>
+        Contact Details
+        <span class="badge-count">12</span>
+      </a>
+
+      <div class="nav-section-label">Marketing</div>
+      <a href="#" class="nav-item-custom" onclick="navigate('services', this)">
+        <span class="nav-icon"><i class="fa fa-bullseye"></i></span>
+        Services
+      </a>
+      <a href="#" class="nav-item-custom" onclick="navigate('campaigns', this)">
+        <span class="nav-icon"><i class="fa fa-rocket"></i></span>
+        Campaigns
+      </a>
+      <a href="#" class="nav-item-custom" onclick="navigate('analytics', this)">
+        <span class="nav-icon"><i class="fa fa-chart-line"></i></span>
+        Analytics
+      </a>
+      <a href="#" class="nav-item-custom" onclick="navigate('blog', this)">
+        <span class="nav-icon"><i class="fa fa-pen-nib"></i></span>
+        Blog Posts
+      </a>
+
+      <div class="nav-section-label">Settings</div>
+      <a href="#" class="nav-item-custom" onclick="navigate('users', this)">
+        <span class="nav-icon"><i class="fa fa-users"></i></span>
+        Users
+      </a>
+      <a href="#" class="nav-item-custom" onclick="navigate('settings', this)">
+        <span class="nav-icon"><i class="fa fa-gear"></i></span>
+        Settings
+      </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="admin-profile mb-2">
+        <div class="admin-av">A</div>
+        <div class="admin-info">
+          <div class="a-name">Admin User</div>
+          <div class="a-role">Super Admin</div>
+        </div>
+      </div>
+      <button class="logout-btn" onclick="logoutConfirm()">
+        <i class="fa fa-right-from-bracket"></i>
+        Sign Out
+      </button>
+    </div>
+  </aside>
+
+  <!-- ═══ MAIN ════════════════════════════════════════════ -->
+  <div class="main-content">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="d-flex align-items-center gap-3">
+        <button class="top-icon-btn hamburger" onclick="toggleSidebar()">
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="topbar-left">
+          <h2 id="pageTitle">Dashboard</h2>
+          <p id="pageSubtitle">Welcome back, Admin 👋</p>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="top-icon-btn" title="Search">
+          <i class="fa fa-magnifying-glass"></i>
+        </div>
+        <div class="top-icon-btn" title="Notifications">
+          <i class="fa fa-bell"></i>
+          <span class="notif-dot"></span>
+        </div>
+        <div class="admin-av" style="width:36px;height:36px;font-size:13px;cursor:pointer;" title="Profile">A</div>
+      </div>
+    </header>
+
+    <div class="page-body">
+
+      <!-- ═══════════ DASHBOARD SECTION ═════════════════ -->
+      <div class="page-section active fade-in" id="sec-dashboard">
+
+        <!-- Stat cards -->
+        <div class="row g-3 mb-4">
+          <div class="col-xl-3 col-md-6">
+            <div class="stat-card">
+              <div class="stat-icon" style="background:rgba(143,0,0,0.15); color:var(--red2);">
+                <i class="fa fa-address-book"></i>
+              </div>
+              <span class="stat-trend trend-up"><i class="fa fa-arrow-up"></i> +18%</span>
+              <div class="stat-num">248</div>
+              <div class="stat-label">Total Contacts</div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6">
+            <div class="stat-card">
+              <div class="stat-icon" style="background:rgba(34,197,94,0.12); color:var(--green);">
+                <i class="fa fa-circle-check"></i>
+              </div>
+              <span class="stat-trend trend-up"><i class="fa fa-arrow-up"></i> +9%</span>
+              <div class="stat-num">183</div>
+              <div class="stat-label">Replied Messages</div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6">
+            <div class="stat-card">
+              <div class="stat-icon" style="background:rgba(234,179,8,0.12); color:var(--yellow);">
+                <i class="fa fa-clock"></i>
+              </div>
+              <span class="stat-trend trend-down"><i class="fa fa-arrow-down"></i> -3%</span>
+              <div class="stat-num">12</div>
+              <div class="stat-label">Pending Contacts</div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6">
+            <div class="stat-card">
+              <div class="stat-icon" style="background:rgba(59,130,246,0.12); color:var(--blue);">
+                <i class="fa fa-rocket"></i>
+              </div>
+              <span class="stat-trend trend-up"><i class="fa fa-arrow-up"></i> +24%</span>
+              <div class="stat-num">6</div>
+              <div class="stat-label">Active Campaigns</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <!-- Recent contacts -->
+          <div class="col-lg-8">
+            <div class="table-card">
+              <div class="table-card-header">
+                <div>
+                  <h4>Recent Contact Submissions</h4>
+                  <p>Latest messages from the website</p>
+                </div>
+                <a href="#" class="btn-export" onclick="navigate('contacts', this); return false;">
+                  <i class="fa fa-arrow-right"></i> View All
+                </a>
+              </div>
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Status</th>
+                      <th>Date</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="td-name">Rahul Sharma</td>
+                      <td class="td-email">rahul@example.com</td>
+                      <td><span class="badge-status bs-new"><span class="bs-dot"></span>New</span></td>
+                      <td style="color:var(--dim);font-size:12px;">Mar 25, 2025</td>
+                    </tr>
+                    <tr>
+                      <td class="td-name">Priya Mehta</td>
+                      <td class="td-email">priya.m@gmail.com</td>
+                      <td><span class="badge-status bs-replied"><span class="bs-dot"></span>Replied</span></td>
+                      <td style="color:var(--dim);font-size:12px;">Mar 24, 2025</td>
+                    </tr>
+                    <tr>
+                      <td class="td-name">Amit Joshi</td>
+                      <td class="td-email">amitjoshi@corp.in</td>
+                      <td><span class="badge-status bs-pending"><span class="bs-dot"></span>Pending</span></td>
+                      <td style="color:var(--dim);font-size:12px;">Mar 23, 2025</td>
+                    </tr>
+                    <tr>
+                      <td class="td-name">Sarah Mitchell</td>
+                      <td class="td-email">sarah.m@brand.com</td>
+                      <td><span class="badge-status bs-replied"><span class="bs-dot"></span>Replied</span></td>
+                      <td style="color:var(--dim);font-size:12px;">Mar 22, 2025</td>
+                    </tr>
+                    <tr>
+                      <td class="td-name">Carlos Rivera</td>
+                      <td class="td-email">crivera@nexora.co</td>
+                      <td><span class="badge-status bs-new"><span class="bs-dot"></span>New</span></td>
+                      <td style="color:var(--dim);font-size:12px;">Mar 21, 2025</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Activity + mini stats -->
+          <div class="col-lg-4">
+            <div class="table-card mb-3">
+              <div class="table-card-header">
+                <div>
+                  <h4>Quick Overview</h4>
+                  <p>This month snapshot</p>
+                </div>
+              </div>
+              <div style="padding:18px 20px;">
+                <div class="mini-stat mb-3">
+                  <div class="mini-stat-icon" style="background:rgba(143,0,0,0.15);color:var(--red2);">
+                    <i class="fa fa-envelope"></i>
+                  </div>
+                  <div>
+                    <div class="mini-stat-val">58</div>
+                    <div class="mini-stat-lbl">New Inquiries</div>
+                  </div>
+                </div>
+                <div class="mini-stat mb-3">
+                  <div class="mini-stat-icon" style="background:rgba(34,197,94,0.12);color:var(--green);">
+                    <i class="fa fa-handshake"></i>
+                  </div>
+                  <div>
+                    <div class="mini-stat-val">14</div>
+                    <div class="mini-stat-lbl">New Clients</div>
+                  </div>
+                </div>
+                <div class="mini-stat">
+                  <div class="mini-stat-icon" style="background:rgba(59,130,246,0.12);color:var(--blue);">
+                    <i class="fa fa-chart-pie"></i>
+                  </div>
+                  <div>
+                    <div class="mini-stat-val">340%</div>
+                    <div class="mini-stat-lbl">Avg. ROI</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="table-card">
+              <div class="table-card-header">
+                <div>
+                  <h4>Recent Activity</h4>
+                </div>
+              </div>
+              <div style="padding:4px 20px 8px;">
+                <div class="activity-item">
+                  <div class="act-icon" style="background:rgba(143,0,0,0.15);color:var(--red2);">
+                    <i class="fa fa-envelope"></i>
+                  </div>
+                  <div>
+                    <div class="act-text"><strong>Rahul Sharma</strong> sent a new contact message</div>
+                    <div class="act-time">2 mins ago</div>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <div class="act-icon" style="background:rgba(34,197,94,0.12);color:var(--green);">
+                    <i class="fa fa-circle-check"></i>
+                  </div>
+                  <div>
+                    <div class="act-text"><strong>Priya Mehta</strong> marked as replied</div>
+                    <div class="act-time">1 hour ago</div>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <div class="act-icon" style="background:rgba(59,130,246,0.12);color:var(--blue);">
+                    <i class="fa fa-rocket"></i>
+                  </div>
+                  <div>
+                    <div class="act-text">Campaign <strong>"Q2 Growth"</strong> launched</div>
+                    <div class="act-time">3 hours ago</div>
+                  </div>
+                </div>
+                <div class="activity-item">
+                  <div class="act-icon" style="background:rgba(234,179,8,0.12);color:var(--yellow);">
+                    <i class="fa fa-pen-nib"></i>
+                  </div>
+                  <div>
+                    <div class="act-text">New blog post <strong>"SEO 2025"</strong> published</div>
+                    <div class="act-time">Yesterday</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══════════ CONTACTS SECTION ═══════════════════ -->
+      <div class="page-section fade-in" id="sec-contacts">
+        <div class="table-card">
+          <div class="table-card-header">
+            <div>
+              <h4>Contact Details</h4>
+              <p>All messages submitted from the website contact form</p>
+            </div>
+            <div class="d-flex gap-2 flex-wrap align-items-center">
+              <div class="search-box">
+                <i class="fa fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search contacts..." id="contactSearch" oninput="filterContacts()">
+              </div>
+              <a href="#" class="btn-export" onclick="exportCSV()">
+                <i class="fa fa-download"></i> Export CSV
+              </a>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table" id="contactsTable">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Subject</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="contactsBody">
+                <!-- populated by JS -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="pagination-wrap">
+            <span id="paginationInfo">Showing 1–10 of 12 contacts</span>
+            <div class="d-flex gap-2">
+              <button class="page-btn" onclick="prevPage()"><i class="fa fa-chevron-left"></i></button>
+              <button class="page-btn active" id="pageNum">1</button>
+              <button class="page-btn" onclick="nextPage()"><i class="fa fa-chevron-right"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ Other section placeholders ════════════════ -->
+      <div class="page-section fade-in" id="sec-services">
+        <div class="table-card" style="padding:60px;text-align:center;">
+          <i class="fa fa-bullseye" style="font-size:48px;color:var(--red2);margin-bottom:16px;"></i>
+          <h4 style="font-family:'Outfit',sans-serif;font-size:22px;">Services Management</h4>
+          <p style="color:var(--dim);margin-top:8px;">Connect to Laravel API to manage your services content.</p>
+        </div>
+      </div>
+      <div class="page-section fade-in" id="sec-campaigns">
+        <div class="table-card" style="padding:60px;text-align:center;">
+          <i class="fa fa-rocket" style="font-size:48px;color:var(--red2);margin-bottom:16px;"></i>
+          <h4 style="font-family:'Outfit',sans-serif;font-size:22px;">Campaigns</h4>
+          <p style="color:var(--dim);margin-top:8px;">Campaign management — Laravel API integration ready.</p>
+        </div>
+      </div>
+      <div class="page-section fade-in" id="sec-analytics">
+        <div class="table-card" style="padding:60px;text-align:center;">
+          <i class="fa fa-chart-line" style="font-size:48px;color:var(--red2);margin-bottom:16px;"></i>
+          <h4 style="font-family:'Outfit',sans-serif;font-size:22px;">Analytics</h4>
+          <p style="color:var(--dim);margin-top:8px;">Analytics dashboard — connect to your data API.</p>
+        </div>
+      </div>
+      <div class="page-section fade-in" id="sec-blog">
+        <div class="table-card" style="padding:60px;text-align:center;">
+          <i class="fa fa-pen-nib" style="font-size:48px;color:var(--red2);margin-bottom:16px;"></i>
+          <h4 style="font-family:'Outfit',sans-serif;font-size:22px;">Blog Posts</h4>
+          <p style="color:var(--dim);margin-top:8px;">Blog management — Laravel API integration ready.</p>
+        </div>
+      </div>
+      <div class="page-section fade-in" id="sec-users">
+        <div class="table-card" style="padding:60px;text-align:center;">
+          <i class="fa fa-users" style="font-size:48px;color:var(--red2);margin-bottom:16px;"></i>
+          <h4 style="font-family:'Outfit',sans-serif;font-size:22px;">User Management</h4>
+          <p style="color:var(--dim);margin-top:8px;">Manage admin users — connect to Laravel auth API.</p>
+        </div>
+      </div>
+      <div class="page-section fade-in" id="sec-settings">
+        <div class="table-card" style="padding:60px;text-align:center;">
+          <i class="fa fa-gear" style="font-size:48px;color:var(--red2);margin-bottom:16px;"></i>
+          <h4 style="font-family:'Outfit',sans-serif;font-size:22px;">Settings</h4>
+          <p style="color:var(--dim);margin-top:8px;">System settings — connect to Laravel API.</p>
+        </div>
+      </div>
+
+    </div><!-- /page-body -->
+  </div><!-- /main-content -->
+
+  <!-- ═══ CONTACT DETAIL MODAL ═════════════════════════════ -->
+  <div class="modal fade modal-custom" id="contactModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><i class="fa fa-envelope me-2" style="color:var(--red2);"></i> Contact Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="info-row">
+                <label>Full Name</label>
+                <span id="m-name">—</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="info-row">
+                <label>Phone</label>
+                <span id="m-phone">—</span>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="info-row">
+                <label>Email</label>
+                <span id="m-email">—</span>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="info-row">
+                <label>Subject</label>
+                <span id="m-subject">—</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="info-row">
+                <label>Date Received</label>
+                <span id="m-date">—</span>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="info-row">
+                <label>Status</label>
+                <span id="m-status">—</span>
+              </div>
+            </div>
+            <div class="col-12">
+              <label style="font-size:11px;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;display:block;">Message</label>
+              <div class="msg-box" id="m-message">—</div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-close-modal" data-bs-dismiss="modal">Close</button>
+          <button class="btn-reply"><i class="fa fa-reply me-2"></i>Reply via Email</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ LOGOUT CONFIRM MODAL ══════════════════════════════ -->
+  <div class="modal fade modal-custom" id="logoutModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+      <div class="modal-content">
+        <div class="modal-body" style="padding:32px;text-align:center;">
+          <div style="width:56px;height:56px;background:rgba(143,0,0,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;color:var(--red2);">
+            <i class="fa fa-right-from-bracket"></i>
+          </div>
+          <h5 style="font-family:'Outfit',sans-serif;font-weight:700;font-size:18px;margin-bottom:8px;">Sign Out?</h5>
+          <p style="color:var(--dim);font-size:13px;margin-bottom:24px;">Are you sure you want to sign out from the admin panel?</p>
+          <div class="d-flex gap-2 justify-content-center">
+            <button class="btn-close-modal" data-bs-dismiss="modal">Cancel</button>
+            <button class="btn-reply" onclick="window.location.href='index.html'">Yes, Sign Out</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // ═══ CONTACTS DATA (Static — replace with Laravel API fetch) ════════
+    // TODO: Replace with: fetch('/api/admin/contacts', { headers: { Authorization: 'Bearer ' + token } })
+    const contacts = [
+      { id:1,  name:'Rahul Sharma',   email:'rahul@example.com',   phone:'+91 98765 43210', subject:'Social Media Marketing',      status:'new',     date:'Mar 25, 2025', message:'Hi, I am interested in your social media growth package. We are a mid-size e-commerce brand looking to scale our Instagram and YouTube presence. Please share pricing details.' },
+      { id:2,  name:'Priya Mehta',    email:'priya.m@gmail.com',   phone:'+91 99887 12345', subject:'SEO Services Enquiry',         status:'replied', date:'Mar 24, 2025', message:'Hello TRF Media team. We run a SaaS product and need comprehensive SEO services. Our website currently ranks on page 3 for our primary keywords. Can you help us?' },
+      { id:3,  name:'Amit Joshi',     email:'amitjoshi@corp.in',   phone:'+91 91234 56789', subject:'PPC Campaign Management',      status:'pending', date:'Mar 23, 2025', message:'Looking for someone to manage our Google and Meta Ads. Our current monthly budget is around $5,000. We are getting poor ROI and need a turnaround.' },
+      { id:4,  name:'Sarah Mitchell', email:'sarah.m@brand.com',   phone:'+1 312 555 0147', subject:'Brand Strategy Consultation',  status:'replied', date:'Mar 22, 2025', message:'We recently rebranded and need help with our digital brand strategy. We want to build a stronger online presence across all channels.' },
+      { id:5,  name:'Carlos Rivera',  email:'crivera@nexora.co',   phone:'+1 415 555 0188', subject:'Full Digital Marketing Suite', status:'new',     date:'Mar 21, 2025', message:'Interested in your enterprise plan. We are a B2B software company with a global presence. Please schedule a strategy call.' },
+      { id:6,  name:'Neha Singh',     email:'neha.s@startup.io',   phone:'+91 77890 11223', subject:'Content Marketing Package',   status:'replied', date:'Mar 20, 2025', message:'We are a startup and looking for affordable content marketing solutions. Blog writing, LinkedIn posts, and case studies are what we need.' },
+      { id:7,  name:'David Kim',      email:'david.k@elevate.io',  phone:'+82 10 5678 9012', subject:'Email Marketing Automation', status:'pending', date:'Mar 19, 2025', message:'We need to set up automated email workflows for our leads. Currently we use Mailchimp but are open to switching platforms if needed.' },
+      { id:8,  name:'Fatima Al-Hassan', email:'fal@mideast.co',   phone:'+971 50 123 4567', subject:'Influencer Marketing',       status:'new',     date:'Mar 18, 2025', message:'Looking for influencer marketing services for our lifestyle brand. We target women 18–35 in the GCC region. Budget is flexible.' },
+      { id:9,  name:'James Morrison', email:'jm@techstart.inc',    phone:'+1 628 555 0199', subject:'Performance Marketing',       status:'replied', date:'Mar 17, 2025', message:'We want to scale our performance marketing. Currently spending $20k/month on ads with 2x ROAS. Need someone to push it to 4x.' },
+      { id:10, name:'Ananya Reddy',   email:'ananya@reddy.co.in',  phone:'+91 80123 45678', subject:'Website SEO Audit',           status:'pending', date:'Mar 16, 2025', message:'We need a detailed SEO audit of our website. We suspect some technical issues affecting our Google rankings.' },
+      { id:11, name:'Michael Torres', email:'mtor@elevate.studio', phone:'+1 323 555 0177', subject:'Conversion Rate Optimisation', status:'new',    date:'Mar 15, 2025', message:'Our website traffic is decent but conversions are low at around 0.8%. Need CRO specialists to identify and fix the problem.' },
+      { id:12, name:'Lin Wei',        email:'linwei@chinasoft.cn', phone:'+86 139 0000 1234', subject:'International SEO',         status:'new',     date:'Mar 14, 2025', message:'We are expanding to English-speaking markets. Need help with international SEO and Google ranking for our software products.' },
+    ];
+
+    const ROWS_PER_PAGE = 10;
+    let currentPage = 1;
+    let filtered = [...contacts];
+
+    function statusClass(s) {
+      return s === 'new' ? 'bs-new' : s === 'replied' ? 'bs-replied' : 'bs-pending';
+    }
+    function statusLabel(s) {
+      return s.charAt(0).toUpperCase() + s.slice(1);
+    }
+
+    function renderContacts() {
+      const tbody = document.getElementById('contactsBody');
+      const start = (currentPage-1)*ROWS_PER_PAGE;
+      const page  = filtered.slice(start, start+ROWS_PER_PAGE);
+      tbody.innerHTML = page.map(c => `
+        <tr>
+          <td style="color:var(--dim2);font-size:12px;">#${c.id}</td>
+          <td class="td-name">${c.name}</td>
+          <td class="td-email">${c.email}</td>
+          <td class="td-phone">${c.phone}</td>
+          <td style="font-size:12px;color:var(--dim);max-width:140px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${c.subject}</td>
+          <td>
+            <select class="status-select" onchange="updateStatus(${c.id}, this.value)">
+              <option value="new"     ${c.status==='new'     ?'selected':''}>🔵 New</option>
+              <option value="pending" ${c.status==='pending' ?'selected':''}>🟡 Pending</option>
+              <option value="replied" ${c.status==='replied' ?'selected':''}>🟢 Replied</option>
+            </select>
+          </td>
+          <td style="color:var(--dim);font-size:12px;white-space:nowrap;">${c.date}</td>
+          <td>
+            <div class="d-flex gap-1">
+              <button class="action-btn" title="View" onclick='openContact(${c.id})'><i class="fa fa-eye"></i></button>
+              <button class="action-btn" title="Delete" onclick='deleteContact(${c.id})' style="color:#ef4444;"><i class="fa fa-trash"></i></button>
+            </div>
+          </td>
+        </tr>
+      `).join('');
+
+      document.getElementById('paginationInfo').textContent =
+        `Showing ${Math.min(start+1, filtered.length)}–${Math.min(start+ROWS_PER_PAGE, filtered.length)} of ${filtered.length} contacts`;
+      document.getElementById('pageNum').textContent = currentPage;
+    }
+
+    function filterContacts() {
+      const q = document.getElementById('contactSearch').value.toLowerCase();
+      filtered = contacts.filter(c =>
+        c.name.toLowerCase().includes(q) ||
+        c.email.toLowerCase().includes(q) ||
+        c.subject.toLowerCase().includes(q)
+      );
+      currentPage = 1;
+      renderContacts();
+    }
+
+    function prevPage() {
+      if (currentPage > 1) { currentPage--; renderContacts(); }
+    }
+    function nextPage() {
+      if (currentPage < Math.ceil(filtered.length/ROWS_PER_PAGE)) { currentPage++; renderContacts(); }
+    }
+
+    function openContact(id) {
+      const c = contacts.find(x => x.id === id);
+      if (!c) return;
+      document.getElementById('m-name').textContent    = c.name;
+      document.getElementById('m-email').textContent   = c.email;
+      document.getElementById('m-phone').textContent   = c.phone;
+      document.getElementById('m-subject').textContent = c.subject;
+      document.getElementById('m-date').textContent    = c.date;
+      document.getElementById('m-status').textContent  = statusLabel(c.status);
+      document.getElementById('m-message').textContent = c.message;
+      new bootstrap.Modal(document.getElementById('contactModal')).show();
+    }
+
+    function deleteContact(id) {
+      if (!confirm('Delete this contact entry?')) return;
+      const idx = contacts.findIndex(x => x.id === id);
+      if (idx !== -1) contacts.splice(idx, 1);
+      filtered = [...contacts];
+      renderContacts();
+      // TODO: fetch(`/api/admin/contacts/${id}`, { method:'DELETE', headers:{Authorization:'Bearer '+token} })
+    }
+
+    function updateStatus(id, status) {
+      const c = contacts.find(x => x.id === id);
+      if (c) c.status = status;
+      // TODO: fetch(`/api/admin/contacts/${id}`, { method:'PATCH', body: JSON.stringify({status}), headers:{...} })
+    }
+
+    function exportCSV() {
+      const header = ['ID','Name','Email','Phone','Subject','Status','Date'];
+      const rows = contacts.map(c => [c.id,c.name,c.email,c.phone,`"${c.subject}"`,c.status,c.date]);
+      const csv = [header, ...rows].map(r => r.join(',')).join('\n');
+      const blob = new Blob([csv], { type:'text/csv' });
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+      a.download = 'trf-contacts.csv'; a.click();
+    }
+
+    // ═══ NAVIGATION ═════════════════════════════════════════
+    function navigate(section, el) {
+      document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.nav-item-custom').forEach(n => n.classList.remove('active'));
+
+      const sec = document.getElementById('sec-' + section);
+      if (sec) { sec.classList.add('active'); sec.classList.remove('fade-in'); void sec.offsetWidth; sec.classList.add('fade-in'); }
+
+      if (el) el.classList.add('active');
+
+      const titles = {
+        dashboard:  ['Dashboard',        'Welcome back, Admin 👋'],
+        contacts:   ['Contact Details',  'All website contact submissions'],
+        services:   ['Services',         'Manage your service offerings'],
+        campaigns:  ['Campaigns',        'Manage marketing campaigns'],
+        analytics:  ['Analytics',        'Performance insights'],
+        blog:       ['Blog Posts',       'Manage blog content'],
+        users:      ['Users',            'Manage admin users'],
+        settings:   ['Settings',         'System configuration'],
+      };
+      const t = titles[section] || ['Admin', ''];
+      document.getElementById('pageTitle').textContent    = t[0];
+      document.getElementById('pageSubtitle').textContent = t[1];
+
+      if (section === 'contacts') renderContacts();
+      if (window.innerWidth <= 768) document.getElementById('sidebar').classList.remove('open');
+    }
+
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+    }
+
+    function logoutConfirm() {
+      new bootstrap.Modal(document.getElementById('logoutModal')).show();
+    }
+
+    // Init
+    renderContacts();
+  </script>
+</body>
+</html>

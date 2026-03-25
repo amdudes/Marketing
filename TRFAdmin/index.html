@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRF Media — Admin Login</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --bg:       #0d0d0d;
+      --bg2:      #111111;
+      --bg3:      #161616;
+      --bg4:      #1c1c1c;
+      --red:      #8F0000;
+      --red2:     #b30000;
+      --red3:     #660000;
+      --redglow:  rgba(143,0,0,0.22);
+      --rim:      rgba(143,0,0,0.30);
+      --rim2:     rgba(143,0,0,0.55);
+      --rimw:     rgba(255,255,255,0.07);
+      --white:    #ffffff;
+      --dim:      #8a8a8a;
+      --dim2:     #555555;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Animated background */
+    .bg-scene {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(143,0,0,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(143,0,0,0.07) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .bg-orb1 {
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(143,0,0,0.18) 0%, transparent 70%);
+      top: -200px; left: -200px;
+      animation: orbFloat 12s ease-in-out infinite;
+    }
+    .bg-orb2 {
+      position: absolute;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(179,0,0,0.12) 0%, transparent 70%);
+      bottom: -100px; right: -100px;
+      animation: orbFloat 15s ease-in-out infinite reverse;
+    }
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0,0); }
+      50% { transform: translate(30px, 20px); }
+    }
+
+    /* Floating particles */
+    .particle {
+      position: absolute;
+      width: 2px; height: 2px;
+      background: var(--red2);
+      border-radius: 50%;
+      opacity: 0;
+      animation: particleDrift linear infinite;
+    }
+    @keyframes particleDrift {
+      0%   { opacity: 0; transform: translateY(0) scale(0); }
+      10%  { opacity: 0.7; }
+      90%  { opacity: 0.3; }
+      100% { opacity: 0; transform: translateY(-120px) scale(1.5); }
+    }
+
+    /* Login Card */
+    .login-wrap {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 440px;
+      padding: 20px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 36px;
+    }
+    .brand-logo {
+      width: 44px;
+      height: 44px;
+      background: var(--red);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      font-size: 18px;
+      color: #fff;
+      box-shadow: 0 0 20px var(--redglow);
+    }
+    .brand-text-wrap .brand-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      color: var(--white);
+      line-height: 1;
+      letter-spacing: -0.5px;
+    }
+    .brand-text-wrap .brand-sub {
+      font-size: 11px;
+      color: var(--dim);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .login-card {
+      background: var(--bg2);
+      border: 1px solid var(--rim);
+      border-radius: 20px;
+      padding: 40px 38px;
+      box-shadow: 0 0 60px rgba(143,0,0,0.10), 0 24px 60px rgba(0,0,0,0.5);
+      position: relative;
+      overflow: hidden;
+    }
+    .login-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--red), transparent);
+    }
+
+    .login-card h1 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 26px;
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
+    }
+    .login-card .sub {
+      font-size: 13px;
+      color: var(--dim);
+      margin-bottom: 32px;
+    }
+
+    .form-label-custom {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--dim);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .input-wrap {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .input-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--dim2);
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .input-custom {
+      width: 100%;
+      background: var(--bg3);
+      border: 1px solid var(--rimw);
+      border-radius: 10px;
+      color: var(--white);
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      padding: 13px 16px 13px 44px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .input-custom::placeholder { color: var(--dim2); }
+    .input-custom:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(143,0,0,0.15);
+    }
+    .input-custom:focus + .input-icon, .input-icon.focused {
+      color: var(--red2);
+    }
+    .eye-btn {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--dim2);
+      cursor: pointer;
+      padding: 4px;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+    .eye-btn:hover { color: var(--red2); }
+
+    .remember-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+    .custom-check {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    .custom-check input[type="checkbox"] {
+      width: 16px; height: 16px;
+      accent-color: var(--red);
+      cursor: pointer;
+    }
+    .custom-check span {
+      font-size: 13px;
+      color: var(--dim);
+    }
+    .forgot-link {
+      font-size: 13px;
+      color: var(--red2);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .forgot-link:hover { color: var(--white); }
+
+    .btn-login {
+      width: 100%;
+      background: var(--red);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 14px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-login::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent 30%, rgba(255,255,255,0.06) 50%, transparent 70%);
+      transform: translateX(-100%);
+      transition: transform 0.5s;
+    }
+    .btn-login:hover::before { transform: translateX(100%); }
+    .btn-login:hover {
+      background: var(--red2);
+      box-shadow: 0 0 24px rgba(143,0,0,0.5);
+    }
+    .btn-login:active { transform: scale(0.99); }
+
+    .login-footer {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 12px;
+      color: var(--dim2);
+    }
+    .login-footer span { color: var(--dim); }
+
+    /* Alert */
+    .alert-custom {
+      background: rgba(143,0,0,0.12);
+      border: 1px solid var(--rim);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 13px;
+      color: #ff6b6b;
+      display: none;
+      margin-bottom: 20px;
+    }
+
+    /* Loading spinner inside btn */
+    .spinner-sm {
+      width: 16px; height: 16px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      display: none;
+      animation: spin 0.7s linear infinite;
+      margin: 0 auto;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Slide up animation */
+    .login-wrap { animation: slideUp 0.5s cubic-bezier(0.16,1,0.3,1) both; }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background -->
+  <div class="bg-scene">
+    <div class="bg-grid"></div>
+    <div class="bg-orb1"></div>
+    <div class="bg-orb2"></div>
+  </div>
+
+  <!-- Login -->
+  <div class="login-wrap">
+    <!-- Brand -->
+    <div class="brand-row">
+      <div class="brand-logo">TRF</div>
+      <div class="brand-text-wrap">
+        <div class="brand-name">TRF Media</div>
+        <div class="brand-sub">Admin Panel</div>
+      </div>
+    </div>
+
+    <!-- Card -->
+    <div class="login-card">
+      <h1>Welcome back 👋</h1>
+      <p class="sub">Sign in to your admin account to continue</p>
+
+      <div class="alert-custom" id="alertBox">
+        <i class="fa fa-circle-exclamation me-2"></i>
+        <span id="alertMsg">Invalid credentials. Please try again.</span>
+      </div>
+
+      <form id="loginForm" onsubmit="handleLogin(event)">
+        <div class="input-wrap">
+          <input type="email" class="input-custom" id="emailInput" placeholder="admin@trfmedia.com" required>
+          <i class="fa fa-envelope input-icon" id="emailIcon"></i>
+        </div>
+
+        <div class="input-wrap">
+          <input type="password" class="input-custom" id="passInput" placeholder="Enter your password" required>
+          <i class="fa fa-lock input-icon" id="passIcon"></i>
+          <button type="button" class="eye-btn" onclick="togglePass()" id="eyeBtn">
+            <i class="fa fa-eye" id="eyeIcon"></i>
+          </button>
+        </div>
+
+        <div class="remember-row">
+          <label class="custom-check">
+            <input type="checkbox" id="rememberMe">
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="forgot-link">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn-login" id="loginBtn">
+          <span id="btnText">Sign In <i class="fa fa-arrow-right ms-1"></i></span>
+          <div class="spinner-sm" id="btnSpinner"></div>
+        </button>
+      </form>
+    </div>
+
+    <div class="login-footer">
+      <span>TRF Media © 2025</span> &nbsp;·&nbsp; All rights reserved
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Particles
+    const scene = document.querySelector('.bg-scene');
+    for (let i = 0; i < 20; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.cssText = `
+        left:${Math.random()*100}%;
+        bottom:${Math.random()*30}px;
+        animation-duration:${4+Math.random()*8}s;
+        animation-delay:${Math.random()*6}s;
+        width:${1+Math.random()*2}px;
+        height:${1+Math.random()*2}px;
+      `;
+      scene.appendChild(p);
+    }
+
+    // Focus icons
+    document.querySelectorAll('.input-custom').forEach(inp => {
+      const icon = inp.nextElementSibling;
+      inp.addEventListener('focus', () => icon.style.color = 'var(--red2)');
+      inp.addEventListener('blur',  () => icon.style.color = 'var(--dim2)');
+    });
+
+    function togglePass() {
+      const p = document.getElementById('passInput');
+      const i = document.getElementById('eyeIcon');
+      if (p.type === 'password') { p.type = 'text'; i.className = 'fa fa-eye-slash'; }
+      else { p.type = 'password'; i.className = 'fa fa-eye'; }
+    }
+
+    function handleLogin(e) {
+      e.preventDefault();
+      const btn     = document.getElementById('loginBtn');
+      const btnText = document.getElementById('btnText');
+      const spinner = document.getElementById('btnSpinner');
+      const alert   = document.getElementById('alertBox');
+
+      alert.style.display = 'none';
+      btnText.style.display = 'none';
+      spinner.style.display = 'block';
+      btn.disabled = true;
+
+      // Simulate API call — replace with Laravel API
+      setTimeout(() => {
+        spinner.style.display = 'none';
+        btnText.style.display = 'block';
+        btn.disabled = false;
+
+        const email = document.getElementById('emailInput').value;
+        const pass  = document.getElementById('passInput').value;
+
+        // TODO: Replace with real Laravel API auth
+        // fetch('/api/admin/login', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({email,password:pass}) })
+        //   .then(r => r.json()).then(data => { if(data.token) window.location.href='admin-dashboard.html'; });
+
+        if (email === 'admin@trfmedia.com' && pass === 'admin123') {
+          window.location.href = 'admin-dashboard.html';
+        } else {
+          alert.style.display = 'block';
+        }
+      }, 1400);
+    }
+  </script>
+</body>
+</html>
