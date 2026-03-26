@@ -1963,3 +1963,163 @@ a.btn-main {
 .custom-margin-135 {
     margin-top: 135px;
 }
+
+/* Section Styling */
+.stats-section {
+    background: var(--bg2);
+    border-top: 1px solid var(--rimw);
+    border-bottom: 1px solid var(--rimw);
+}
+
+/* Each Box */
+.stat-box {
+    padding: 48px 24px;
+    text-align: center;
+    border-right: 1px solid var(--rimw);
+}
+
+/* Remove last border */
+.stat-box.no-border {
+    border-right: none;
+}
+
+/* Number Styling */
+.stat-number {
+    font-size: 54px;
+    font-weight: 700;
+    color: var(--pur2);
+    line-height: 1;
+    letter-spacing: -2px;
+}
+
+/* Text Styling */
+.stat-text {
+    font-size: 14px;
+    color: var(--dim);
+    margin-top: 8px;
+}
+
+
+@media(max-width:568px) {
+
+    .nav-link {
+        padding: 10px 14px !important;
+    }
+
+    .custom-margin-135 {
+    margin-top: 25px;
+}
+
+    .hero-title {
+        font-size: 26px;
+        margin-top: 25px;
+    }
+
+    .btn-primary-custom {
+        padding: 9px 28px;
+        gap: 12px;
+    }
+
+    .metric-card.top-right {
+        top: -39px;
+        right: -6px;
+    }
+
+    .metric-card.bottom-left {
+        bottom: -17px;
+        left: -6px;
+    }
+
+    .img-mosaic {
+        display: flex;
+        gap: 16px;
+        flex-direction: column;
+    }
+
+    .hero-cart-height {
+        height: 400px !important;
+    }
+
+    .adjust {
+        flex-direction: column;
+    }
+
+    .brands-top {
+        align-items: flex-start;
+        padding: 44px 5px 17px;
+        flex-direction: column;
+    }
+
+    .brand-bar {
+        overflow: auto !important;
+    }
+
+    .cases-outer {
+        padding: 12px;
+    }
+
+    .case-body {
+        padding: 2px 10px;
+    }
+
+    .case-body h4 {
+        font-size: 16px;
+    }
+
+    .case-body p {
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    .case-metric {
+        padding: 4px 20px;
+    }
+
+    .rev-row-div {
+        padding: 6px 0 !important;
+    }
+
+    .rev-stat-card {
+        padding: 24px;
+    }
+
+    .testimonials-intro {
+        padding: 15px !important;
+    }
+
+    .cta-box {
+        padding: 20px 15px;
+    }
+
+    .cta-sec {
+        padding: 24px 0;
+    }
+
+    .cta-form-style {
+        padding: 16px !important;
+    }
+
+    section {
+        padding: 24px 0;
+    }
+
+    .stat-box {
+        padding: 31px 0px;
+        text-align: center;
+        border-bottom: 1px solid var(--rimw);
+        border-left: 1px solid var(--rimw);
+        /* border: none; */
+    }
+
+    .stat-box.no-border {
+        border-right: 1px solid var(--rimw);
+    }
+
+    .price-card {
+        padding: 20px;
+    }
+
+    .jcc {
+        justify-content: center;
+    }
+}

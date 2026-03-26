@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>Marko — Digital Marketing Agency</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
 
@@ -20,7 +20,7 @@
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg">
     <div class="container">
-       <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" href="index.html">
         <div class="logo-icon"><img src="logo.png" alt="TRF Logo"></div>
         <div class="brand-text">
           <span class="brand-name">TRF</span>
@@ -77,7 +77,7 @@
           </div>
           <p class="hero-desc">Marko empowers businesses to grow online with data-driven digital marketing, innovative
             branding, and performance-focused strategies trusted by top brands worldwide.</p>
-          <div class="d-flex align-items-center gap-4 mb-5 flex-wrap">
+          <div class="d-flex align-items-center gap-4 mb-5 flex-wrap jcc">
             <a href="contact.html" class="btn-primary-custom">
               Get Started
               <span class="arrow-wrap"><i class="fa fa-arrow-right"></i></span>
@@ -101,7 +101,7 @@
         </div>
         <div class="col-lg-6 fade-in">
           <div style="position:relative;">
-            <div class="hero-card-float"
+            <div class="hero-card-float hero-cart-height"
               style="background:linear-gradient(135deg,rgba(237, 58, 58, 0.15),rgba(10,10,20,0.8));border:1px solid var(--border);border-radius:24px;padding:30px;height:460px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;">
               <!-- Animated wave bg -->
               <div
@@ -512,7 +512,7 @@
   <!-- ═══ REVIEWS STAT ROW ════════════════════════════════════ -->
   <section class="rev-row-sec" style="padding:0 0 0;">
     <div class="container">
-      <div class="row g-4 align-items-stretch" style="padding:60px 0;">
+      <div class="row g-4 align-items-stretch rev-row-div" style="padding:60px 0;">
         <!-- Left: stat card -->
         <div class="col-lg-4 rv">
           <div class="rev-stat-card" style="height:100%;">
@@ -548,7 +548,8 @@
         </div>
         <!-- Right: testimonials intro -->
         <div class="col-lg-8 rv d1">
-          <div style="border:1px solid var(--rim);border-radius:18px;padding:44px;height:100%;">
+          <div class="testimonials-intro"
+            style="border:1px solid var(--rim);border-radius:18px;padding:44px;height:100%;">
             <div class="tag mb-3"><span class="tag-dot"></span>What Our Client Says</div>
             <h2 class="sec-title" style="font-size:clamp(30px,4vw,54px);">Hear from Our Satisfied<br>Clients, <span
                 class="faint">Real Success Stories</span></h2>
@@ -601,7 +602,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 rv d2">
+        <!-- <div class="col-lg-4 col-md-6 rv d2">
           <div class="tcard-big">
             <div>
               <div class="num">4.9</div>
@@ -610,7 +611,7 @@
             <div class="tbadges"><span class="tbadge">Google ★ 4.9</span><span class="tbadge">Clutch ★ 4.8</span><span
                 class="tbadge">GoodFirms ★ 5.0</span><span class="tbadge">2,700+ Reviews</span></div>
           </div>
-        </div>
+        </div> -->
         <div class="col-lg-4 col-md-6 rv">
           <div class="tcard">
             <div class="tcard-stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
@@ -713,7 +714,7 @@
   </section>
 
   <!-- ═══ STATS BAR ════════════════════════════════════════════ -->
-  <div style="background:var(--bg2);border-top:1px solid var(--rimw);border-bottom:1px solid var(--rimw);">
+  <!-- <div style="background:var(--bg2);border-top:1px solid var(--rimw);border-bottom:1px solid var(--rimw);">
     <div class="container">
       <div class="row g-0">
         <div class="col-6 col-md-3 rv" style="padding:48px 24px;text-align:center;border-right:1px solid var(--rimw);">
@@ -734,6 +735,34 @@
           <div style="font-size:54px;font-weight:700;color:var(--pur2);line-height:1;letter-spacing:-2px;">98%</div>
           <div style="font-size:14px;color:var(--dim);margin-top:8px;">Client Retention</div>
         </div>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="stats-section">
+    <div class="container">
+      <div class="row g-0">
+
+        <div class="col-6 col-md-3 stat-box">
+          <div class="stat-number">500+</div>
+          <div class="stat-text">Happy Clients</div>
+        </div>
+
+        <div class="col-6 col-md-3 stat-box">
+          <div class="stat-number">21+</div>
+          <div class="stat-text">Years Experience</div>
+        </div>
+
+        <div class="col-6 col-md-3 stat-box">
+          <div class="stat-number">340%</div>
+          <div class="stat-text">Average ROI</div>
+        </div>
+
+        <div class="col-6 col-md-3 stat-box no-border">
+          <div class="stat-number">98%</div>
+          <div class="stat-text">Client Retention</div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -879,7 +908,8 @@
               </div>
             </div>
             <div class="col-lg-5 offset-lg-1">
-              <div style="background:var(--bg3);border:1px solid var(--rimw);border-radius:18px;padding:36px;">
+              <div class="cta-form-style"
+                style="background:var(--bg3);border:1px solid var(--rimw);border-radius:18px;padding:36px;">
                 <h5 style="font-size:20px;font-weight:700;margin-bottom:6px;">Free Strategy Session</h5>
                 <p style="font-size:13px;color:var(--dim);margin-bottom:22px;">No commitment. Just an honest strategic
                   conversation about your growth potential.</p>
@@ -903,9 +933,15 @@
       <div class="row g-5">
         <div class="col-lg-4">
           <div class="ft-logo">
-            <div class="ft-logo-ic"></div>
+            <!-- <div class="ft-logo-ic"></div> -->
             <div>
-              <div class="ft-name">marko<span>Digital Marketing Agency</span></div>
+              <a class="navbar-brand" href="index.html">
+                <div class="logo-icon"><img src="logo.png" alt="TRF Logo"></div>
+                <div class="brand-text">
+                  <span class="brand-name">TRF</span>
+                  <span class="brand-sub">Media</span>
+                </div>
+              </a>
             </div>
           </div>
           <p class="ft-desc">We empower businesses to grow online with data-driven digital marketing, innovative
@@ -952,7 +988,7 @@
     </div>
     <div class="container">
       <div class="ft-bot">
-        <p>© 2025 Marko Digital Marketing Agency. All rights reserved.</p>
+        <p>© 2025 TRF Media. All rights reserved.</p>
         <div class="d-flex gap-4 flex-wrap"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a
             href="#">Cookies</a></div>
       </div>
