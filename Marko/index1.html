@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>TRF Media</title>
+  <title>Marko — Digital Marketing Agency</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
 
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -113,23 +113,23 @@
                   DIGITAL</div>
                 <div id="heroChart" style="width:100%;"></div>
                 <div style="margin-top:20px;">
-                  <div class="hero-counter" style="font-family:'Syne',sans-serif;font-size:36px;font-weight:800;color:#fff;">340%</div>
+                  <div style="font-family:'Syne',sans-serif;font-size:36px;font-weight:800;color:#fff;">340%</div>
                   <div style="font-size:13px;color:var(--text-muted);">Average ROI for Clients</div>
                 </div>
                 <div class="d-flex justify-content-center gap-3 mt-3">
                   <div
                     style="background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:10px;padding:10px 16px;text-align:center;">
-                    <div class="hero-counter" style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;color:#fff;">98%</div>
+                    <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;color:#fff;">98%</div>
                     <div style="font-size:11px;color:var(--text-muted);">Satisfaction</div>
                   </div>
                   <div
                     style="background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:10px;padding:10px 16px;text-align:center;">
-                    <div class="hero-counter" style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;color:#fff;">500+</div>
+                    <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;color:#fff;">500+</div>
                     <div style="font-size:11px;color:var(--text-muted);">Projects Done</div>
                   </div>
                   <div
                     style="background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:10px;padding:10px 16px;text-align:center;">
-                    <div class="hero-counter" style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;color:#fff;">21+</div>
+                    <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;color:#fff;">21+</div>
                     <div style="font-size:11px;color:var(--text-muted);">Years Exp.</div>
                   </div>
                 </div>
@@ -997,123 +997,10 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
   <script>
-    /* ── Scroll reveal (.rv) ────────────────────────────────────── */
-    const io = new IntersectionObserver(entries => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('on'), i * 60);
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: .07 });
+    const io = new IntersectionObserver(entries => { entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('on'), i * 60); io.unobserve(e.target); } }); }, { threshold: .07 });
     document.querySelectorAll('.rv').forEach(el => io.observe(el));
-
-    /* ── Navbar scroll ──────────────────────────────────────────── */
-    window.addEventListener('scroll', () => {
-      const nb = document.getElementById('nb');
-      if (nb) nb.classList.toggle('scrolled', scrollY > 60);
-    });
-
-    /* ── Card text slide-up on scroll into view ─────────────────── */
-    const cardRevealObserver = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('card-revealed');
-          cardRevealObserver.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.18 });
-
-    document.querySelectorAll('.svc-card, .blog-card, .tcard, .proc-card, .price-card').forEach(el => {
-      cardRevealObserver.observe(el);
-    });
-
-    /* ── Digit counter animation ────────────────────────────────── */
-    function parseTarget(text) {
-      // returns { value, prefix, suffix, isFloat }
-      text = text.trim();
-      const prefix = text.match(/^[^0-9.]*/)[0];
-      const suffix = text.match(/[^0-9.]*$/)[0];
-      const numStr = text.replace(prefix, '').replace(new RegExp(suffix.replace('+','\\+') + '$'), '');
-      const value  = parseFloat(numStr);
-      return { value, prefix, suffix, isFloat: numStr.includes('.') };
-    }
-
-    function animateCounter(el, duration = 1600) {
-      const original = el.textContent;
-      const { value, prefix, suffix } = parseTarget(original);
-      if (isNaN(value)) return;
-
-      const start = performance.now();
-      const easeOut = t => 1 - Math.pow(1 - t, 3);
-
-      function tick(now) {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        const current  = Math.round(easeOut(progress) * value);
-        el.textContent = prefix + current + suffix;
-        if (progress < 1) requestAnimationFrame(tick);
-        else el.textContent = original; // restore exact original
-      }
-      requestAnimationFrame(tick);
-    }
-
-    /* Observe stat-number elements (main stats bar) */
-    const counterObserver = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          animateCounter(e.target);
-          counterObserver.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.5 });
-
-    document.querySelectorAll('.stat-number').forEach(el => counterObserver.observe(el));
-
-    /* Also animate .r-big (review stats: 90%, 49%) */
-    const rBigObserver = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          animateCounter(e.target, 1400);
-          rBigObserver.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.5 });
-
-    document.querySelectorAll('.r-big').forEach(el => rBigObserver.observe(el));
-
-    /* Animate .big inside .stat-card (21+ years exp) */
-    const bigObserver = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          animateCounter(e.target, 1200);
-          bigObserver.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.5 });
-
-    document.querySelectorAll('.stat-card .big').forEach(el => bigObserver.observe(el));
-
-    /* ── Hero stat counters (fire on page load, after entrance delay) ── */
-    setTimeout(() => {
-      document.querySelectorAll('.hero-counter').forEach(el => animateCounter(el, 1800));
-    }, 900);
-
-    /* ── Stat boxes staggered entrance ─────────────────────────── */
-    const statBoxObserver = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          const boxes = document.querySelectorAll('.stat-box');
-          boxes.forEach((box, i) => {
-            setTimeout(() => box.classList.add('on'), i * 110);
-          });
-          statBoxObserver.disconnect();
-        }
-      });
-    }, { threshold: 0.2 });
-
-    const firstBox = document.querySelector('.stat-box');
-    if (firstBox) statBoxObserver.observe(firstBox);
+    setTimeout(() => document.querySelectorAll('.hero .rv').forEach(el => el.classList.add('on')), 100);
+    window.addEventListener('scroll', () => { document.getElementById('nb').classList.toggle('scrolled', scrollY > 60); });
   </script>
 </body>
 

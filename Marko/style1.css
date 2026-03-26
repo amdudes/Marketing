@@ -1898,8 +1898,8 @@ footer {
 /* ─── UTILS ─────────────────────────────────────────── */
 .rv {
     opacity: 0;
-    transform: translateY(28px);
-    transition: opacity .65s cubic-bezier(.22,.68,0,1.2), transform .65s cubic-bezier(.22,.68,0,1.2);
+    transform: translateY(22px);
+    transition: opacity .6s ease, transform .6s ease;
 }
 
 .rv.on {
@@ -1907,135 +1907,17 @@ footer {
     transform: none;
 }
 
-.d1 { transition-delay: .12s; }
-.d2 { transition-delay: .22s; }
-.d3 { transition-delay: .32s; }
-
-/* ─── PAGE ENTRANCE ─────────────────────────────────── */
-@keyframes pageEnter {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: none; }
-}
-
-.navbar, .hero {
-    animation: pageEnter .7s cubic-bezier(.22,.68,0,1.2) both;
-}
-
-.hero { animation-delay: .08s; }
-
-/* ─── HERO TITLE LINES ──────────────────────────────── */
-@keyframes slideUpFade {
-    from { opacity: 0; transform: translateY(32px); }
-    to   { opacity: 1; transform: none; }
-}
-
-.hero-title .line1,
-.hero-title .line2 {
-    opacity: 0;
-    animation: slideUpFade .75s cubic-bezier(.22,.68,0,1.2) forwards;
-}
-
-.hero-title .line1 { animation-delay: .28s; }
-.hero-title .line2 { animation-delay: .42s; }
-
-.hero-desc {
-    opacity: 0;
-    animation: slideUpFade .7s cubic-bezier(.22,.68,0,1.2) .54s forwards;
-}
-
-.hero .btn-primary-custom,
-.hero .btn-video {
-    opacity: 0;
-    animation: slideUpFade .65s cubic-bezier(.22,.68,0,1.2) .66s forwards;
-}
-
-.hero-avatars {
-    opacity: 0;
-    animation: slideUpFade .65s cubic-bezier(.22,.68,0,1.2) .76s forwards;
-}
-
-.hero .col-lg-6.fade-in {
-    opacity: 0;
-    animation: slideUpFade .8s cubic-bezier(.22,.68,0,1.2) .4s forwards;
-}
-
-/* ─── CARD TEXT SLIDE UP ────────────────────────────── */
-.svc-card .svc-body h4,
-.svc-card .svc-body p,
-.blog-card .blog-body h4,
-.blog-card .blog-body p,
-.tcard p,
-.proc-card h4,
-.proc-card p,
-.price-card .p-tier,
-.price-card .p-price {
-    opacity: 0;
-    transform: translateY(18px);
-    transition: opacity .5s ease, transform .5s ease;
-}
-
-.svc-card.card-revealed .svc-body h4,
-.blog-card.card-revealed .blog-body h4,
-.tcard.card-revealed p,
-.proc-card.card-revealed h4,
-.price-card.card-revealed .p-tier,
-.price-card.card-revealed .p-price {
-    opacity: 1;
-    transform: none;
+.d1 {
     transition-delay: .1s;
 }
 
-.svc-card.card-revealed .svc-body p,
-.blog-card.card-revealed .blog-body p,
-.proc-card.card-revealed p {
-    opacity: 1;
-    transform: none;
+.d2 {
     transition-delay: .2s;
 }
 
-.tcard.card-revealed p { transition-delay: .15s; }
-
-/* ─── STAT COUNTER ──────────────────────────────────── */
-.stat-number {
-    display: inline-block;
+.d3 {
+    transition-delay: .3s;
 }
-
-.stat-number.counting {
-    animation: countPulse .3s ease;
-}
-
-@keyframes countPulse {
-    0%   { transform: scale(1); }
-    50%  { transform: scale(1.06); }
-    100% { transform: scale(1); }
-}
-
-/* stat box entrance */
-.stat-box {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity .6s cubic-bezier(.22,.68,0,1.2), transform .6s cubic-bezier(.22,.68,0,1.2);
-}
-
-.stat-box.on {
-    opacity: 1;
-    transform: none;
-}
-
-/* hero card mini-stat pulse on entrance */
-.hero-card-float .col-lg-6 > div > div:last-child > div {
-    opacity: 0;
-    animation: slideUpFade .5s ease forwards;
-}
-
-/* metric float cards */
-.metric-card {
-    opacity: 0;
-    animation: slideUpFade .7s cubic-bezier(.22,.68,0,1.2) forwards;
-}
-
-.metric-card.top-right { animation-delay: .85s; }
-.metric-card.bottom-left { animation-delay: 1s; }
 
 @media(max-width:991px) {
 
