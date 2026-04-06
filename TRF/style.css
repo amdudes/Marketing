@@ -161,8 +161,8 @@ h5,
 
 .logo-icon img {
     background: var(--purple);
-    width: 36px;
-    height: 36px;
+    width: 42px;
+    height: 42px;
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -1872,7 +1872,7 @@ footer {
     border-top: 1px solid var(--rimw);
     padding: 24px 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 12px;
@@ -2317,5 +2317,11 @@ a.btn-main {
 
     .jcc {
         justify-content: center;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 90%;
     }
 }

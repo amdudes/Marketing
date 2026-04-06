@@ -283,7 +283,7 @@ footer { background: var(--bg2); border-top: 1px solid var(--rimw); padding-top:
 .ft-soc:hover { background: var(--pur); color: #fff; border-color: var(--pur); transform: translateY(-2px); }
 .ft-bot {
     border-top: 1px solid var(--rimw); padding: 24px 0;
-    display: flex; justify-content: space-between;
+    display: flex; justify-content: center;
     align-items: center; flex-wrap: wrap; gap: 12px; margin-top: 60px;
 }
 .ft-bot p { font-size: 13px; color: var(--muted); margin: 0; }
