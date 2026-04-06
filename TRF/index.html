@@ -75,7 +75,8 @@
             <!-- <div class="line2"><span class="accent">Digital</span></div> -->
             <!-- <div class="line2">Marketing</div> -->
           </div>
-          <p class="hero-desc">TRF Media empowers businesses to grow online with data-driven digital marketing, innovative
+          <p class="hero-desc">TRF Media empowers businesses to grow online with data-driven digital marketing,
+            innovative
             branding, and performance-focused strategies trusted by top brands worldwide.</p>
           <div class="d-flex align-items-center gap-4 mb-5 flex-wrap jcc">
             <a href="contact.html" class="btn-primary-custom">
@@ -113,23 +114,27 @@
                   DIGITAL</div>
                 <div id="heroChart" style="width:100%;"></div>
                 <div style="margin-top:20px;">
-                  <div class="hero-counter" style="font-family:'Syne',sans-serif;font-size:36px;font-weight:800;color:#fff;">340%</div>
+                  <div class="hero-counter"
+                    style="font-family:'Syne',sans-serif;font-size:36px;font-weight:800;color:#fff;">340%</div>
                   <div style="font-size:13px;color:var(--text-muted);">Average ROI for Clients</div>
                 </div>
                 <div class="d-flex justify-content-center gap-3 mt-3">
                   <div
                     style="background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:10px;padding:10px 16px;text-align:center;">
-                    <div class="hero-counter" style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;color:#fff;">98%</div>
+                    <div class="hero-counter"
+                      style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;color:#fff;">98%</div>
                     <div style="font-size:11px;color:var(--text-muted);">Satisfaction</div>
                   </div>
                   <div
                     style="background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:10px;padding:10px 16px;text-align:center;">
-                    <div class="hero-counter" style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;color:#fff;">500+</div>
+                    <div class="hero-counter"
+                      style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;color:#fff;">500+</div>
                     <div style="font-size:11px;color:var(--text-muted);">Projects Done</div>
                   </div>
                   <div
                     style="background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:10px;padding:10px 16px;text-align:center;">
-                    <div class="hero-counter" style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;color:#fff;">21+</div>
+                    <div class="hero-counter"
+                      style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;color:#fff;">21+</div>
                     <div style="font-size:11px;color:var(--text-muted);">Years Exp.</div>
                   </div>
                 </div>
@@ -872,8 +877,8 @@
       text = text.trim();
       const prefix = text.match(/^[^0-9.]*/)[0];
       const suffix = text.match(/[^0-9.]*$/)[0];
-      const numStr = text.replace(prefix, '').replace(new RegExp(suffix.replace('+','\\+') + '$'), '');
-      const value  = parseFloat(numStr);
+      const numStr = text.replace(prefix, '').replace(new RegExp(suffix.replace('+', '\\+') + '$'), '');
+      const value = parseFloat(numStr);
       return { value, prefix, suffix, isFloat: numStr.includes('.') };
     }
 
@@ -888,7 +893,7 @@
       function tick(now) {
         const elapsed = now - start;
         const progress = Math.min(elapsed / duration, 1);
-        const current  = Math.round(easeOut(progress) * value);
+        const current = Math.round(easeOut(progress) * value);
         el.textContent = prefix + current + suffix;
         if (progress < 1) requestAnimationFrame(tick);
         else el.textContent = original; // restore exact original
@@ -980,8 +985,8 @@
         heroCol.addEventListener('mousemove', e => {
           const rect = heroCard.getBoundingClientRect();
           const cx = rect.left + rect.width / 2;
-          const cy = rect.top  + rect.height / 2;
-          const dx = (e.clientX - cx) / (rect.width  / 2);
+          const cy = rect.top + rect.height / 2;
+          const dx = (e.clientX - cx) / (rect.width / 2);
           const dy = (e.clientY - cy) / (rect.height / 2);
           heroCard.style.transform = `perspective(900px) rotateY(${dx * 5}deg) rotateX(${-dy * 5}deg) scale(1.01)`;
           heroCard.style.transition = 'transform .08s ease';
@@ -1008,16 +1013,37 @@
       heroSection.addEventListener('mousemove', e => {
         const rect = heroSection.getBoundingClientRect();
         glow.style.left = (e.clientX - rect.left) + 'px';
-        glow.style.top  = (e.clientY - rect.top)  + 'px';
+        glow.style.top = (e.clientY - rect.top) + 'px';
       });
     }
 
     /* ── Smooth navbar active-link underline ────────────────────── */
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
-      link.addEventListener('mouseenter', function() {
+      link.addEventListener('mouseenter', function () {
         this.style.transition = 'color .2s';
       });
+    });
+  </script>
+
+  <script>
+    // Disable Right Click
+    document.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+      // alert("Right click is disabled!");
+    });
+
+    // Disable Copy (Ctrl + C)
+    document.addEventListener('keydown', function (e) {
+      if (e.ctrlKey && e.key === 'c') {
+        e.preventDefault();
+        // alert("Copy is disabled!");
+      }
+    });
+
+    // Disable Text Selection
+    document.addEventListener('selectstart', function (e) {
+      e.preventDefault();
     });
   </script>
 </body>

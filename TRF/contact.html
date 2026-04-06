@@ -62,7 +62,7 @@
       </div>
     </div>
   </nav>
-  
+
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="hero-grid"></div>
@@ -304,7 +304,8 @@
             </div>
           </div>
           <div class="faq-item" onclick="toggleFaq(this)">
-            <div class="faq-q">How do I get started with TRF Media? <span class="faq-icon"><i class="fa fa-plus"></i></span>
+            <div class="faq-q">How do I get started with TRF Media? <span class="faq-icon"><i
+                  class="fa fa-plus"></i></span>
             </div>
             <div class="faq-a">
               <div class="faq-a-inner">Simply fill out the contact form above or call us directly. We'll schedule a free
@@ -443,6 +444,27 @@
         this.style.display = 'none';
         document.getElementById('successMsg').style.display = 'block';
       }, 1500);
+    });
+  </script>
+
+  <script>
+    // Disable Right Click
+    document.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+      // alert("Right click is disabled!");
+    });
+
+    // Disable Copy (Ctrl + C)
+    document.addEventListener('keydown', function (e) {
+      if (e.ctrlKey && e.key === 'c') {
+        e.preventDefault();
+        // alert("Copy is disabled!");
+      }
+    });
+
+    // Disable Text Selection
+    document.addEventListener('selectstart', function (e) {
+      e.preventDefault();
     });
   </script>
 </body>

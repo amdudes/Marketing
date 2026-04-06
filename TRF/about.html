@@ -106,7 +106,8 @@
           <div class="tag mb-3"><span class="tag-dot"></span>Our Story</div>
           <h2 class="sec-title mb-4">From Humble Beginnings<br>to <span style="color:rgba(255,255,255,0.25);">Industry
               Leaders</span></h2>
-          <p style="font-size:15px;color:var(--dim);line-height:1.8;margin-bottom:16px;">Founded in 2004, TRF Media began as
+          <p style="font-size:15px;color:var(--dim);line-height:1.8;margin-bottom:16px;">Founded in 2004, TRF Media
+            began as
             a small team of passionate digital enthusiasts with a simple belief: every business deserves world-class
             marketing. What started as a two-person operation has grown into a full-service digital marketing
             powerhouse.</p>
@@ -247,7 +248,8 @@
               <div class="tl-dot"></div>
               <div class="tl-yr">2009 — Milestone</div>
               <h4>100 Clients Served</h4>
-              <p>Crossing the 100-client mark, TRF Media expands to a proper office with a team of 12 and becomes recognized
+              <p>Crossing the 100-client mark, TRF Media expands to a proper office with a team of 12 and becomes
+                recognized
                 for outstanding SEO work.</p>
             </div>
             <div class="tl-item">
@@ -436,6 +438,27 @@
       });
     }, { threshold: 0.15 });
     document.querySelectorAll('.vcard, .tmcard, .awd-card').forEach(el => cardObs.observe(el));
+  </script>
+
+  <script>
+    // Disable Right Click
+    document.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+      // alert("Right click is disabled!");
+    });
+
+    // Disable Copy (Ctrl + C)
+    document.addEventListener('keydown', function (e) {
+      if (e.ctrlKey && e.key === 'c') {
+        e.preventDefault();
+        // alert("Copy is disabled!");
+      }
+    });
+
+    // Disable Text Selection
+    document.addEventListener('selectstart', function (e) {
+      e.preventDefault();
+    });
   </script>
 </body>
 
