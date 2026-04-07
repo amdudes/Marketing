@@ -116,6 +116,7 @@ section { padding: 100px 0; }
 textarea.form-field { resize: none; min-height: 130px; }
 select.form-field { appearance: none; cursor: pointer; }
 
+select.form-field option { background: var(--bg3); color: var(--white); }
 .btn-submit {
     background: linear-gradient(135deg, var(--pur), var(--pur3));
     border: none; border-radius: 10px;

@@ -115,11 +115,11 @@ section { padding: 100px 0; }
     color: #111; font-family: "Outfit", sans-serif;
 }
 .btn-main .arr {
-    width: 44px; height: 44px; background: var(--pur); border-radius: 50%;
+    width: 44px; height: 50px; background: var(--pur); border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     color: #fff; margin: 4px; transition: transform .3s;
 }
-.btn-main:hover .arr { transform: rotate(45deg); }
+.btn-main:hover .arr { transform: rotate(-45deg); }
 .btn-main:hover { box-shadow: 0 8px 30px rgba(143,0,0,0.3); }
 
 /* ─── STORY MOSAIC ───────────────────────────────────────── */
@@ -231,7 +231,7 @@ section { padding: 100px 0; }
 .tl-item:last-child { padding-bottom: 0; }
 
 .tl-dot {
-    position: absolute; left: -31px; top: 5px;
+    position: absolute; left: -35px; top: 0px;
     width: 14px; height: 14px; border-radius: 50%;
     background: var(--pur); border: 2.5px solid var(--bg);
     box-shadow: 0 0 0 4px rgba(143,0,0,0.22); transition: box-shadow .3s;
